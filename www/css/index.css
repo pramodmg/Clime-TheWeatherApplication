@@ -1,0 +1,39 @@
+#circle { 
+   width: 200px;
+   height: 200px;
+   background: #0099FF; 
+   -moz-border-radius: 70px; 
+   -webkit-border-radius: 70px; 
+   border-radius: 50%;
+   line-height: 200px;
+   margin-top: 10%;
+
+}
+
+.align
+{
+    width: 140px;
+    text-align: center;
+    height: 140px;
+    line-height: 140px;
+    font-size: 5em;
+    
+}
+
+@font-face {
+    font-family: 'MeteoconsRegular';
+    src: url('/home/pramod/Native5/www/css/meteocons-font/meteocons-font/FONT/Font-face/meteocons-webfont.eot');
+    src: url('/home/pramod/Native5/www/css/meteocons-font/meteocons-font/FONT/Font-face/meteocons-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/home/pramod/Native5/www/css/meteocons-font/meteocons-font/FONT/Font-face/meteocons-webfont.woff') format('woff'),
+         url('/home/pramod/Native5/www/css/meteocons-font/meteocons-font/FONT/Font-face/meteocons-webfont.ttf') format('truetype'),
+         url('/home/pramod/Native5/www/css/meteocons-font/meteocons-font/FONT/Font-face/meteocons-webfont.svg#MeteoconsRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.icon:before {
+    font-family: 'MeteoconsRegular';
+    content: attr(data-icon);
+    height: 800px;
+    width: 800px;
+}
