@@ -1,4 +1,4 @@
-/home/pramod/Native5/platforms/android/ant-build/Nat5weather-debug-unaligned.apk : \
-/home/pramod/Native5/platforms/android/ant-build/Nat5weather.ap_ \
-/home/pramod/Native5/platforms/android/ant-build/classes.dex \
-/home/pramod/Native5/platforms/android/CordovaLib/ant-build/classes.jar \
+/var/www/html/Native5/platforms/android/ant-build/Nat5weather-debug-unaligned.apk : \
+/var/www/html/Native5/platforms/android/ant-build/Nat5weather.ap_ \
+/var/www/html/Native5/platforms/android/ant-build/classes.dex \
+/var/www/html/Native5/platforms/android/CordovaLib/ant-build/classes.jar \

@@ -1,13 +1,64 @@
+body,html
+{
+  margin: 0;
+  padding: 0;
+
+}
+
 #circle { 
-   width: 200px;
-   height: 200px;
-   background: #0099FF; 
+   width: 300px;
+   height: 300px;
+   background: rgba(0,204,255, 0.6); 
    -moz-border-radius: 70px; 
    -webkit-border-radius: 70px; 
    border-radius: 50%;
    line-height: 200px;
    margin-top: 10%;
+   text-align: center;
+   margin-bottom: -90px;
+   
+}
+#cir1 { 
+   width: 200px;
+   height: 200px;
+   background: rgba(0,204,255, 0.6); 
+   -moz-border-radius: 70px; 
+   -webkit-border-radius: 70px; 
+   border-radius: 50%;  
+   text-align: center;
+   display: inline-block;
+   position: relative;
+   top: 50px;
+}
 
+#cir2 { 
+   width: 200px;
+   height: 200px;
+   background: rgba(0,204,255, 0.6); 
+   -moz-border-radius: 70px; 
+   -webkit-border-radius: 70px; 
+   border-radius: 50%;
+   text-align: center;
+   font-size: 3em;
+   display: inline-block;
+   position: relative;
+   top: -40px;
+  
+   
+}
+#cir3 { 
+   width: 250px;
+   height: 250px;
+   background: rgba(0,204,255, 0.6); 
+   -moz-border-radius: 70px; 
+   -webkit-border-radius: 70px; 
+   border-radius: 50%;
+   line-height: 200px;
+   text-align: center;
+   margin-top: -50px;
+   margin-left: 20px;
+   position: relative;
+   top: -35px;
 }
 
 .align
@@ -22,11 +73,11 @@
 
 @font-face {
     font-family: 'MeteoconsRegular';
-    src: url('/home/pramod/Native5/www/css/meteocons-font/meteocons-font/FONT/Font-face/meteocons-webfont.eot');
-    src: url('/home/pramod/Native5/www/css/meteocons-font/meteocons-font/FONT/Font-face/meteocons-webfont.eot?#iefix') format('embedded-opentype'),
-         url('/home/pramod/Native5/www/css/meteocons-font/meteocons-font/FONT/Font-face/meteocons-webfont.woff') format('woff'),
-         url('/home/pramod/Native5/www/css/meteocons-font/meteocons-font/FONT/Font-face/meteocons-webfont.ttf') format('truetype'),
-         url('/home/pramod/Native5/www/css/meteocons-font/meteocons-font/FONT/Font-face/meteocons-webfont.svg#MeteoconsRegular') format('svg');
+    src: url('fonts/meteocons-webfont.eot');
+    src: url('fonts/meteocons-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/meteocons-webfont.woff') format('woff'),
+         url('fonts/meteocons-webfont.ttf') format('truetype'),
+         url('fonts/meteocons-webfont.svg#MeteoconsRegular') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -34,6 +85,400 @@
 .icon:before {
     font-family: 'MeteoconsRegular';
     content: attr(data-icon);
-    height: 800px;
-    width: 800px;
+    text-decoration: none;
+    
+}
+
+.icon
+{
+    text-decoration: none;
+    color: white;
+}
+
+.icon1
+{
+  font-size: 9em;
+}
+
+.icon2
+{
+  font-size: 2em;
+  line-height: 30px;
+}
+
+.icon3
+{
+  font-size: 4em;
+  line-height: 240px;
+  position: relative;
+  top: -20px;
+  left: 20px;
+}
+
+.icon4
+{
+  font-size: 7em;
+}
+
+.geo
+{
+  font-size: 6em;
+  color: white;
+  margin-top: 5%;
+  line-height: 210px;
+  position: relative;
+  top: -30px;
+}
+
+.round
+{
+  -moz-border-radius: 15px;
+  font-size: 3em;
+  color: white;
+  font-family: 'nexa_lightregular';
+}
+
+.date-style
+{
+  text-align: top;
+  margin-top: 5%;
+  font-size: 3em;
+  color: white;
+  font-family: 'nexa_lightregular';
+}
+
+.round1
+{
+  font-size: 1.4em;
+  display: block;
+  margin-top: -150px;
+  color: white;
+  font-family: 'nexa_lightregular';
+}
+
+.lab
+{
+  font-size: 1.5em;
+  display: block;
+  margin-top: -140px;
+  font-family: 'nexa_lightregular';  
+  color: white;
+}
+
+.lab-loc
+{
+  font-size: 1em;
+  margin-top: -80px;
+  font-family: 'nexa_lightregular';
+  color: white;
+}
+
+
+@font-face {
+  font-family: 'nexa_lightregular';
+      src: url('nexa/nexa_free_light-webfont.eot');
+      src: url('nexa/nexa_free_light-webfont.eot?#iefix') format('embedded-opentype'), 
+           url('nexa/nexa_free_light-webfont.woff') format('woff'),
+           url('nexa/nexa_light.otf') format('otf'),
+           url('nexa/nexa_free_light-webfont.ttf') format('truetype'),
+           url('nexa/nexa_free_light-webfont.svg#nexa_lightregular') format('svg');
+font-weight: normal;
+font-style: normal;
+}
+
+
+
+@font-face {
+  font-family: 'nexa_lightregular_bold';
+      src: url('/nexa_free_light-webfont.eot');
+      src: url('../fonts/NexaFreeBoldwebfont.eot?#iefix') format('embedded-opentype'), 
+           url('../fonts/NexaFreeBoldwebfont.woff') format('woff'),
+           url('../fonts/nexa_bold.otf') format('otf'),
+           url('../fonts/NexaFreeBoldwebfont.ttf') format('truetype'),
+           url('../fonts/NexaFreeBoldwebfont.svg#nexa_lightregular') format('svg');
+font-weight: normal;
+font-style: normal;
+}
+
+.temp
+{
+  font-size: 1.3em;
+  margin-top: -90px;
+  position: relative;
+  top: 60px;
+  font-family: 'nexa_lightregular';
+  color: white;
+  left: 10px;
+}
+
+.degree
+{
+  font-size: 0.6em;
+}
+.hover
+{
+   z-index: 99;
+   box-shadow: 0px 2px 6px rgba(0,0,0,0.3),0px -2px 6px rgba(0,0,0,0.3),-0px 2px 6px rgba(0,0,0,0.3),-0px -2px 6px rgba(0,0,0,0.3);  
+   background: rgba(0,204,255, 0.8)
+}
+
+.pos
+{
+  font-size: 1em;
+  font-family: 'nexa_lightregular';
+}
+
+.left
+{
+  display: inline-block;
+  text-align: left;
+  width: 49%;
+}
+
+.right
+{
+  display: inline-block;
+  text-align: right;
+  width: 49%;
+}
+
+.circle1
+{
+  position: absolute;
+  width: 100%;
+}
+
+.text-container
+{
+  width: 100%;
+}
+
+/* max-width of 445px*/
+@media all and (min-width:32px) and (max-width : 445px) {
+
+  #circle { 
+     width: 240px;
+     height: 240px;
+     line-height: 130px;
+     margin-bottom: -80px;
+     margin-top: 8%;
+    }
+  #cir1 { 
+     width: 160px;
+     height: 160px;
+     top: 48px;
+     margin-right: 40%;
+  }
+
+  #cir2 { 
+     width: 160px;
+     height: 160px;
+     font-size: 2.5em;
+     top: -120px;  
+     margin-left: 35%;
+  }
+
+  #cir3 { 
+     width: 180px;
+     height: 180px;
+     line-height: 180px;
+     margin-top: -210px;
+     margin-left: 20px;
+     top: 46px;
+  }
+
+
+  .icon1
+  {
+    font-size: 7em;
+  }
+
+  .icon2
+  {
+    font-size: 3em;
+    line-height: 60px;
+  }
+
+  .icon3
+  {
+    font-size: 4em;
+    line-height: 240px;
+    position: relative;
+    top: -20px;
+    left: 20px;
+  }
+
+  .icon4
+  {
+    font-size: 7em;
+  }
+
+  .geo
+  {
+    font-size: 3em;
+    color: white;
+    margin-top: 5%;
+    line-height: 130px;
+    position: relative;
+    top: -30px;
+  }
+
+  .date-style
+  {
+    font-size: 1.6em;
+    color: white;
+    font-family: 'nexa_lightregular';
+  }
+
+  .round1
+  {
+    font-size: 1em;
+    margin-top: -160px;
+    color: white;
+  }
+
+  .lab
+  {
+    font-size: 2.8em;
+    display: block;
+    margin-top: -70px;
+    font-family: 'nexa_lightregular';  
+    color: white;
+  }
+
+  .lab-loc
+  {
+    font-size: 1em;
+    margin-top: -40px;
+    font-family: 'nexa_lightregular';
+    color: white;
+  }
+
+  .temp
+  {
+    font-size: 1em;
+    margin-top: -90px;
+    top: 30px;
+    left: 10px;
+  }
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media all and (max-width : 320px) {
+
+#circle { 
+   width: 160px;
+   height: 160px;
+   line-height: 120px;
+   margin-bottom: -80px;
+   
+  }
+#cir1 { 
+   width: 120px;
+   height: 120px;
+   top: 60px;
+   margin-right: 40%;
+}
+
+#cir2 { 
+   width: 120px;
+   height: 120px;
+   font-size: 1.8em;
+   top: -65px;  
+   margin-left: 36%;
+}
+#cir3 { 
+   width: 180px;
+   height: 180px;
+   line-height: 170px;
+   margin-top: -120px;
+   margin-left: 20px;
+   top: 40px;
+}
+
+.align
+{
+    width: 140px;
+    text-align: center;
+    height: 140px;
+    line-height: 140px;
+    font-size: 5em;
+}
+
+.icon1
+{
+  font-size: 5em;
+
+}
+
+.icon2
+{
+  font-size: 2em;
+  line-height: 30px;
+}
+
+.icon3
+{
+  font-size: 4em;
+  line-height: 240px;
+  position: relative;
+  top: -20px;
+  left: 20px;
+}
+
+.icon4
+{
+  font-size: 7em;
+}
+
+.geo
+{
+  font-size: 5em;
+  color: white;
+  margin-top: 5%;
+  line-height: 130px;
+  position: relative;
+  top: -30px;
+}
+
+.date-style
+{
+  text-align: top;
+  margin-top: 5%;
+  font-size: 2.2em;
+  color: white;
+  font-family: 'nexa_lightregular';
+}
+
+.round1
+{
+  font-size: 1.7em;
+  margin-top: -140px;
+  color: white;
+}
+
+.lab
+{
+  font-size: 2em;
+  display: block;
+  margin-top: -90px;
+  font-family: 'nexa_lightregular';  
+  color: white;
+}
+
+.lab-loc
+{
+  font-size: 1.5em;
+  margin-top: -70px;
+  font-family: 'nexa_lightregular';
+  color: white;
+}
+
+.temp
+{
+  font-size: 1.7em;
+  margin-top: -90px;
+  top: 20px;
+  left: 10px;
+}
 }
