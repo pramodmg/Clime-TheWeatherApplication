@@ -22,63 +22,53 @@
         <meta charset="utf-8" />
         <meta name="format-detection" content="telephone=no" />
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" href="css/font_awesome/css/font-awesome.min.css">
+        <!-- <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-density-dpi=device-dpi" /> -->
+        <meta name="viewport" id="metaViewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <link rel="stylesheet" href="css/font-awesome.min.css">
 	    <link rel="stylesheet" type="text/css" href="css/index.css" />
         <meta name="msapplication-tap-highlight" content="no" />
         <title>Weather App</title>
-        <script type="text/javascript">
-        function getDate()
-        {
-        	var d = new Date();
-        	var s = d.getDate();
-        	var m = d.getMonth();
-        	var monthNames = [ "January", "February", "March", "April", "May", "June",
-    "July", "August", "September", "October", "November", "December" ];
-
-    		var y=d.getFullYear();
-        	document.getElementById("round").innerHTML=s+"th";
-        	document.getElementById("\n");
-        	//document.getElementById("round1").innerHTML=monthNames[m]+", "+y;
-        	
-        }
-        </script>
     </head>
-    <body onload="getDate()">
-    <div class="circle1">
-    	<div class="text-container">
-	        <div class="pos left">Humidity  :</div>
-	        <div class="pos right">WindSpeed :</div>
+    <body>
+    	<div class="circle1">
+    		<div class="text-container">
+		        <div class="fa fa-tint left"></div>
+		       	<a class="fa fa-cog right"></a>
+        	</div>
+        	<div class="text-container">
+		        <div class="fa fa-tachometer left"></div>
+		        <div class="pos right">Description</div>
+		    </div>
+		    <div class="fa fa-home home-icon"></div>
         </div>
-        <div class="text-container">
-	        <div class="pos left"> Pressure :</div>
-	        <div class="pos right">Description :</div></div>
-        </div>
+        
         <center>
         <div id="circle">
             <a class="icon icon1" data-icon="H"></a>
-            <label class="lab"> Cloudy</label>
-        </div>
+            <label class="lab"></label>
+        </div></a>
         
 
         <div id="cir1">
         	<i class="fa fa-map-marker geo"></i>
         	<div class="lab-loc">India</div>
-
-        	</div>
+        </div>
 
        	<div id="cir2">
        		<span class="temp"> 25<sup class="degree">o</sup> </span>
-
-       		</div>
+       	</div>
        	
        	<div id="cir3">
        		<span id="round" class="date-style"></span>
-       		<span id="" class="round1">September, 2014</span>
-       		</div>
-       		</center>
+       		<span id="round1" class="round1">September, 2014</span>
+       	</div>
+       	</center>
         <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/hover.js"></script>
+        <script type="text/javascript" src="js/date.js"></script>
+        <script type="text/javascript" src="js/transit.js"></script>
+        <script type="text/javascript" src="js/testfx.js"></script>
+        <script type="text/javascript" src="js/testfx.min.js"></script>
     </body>
 </html>
