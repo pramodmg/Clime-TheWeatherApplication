@@ -3,6 +3,9 @@
 (function($) {
     var location,temp_celcius,temp,farenheit;
     
+    var array = { 200 : "P" , 201 : "Q", 202 : "R", 210 : "O", 211 : "P", 212 : "Q", 221 : "P" , 230 : "Q" , 231 : "Q" , 232 : "R" ,
+                  300 : "Q" , 301 : "Q", 302 : "R", 310 : "Q" ,311 : "R", 312 : "R", 313 : "R" , 314 : "X" , 321 : "T" ,
+                  500 : "Q" , 501 : "R", 502 : "6", 503 :"7" , 504 : "8", 511 : "\"", 520 : "7" , 521 : "$" , 522 : "8" ,531 : "9"};
     $("#cir1").on("click",function(){
         location = prompt("Enter the location:");
         weather_get();
@@ -37,6 +40,7 @@
             $(".fa-cog").text(data.main.pressure).append(" mPa");
             $(".fa-tachometer").text(data.wind.speed).append(" mPs");
             $("#desc").text(data.weather[0].description);
+            $(".icon1").attr("data-icon",array[data.weather[0].id]);
         });    
     }
 } (jQuery));

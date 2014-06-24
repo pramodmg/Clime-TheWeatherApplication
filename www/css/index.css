@@ -25,7 +25,8 @@ body,html
 .icon1
 {
   font-size: 8em;
-  margin-top: 5%;
+  position: relative;
+  top: 50px;
 }
 
 .lab
@@ -34,6 +35,8 @@ body,html
   display: block;
   font-family: 'nexa_lightregular';  
   color: white;
+  position: relative;
+  top: 40px;
 }
 
 .home-icon
@@ -380,8 +383,8 @@ font-style: normal;
 @media all and (max-width : 320px) {
 
 #circle { 
-   width: 160px;
-   height: 160px;
+   width: 180px;
+   height: 180px;
    line-height: 120px;
    margin-bottom: -80px;
   }
@@ -419,7 +422,8 @@ font-style: normal;
 .icon1
 {
   font-size: 5em;
-
+  position: relative;
+  top: -20%;
 }
 
 .icon2
@@ -470,9 +474,9 @@ font-style: normal;
 
 .lab
 {
-  font-size: 2em;
+  font-size: 1.5em;
   display: block;
-  margin-top: -90px;
+  margin-top: -130px;
   font-family: 'nexa_lightregular';  
   color: white;
 }
