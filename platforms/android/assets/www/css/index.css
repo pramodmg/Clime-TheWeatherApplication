@@ -2,7 +2,6 @@ body,html
 {
   margin: 0;
   padding: 0;
-
 }
 
 #circle { 
@@ -12,12 +11,38 @@ body,html
    -moz-border-radius: 70px; 
    -webkit-border-radius: 70px; 
    border-radius: 50%;
-   line-height: 200px;
-   margin-top: 10%;
+   margin-top: 3%;
    text-align: center;
-   margin-bottom: -90px;
-   
 }
+
+
+.icon:before {
+    font-family: 'MeteoconsRegular';
+    content: attr(data-icon);
+    text-decoration: none;  
+}
+
+.icon1
+{
+  font-size: 8em;
+  margin-top: 5%;
+}
+
+.lab
+{
+  font-size: 1.5em;
+  display: block;
+  font-family: 'nexa_lightregular';  
+  color: white;
+}
+
+.home-icon
+{
+  font-size: 2em;
+  position: relative;
+  left: 80%;
+}
+
 #cir1 { 
    width: 200px;
    height: 200px;
@@ -28,7 +53,7 @@ body,html
    text-align: center;
    display: inline-block;
    position: relative;
-   top: 50px;
+   top: -30px;
 }
 
 #cir2 { 
@@ -39,13 +64,11 @@ body,html
    -webkit-border-radius: 70px; 
    border-radius: 50%;
    text-align: center;
-   font-size: 3em;
    display: inline-block;
    position: relative;
-   top: -40px;
-  
-   
+   top: -170px;   
 }
+
 #cir3 { 
    width: 250px;
    height: 250px;
@@ -53,12 +76,10 @@ body,html
    -moz-border-radius: 70px; 
    -webkit-border-radius: 70px; 
    border-radius: 50%;
-   line-height: 200px;
    text-align: center;
-   margin-top: -50px;
    margin-left: 20px;
    position: relative;
-   top: -35px;
+   top: -200px;
 }
 
 .align
@@ -73,31 +94,20 @@ body,html
 
 @font-face {
     font-family: 'MeteoconsRegular';
-    src: url('fonts/meteocons-webfont.eot');
-    src: url('fonts/meteocons-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/meteocons-webfont.woff') format('woff'),
-         url('fonts/meteocons-webfont.ttf') format('truetype'),
-         url('fonts/meteocons-webfont.svg#MeteoconsRegular') format('svg');
+    src: url('../fonts/meteocons-webfont.eot');
+    src: url('../fonts/meteocons-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/meteocons-webfont.woff') format('woff'),
+         url('../fonts/meteocons-webfont.ttf') format('truetype'),
+         url('../fonts/meteocons-webfont.svg#MeteoconsRegular') format('svg');
     font-weight: normal;
     font-style: normal;
 }
 
-.icon:before {
-    font-family: 'MeteoconsRegular';
-    content: attr(data-icon);
-    text-decoration: none;
-    
-}
 
 .icon
 {
     text-decoration: none;
     color: white;
-}
-
-.icon1
-{
-  font-size: 9em;
 }
 
 .icon2
@@ -145,25 +155,20 @@ body,html
   font-size: 3em;
   color: white;
   font-family: 'nexa_lightregular';
+  position: relative;
+  top: 60px;
 }
 
 .round1
 {
   font-size: 1.4em;
   display: block;
-  margin-top: -150px;
   color: white;
   font-family: 'nexa_lightregular';
+  position: relative;
+  top: 70px;
 }
 
-.lab
-{
-  font-size: 1.5em;
-  display: block;
-  margin-top: -140px;
-  font-family: 'nexa_lightregular';  
-  color: white;
-}
 
 .lab-loc
 {
@@ -176,12 +181,12 @@ body,html
 
 @font-face {
   font-family: 'nexa_lightregular';
-      src: url('nexa/nexa_free_light-webfont.eot');
-      src: url('nexa/nexa_free_light-webfont.eot?#iefix') format('embedded-opentype'), 
-           url('nexa/nexa_free_light-webfont.woff') format('woff'),
-           url('nexa/nexa_light.otf') format('otf'),
-           url('nexa/nexa_free_light-webfont.ttf') format('truetype'),
-           url('nexa/nexa_free_light-webfont.svg#nexa_lightregular') format('svg');
+      src: url('../fonts/nexa_free_light-webfont.eot');
+      src: url('../fonts/nexa_free_light-webfont.eot?#iefix') format('embedded-opentype'), 
+           url('../fonts/nexa_free_light-webfont.woff') format('woff'),
+           url('../fonts/nexa_light.otf') format('otf'),
+           url('../fonts/nexa_free_light-webfont.ttf') format('truetype'),
+           url('../fonts/nexa_free_light-webfont.svg#nexa_lightregular') format('svg');
 font-weight: normal;
 font-style: normal;
 }
@@ -190,7 +195,7 @@ font-style: normal;
 
 @font-face {
   font-family: 'nexa_lightregular_bold';
-      src: url('/nexa_free_light-webfont.eot');
+      src: url('../fonts/nexa_free_light-webfont.eot');
       src: url('../fonts/NexaFreeBoldwebfont.eot?#iefix') format('embedded-opentype'), 
            url('../fonts/NexaFreeBoldwebfont.woff') format('woff'),
            url('../fonts/nexa_bold.otf') format('otf'),
@@ -218,13 +223,13 @@ font-style: normal;
 .hover
 {
    z-index: 99;
-   box-shadow: 0px 2px 6px rgba(0,0,0,0.3),0px -2px 6px rgba(0,0,0,0.3),-0px 2px 6px rgba(0,0,0,0.3),-0px -2px 6px rgba(0,0,0,0.3);  
+   box-shadow: 0px 2px 6px rgba(200,200,200,0.3),0px -2px 6px rgba(200,200,200,0.3),-0px 2px 6px rgba(200,200,200,0.3),-0px -2px 6px rgba(200,200,200,0.3);  
    background: rgba(0,204,255, 0.8)
 }
 
 .pos
 {
-  font-size: 1em;
+  font-size: 1.2em;
   font-family: 'nexa_lightregular';
 }
 
@@ -233,6 +238,10 @@ font-style: normal;
   display: inline-block;
   text-align: left;
   width: 49%;
+  position: relative;
+  top: 380px;
+  left: 40%;
+  font-size: 2em;
 }
 
 .right
@@ -240,6 +249,10 @@ font-style: normal;
   display: inline-block;
   text-align: right;
   width: 49%;
+  position: relative;
+  top: 380px;
+  right: 40%;
+  font-size: 2em;
 }
 
 .circle1
@@ -254,12 +267,11 @@ font-style: normal;
 }
 
 /* max-width of 445px*/
-@media all and (min-width:32px) and (max-width : 445px) {
+@media all and (min-width:320px) and (max-width : 445px) {
 
   #circle { 
      width: 240px;
      height: 240px;
-     line-height: 130px;
      margin-bottom: -80px;
      margin-top: 8%;
     }
@@ -281,7 +293,6 @@ font-style: normal;
   #cir3 { 
      width: 180px;
      height: 180px;
-     line-height: 180px;
      margin-top: -210px;
      margin-left: 20px;
      top: 46px;
@@ -325,16 +336,19 @@ font-style: normal;
 
   .date-style
   {
-    font-size: 1.6em;
+    font-size: 2em;
     color: white;
     font-family: 'nexa_lightregular';
+    position: relative;
   }
 
   .round1
   {
-    font-size: 1em;
-    margin-top: -160px;
+    font-size: 1.2em;
+    margin-top: 50px;
     color: white;
+    position: relative;
+    top: 20px;
   }
 
   .lab
@@ -348,8 +362,8 @@ font-style: normal;
 
   .lab-loc
   {
-    font-size: 1em;
-    margin-top: -40px;
+    font-size: 2.5em;
+    margin-top: -60px;
     font-family: 'nexa_lightregular';
     color: white;
   }
@@ -371,7 +385,6 @@ font-style: normal;
    height: 160px;
    line-height: 120px;
    margin-bottom: -80px;
-   
   }
 #cir1 { 
    width: 120px;
@@ -390,7 +403,6 @@ font-style: normal;
 #cir3 { 
    width: 180px;
    height: 180px;
-   line-height: 170px;
    margin-top: -120px;
    margin-left: 20px;
    top: 40px;
@@ -453,7 +465,7 @@ font-style: normal;
 .round1
 {
   font-size: 1.7em;
-  margin-top: -140px;
+  margin-top: 30px;
   color: white;
 }
 
