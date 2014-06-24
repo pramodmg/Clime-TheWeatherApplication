@@ -87,6 +87,15 @@ function highlight(invokeElm) {
     }
 }
 
+$(".home-icon").on("click",function(){
+	move_circle_back();
+    $(".pos").hide();
+    flag = true;
+    $(".fa-tint").hide();
+    $(".fa-cog").hide();
+    $(".fa-tachometer").hide();
+    $(".home-icon").hide();
+});
 
 $(document).ready(function(){
 	// disp(this);

@@ -207,10 +207,9 @@ font-style: normal;
 
 .temp
 {
-  font-size: 1.3em;
-  margin-top: -90px;
+  font-size: 2em;
   position: relative;
-  top: 60px;
+  top: 90px;
   font-family: 'nexa_lightregular';
   color: white;
   left: 10px;
@@ -241,7 +240,7 @@ font-style: normal;
   position: relative;
   top: 380px;
   left: 40%;
-  font-size: 2em;
+  font-size: 1em;
 }
 
 .right
@@ -252,7 +251,7 @@ font-style: normal;
   position: relative;
   top: 380px;
   right: 40%;
-  font-size: 2em;
+  font-size: 1em;
 }
 
 .circle1
