@@ -1,23 +1,8 @@
 body {
     font-family: helvetica neue;
     background-color: #E7EAEC;
-    padding: 0;
-    margin: 0;
-}
-.selector
-{
-    text-align: center;
-    position: absolute;
-    bottom: 80px;
-    text-align: center;
-    width: 100%;
-    font-size: 1em;
 }
 
-.selected
-{
-    color: white;
-}
 .page h1,
 .page h2
 {
@@ -36,12 +21,12 @@ body {
 .frame {
     position:absolute;
     top:110px;
-    right:15px;
+    right:10px;
     bottom:60px;
-    left:15px;
+    left:10px;
     background-color: #F1F2F2;
     border: 1px solid #BCBEC0;
-    border-radius: 8px;
+    border-radius: 4px;
 }
 
 .page-container {

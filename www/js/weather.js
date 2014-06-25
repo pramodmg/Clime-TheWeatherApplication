@@ -36,6 +36,7 @@
         locationPromise.done(function(data) {
             console.log(data);
             console.log(data.weather[0].main);
+            window.localStorage.setItem("location",data.name);
             $(".lab").text(data.weather[0].description);
             $(".lab-loc").text(data.name);
             temp = data.main.temp - 273.15;

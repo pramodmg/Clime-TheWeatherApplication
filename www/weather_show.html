@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="format-detection" content="telephone=no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <!-- <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-density-dpi=device-dpi" /> -->
+        <meta name="viewport" id="metaViewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+	    <link rel="stylesheet" type="text/css" href="css/index_weather.css" />
+        <link rel="stylesheet" type="text/css" href="css/styles_weather.css" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <title>Weather</title>
+    </head>
+    <body>
+    <script type="text/javascript" src="js/index.js"></script>
+        <div class="top-bar">
+            <div class="top-title">IWeather</div>
+        
+        </div>
+        <div class="middle-top-row">
+            <div class="middle-top-label" id="location">
+                hello
+            </div>
+            <div class="middle-top-right" id="wel">
+                welcome
+            </div>
+        </div>
+        <br>
+        <br>
+
+    <div class="frame">
+        <div  id="container" class="page-container">
+        <div id="page1" class="transition page stage-center">
+                <h1>Daily Weather </h1>
+            <div class="text-container" id="1">
+                <div class="pos left" id="day1"> Monday </div>
+                <div class="pos right" id="mon"> temp 1</div>
+            </div>
+            <div class="text-container" id="2">  
+                <div class="pos left" id= "day2"> Tuesday</div>
+                <div class="pos right" id="tue">  temp 2</div>
+            </div>
+            <div class="text-container" id="3">
+                <div class="pos left" id="day3"> Wednesday </div>
+                <div class="pos right" id="wed"> temp 3</div>
+            </div>
+            <div class="text-container" id="4">
+                <div class="pos left" id="day4"> Thurday </div>
+                <div class="pos right" id="thur"> temp 4 </div>
+            </div>
+            <div class="text-container" id="5">
+                <div class="pos left" id="day5"> Friday</div>
+                <div class="pos right" id="fri"> temp 5</div>
+            </div>
+            <div class="text-container" id="6">
+                <div class="pos left" id="day6"> Saturday </div>
+                <div class="pos right" id="sat"> temp 6</div>
+            </div>
+            <div class="text-container" id="7">
+                <div class="pos left" id="day7"> Saturday </div>
+                <div class="pos right" id="sun"> temp 6</div>
+            </div>
+
+            <div id="page2" class="transition page stage-right">
+                <h1>Page 2</h1>
+            </div>
+        </div>
+    </div>
+    <center>
+    <div class="footer">
+        <span class="fa fa-circle" id="sl"></span> 
+        <span class="fa fa-circle-o" id="sr"></span> 
+    </div>
+    </center>
+<script src="js/zepto.min.js"></script>
+
+<script src="js/swipe.js"></script>
+<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="js/week_weather.js "></script>
+    </body>
+</html>

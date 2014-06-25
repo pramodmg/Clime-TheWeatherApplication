@@ -1,0 +1,151 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+
+body,html
+{
+    margin: 0;
+    padding: 0;
+    height: 100%; 
+    font-family: 'nexa_lightregular';
+}
+
+.pos
+{
+  font-size: 1.2em;
+  font-family: 'nexa_lightregular';
+}
+
+.left
+{
+  display: inline-block;
+  text-align: left;
+  width: 49%;
+  left: 10%;
+  font-size: 1em;
+}
+
+.right
+{
+  display: inline-block;
+  text-align: right;
+  width: 49%;
+  right: 10%;
+  font-size: 1em;
+}
+
+.text-container
+{
+  width: 100%;
+  line-height: 250%;
+}
+
+.top-bar
+{
+    width: 100%;
+    display: table;
+    background: #6666FF;
+    border-spacing: 20px;
+    text-align: center;
+    font-size: 1.5em;
+    box-shadow: 0px 4px 4px #666;
+    font-family: 'nexa_lightregular';
+}
+
+.top-set
+{
+    display: table-cell;
+    width: 30%;
+    background-color: transparent;
+    text-align: right;    
+    font-family: 'nexa_lightregular';
+}
+
+.top-title
+{
+    width: 100%;
+    text-align: center;
+    font-family: 'nexa_lightregular';
+}
+
+.bottom-bar
+{
+    bottom: 0;
+    position: fixed;
+    background-color: red;
+    text-align: center;
+    width: 100%;
+}
+
+.middle-top-row
+{
+    width: 100%;
+    display: table;
+    font-family: 'nexa_lightregular';
+    border-spacing: 10px;
+    text-align: center;   
+}
+
+.middle-top-label
+{
+    display: table-cell;
+    width: 40%;
+    background-color:transparent;
+    text-align: left;
+    font-family: 'nexa_lightregular';
+}
+
+.middle-top-right
+{
+    display: table-cell;
+    width: 100%;
+    background-color: transparent;
+    text-align: right;
+    font-family: 'nexa_lightregular';
+}
+
+.footer
+{
+    position: absolute;
+    bottom: 50px;
+    left: 45%;
+}
+
+.fa-circle
+{
+    font-size: 1em;
+}
+
+p
+{
+    font-family: 'nexa_lightregular';
+    font-size: 1.4em;
+}
+
+@font-face {
+  font-family: 'nexa_lightregular';
+      src: url('../fonts/nexa_free_light-webfont.eot');
+      src: url('../fonts/nexa_free_light-webfont.eot?#iefix') format('embedded-opentype'), 
+           url('../fonts/nexa_free_light-webfont.woff') format('woff'),
+           url('../fonts/nexa_light.otf') format('otf'),
+           url('../fonts/nexa_free_light-webfont.ttf') format('truetype'),
+           url('../fonts/nexa_free_light-webfont.svg#nexa_lightregular') format('svg');
+font-weight: normal;
+font-style: normal;
+}
+
