@@ -1,5 +1,5 @@
 currentIndex = 0;
-pages = [$('#page1'), $('#page2'), $('#page3'), $('#page4')];
+pages = [$('#page1'), $('#page2')];
 var selector = $(".selector");
 
 function scrollRight() {
@@ -15,6 +15,10 @@ function scrollRight() {
     $("i", $(selector)).removeClass("selected");
     $($(selector).find("i")[currentIndex]).addClass("selected");
 
+    $("#sr").removeClass("fa-circle");
+    $("#sr").addClass("fa-circle-o");
+    $("#sl").removeClass("fa-circle-o");
+    $("#sl").addClass("fa-circle");
 }
 
 function scrollLeft() {
@@ -31,9 +35,11 @@ function scrollLeft() {
     $("i", $(selector)).removeClass("selected");
     $($(selector).find("i")[currentIndex]).addClass("selected");
 
+    $("#sl").removeClass("fa-circle");
+    $("#sl").addClass("fa-circle-o");
+    $("#sr").removeClass("fa-circle-o");
+    $("#sr").addClass("fa-circle");
 }
 
 $('#container').swipeLeft(scrollLeft);
 $('#container').swipeRight(scrollRight);
-
-iscroll = new iScroll('wrapper', {hScrollbar: false, vScrollbar: false });

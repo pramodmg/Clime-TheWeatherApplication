@@ -36,6 +36,7 @@
 /var/www/html/Native5/platforms/android/assets/www/cordova.js \
 /var/www/html/Native5/platforms/android/assets/www/js \
 /var/www/html/Native5/platforms/android/assets/www/img \
+/var/www/html/Native5/platforms/android/assets/www/weather_show.html \
 /var/www/html/Native5/platforms/android/assets/www/fonts/fontawesome-webfont.ttf \
 /var/www/html/Native5/platforms/android/assets/www/fonts/nexa_free_light-webfont.ttf \
 /var/www/html/Native5/platforms/android/assets/www/fonts/FFF_EULA_license.pdf \
@@ -58,9 +59,10 @@
 /var/www/html/Native5/platforms/android/assets/www/fonts/meteocons-webfont.svg \
 /var/www/html/Native5/platforms/android/assets/www/css/font-awesome.min.css \
 /var/www/html/Native5/platforms/android/assets/www/css/font-awesome.css \
-/var/www/html/Native5/platforms/android/assets/www/css/styles.css \
 /var/www/html/Native5/platforms/android/assets/www/css/index.css \
 /var/www/html/Native5/platforms/android/assets/www/css/weather.css \
+/var/www/html/Native5/platforms/android/assets/www/css/index_weather.css \
+/var/www/html/Native5/platforms/android/assets/www/css/styles_weather.css \
 /var/www/html/Native5/platforms/android/assets/www/js/hover.js \
 /var/www/html/Native5/platforms/android/assets/www/js/transit.js \
 /var/www/html/Native5/platforms/android/assets/www/js/date.js \
@@ -68,6 +70,7 @@
 /var/www/html/Native5/platforms/android/assets/www/js/snap.svg-min.js \
 /var/www/html/Native5/platforms/android/assets/www/js/iscroll.js \
 /var/www/html/Native5/platforms/android/assets/www/js/weather.js \
+/var/www/html/Native5/platforms/android/assets/www/js/week_weather.js \
 /var/www/html/Native5/platforms/android/assets/www/js/index.js \
 /var/www/html/Native5/platforms/android/assets/www/js/testfx.min.js \
 /var/www/html/Native5/platforms/android/assets/www/js/classie.js \
