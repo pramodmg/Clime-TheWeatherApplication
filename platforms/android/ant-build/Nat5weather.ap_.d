@@ -33,6 +33,7 @@
 /var/www/html/Native5/platforms/android/assets/www/fonts \
 /var/www/html/Native5/platforms/android/assets/www/cordova_plugins.js \
 /var/www/html/Native5/platforms/android/assets/www/css \
+/var/www/html/Native5/platforms/android/assets/www/plugins \
 /var/www/html/Native5/platforms/android/assets/www/cordova.js \
 /var/www/html/Native5/platforms/android/assets/www/js \
 /var/www/html/Native5/platforms/android/assets/www/img \

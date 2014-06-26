@@ -22,25 +22,35 @@ function toggle()
 	}
 }
 
+function myFunction() {
+    setTimeout(function(){
+		$("#cir1").fadeOut();
+		$("#cir2").fadeOut();
+		$("#cir3").fadeOut();
+    }, 1);
+}
+
 function move_circle()
 {
 	$("#cir1").animate({right: "+230px"},"slow");
 	$("#cir2").animate({left: "+180px"},"slow");
 	$("#cir3").animate({left: "+180px"},"slow");
-
     $(".fa-tint").show();
     $(".fa-cog").show();
     $(".fa-tachometer").show();
     $(".pos").show();
     $(".home-icon").show();
+    myFunction();
 }
 
 function move_circle_back()
 {
+	$("#cir1").show();
+	$("#cir2").show();
+	$("#cir3").show();
 	$("#cir1").animate({right: "0px"},"slow");
 	$("#cir2").animate({left: "0px"},"slow");
 	$("#cir3").animate({left: "0px"},"slow");
-
     $(".fa-tint").hide();
     $(".fa-cog").hide();
     $(".fa-tachometer").hide();
