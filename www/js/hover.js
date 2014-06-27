@@ -1,7 +1,5 @@
 $("#circle").on("click", function(evr) {
     // Your code for circle click
-    evr.stopPropagation();
-    highlight(this);
     toggle();
 });
 
@@ -10,13 +8,9 @@ function toggle()
 {
 	if(flag)
 	{
-		// alert("true");
 		move_circle();
 		flag = false;
-	}
-	else
-	{
-		// alert("false");
+	} else	{
 		move_circle_back();
 		flag = true;
 	}
@@ -32,14 +26,20 @@ function myFunction() {
 
 function move_circle()
 {
-	$("#cir1").animate({right: "+230px"},"slow");
-	$("#cir2").animate({left: "+180px"},"slow");
-	$("#cir3").animate({left: "+180px"},"slow");
+	$("#cir1").animate({right: "+230px"},"fast");
+	$("#cir2").animate({left: "+180px"},"fast");
+	$("#cir3").animate({left: "+180px"},"fast");
+	$("#circle").animate({width :"+600px",height :"+600px",'margin-bottom':"0",left : "-20%"},"fast");
+	$("#circle").css({position : "relative"});
+	$("#cen").css({overflow :"hidden",position :"fixed"});
     $(".fa-tint").show();
-    $(".fa-cog").show();
+    $("#wind").show();
     $(".fa-tachometer").show();
-    $(".pos").show();
+    $(".left1").show();
     $(".home-icon").show();
+    $("#humidity").show();
+    $("#pressure").show();
+    $("#desc").show();
     myFunction();
 }
 
@@ -48,72 +48,48 @@ function move_circle_back()
 	$("#cir1").show();
 	$("#cir2").show();
 	$("#cir3").show();
-	$("#cir1").animate({right: "0px"},"slow");
-	$("#cir2").animate({left: "0px"},"slow");
-	$("#cir3").animate({left: "0px"},"slow");
+	$("#cir1").animate({right: "0px"},"fast");
+	$("#cir2").animate({left: "0px"},"fast");
+	$("#cir3").animate({left: "0px"},"fast");
+	$("#circle").animate({width :"240px",height :"240px",'margin-bottom':"-80px",left : "0%"},"fast");
+	$("#circle").css({position : "visible"});
+	$("#cen").css({overflow : "visible",position :"relative"});
     $(".fa-tint").hide();
-    $(".fa-cog").hide();
+    $("#wind").hide();
     $(".fa-tachometer").hide();
-    $(".pos").hide();
+    $(".left1").hide();
     $(".home-icon").hide();
+    $("#humidity").hide();
+    $("#pressure").hide();
+    $("#desc").hide();
 }
 
-$("#cir1").on("click", function(evr) {
-    // Your code for circle click
-    evr.stopPropagation();
-    highlight(this);
-});
-
-
-$("#cir2").on("click", function(evr) {
-    // Your code for circle click
-    evr.stopPropagation();
-    highlight(this);
-});
-
-
 $("#cir3").on("click", function(evr) {
-    // Your code for circle click
-    evr.stopPropagation();
-    highlight(this);
     nextpage(this);
 });
 
-$("body").on("click", function() {
-    highlight();
-    $(".pos").hide();
-});
-
-function highlight(invokeElm) {
-    var elms = $("center").children("div");
-
-    $.each(elms, function(key, elm) {
-        $(elm).removeClass("hover");
-    });
-
-    if(invokeElm) {
-        $(invokeElm).addClass("hover");
-        // $("#show").hide();
-    }
-}
-
 $(".home-icon").on("click",function(){
 	move_circle_back();
-    $(".pos").hide();
+    $(".left1").hide();
     flag = true;
     $(".fa-tint").hide();
-    $(".fa-cog").hide();
+    $("#wind").hide();
     $(".fa-tachometer").hide();
     $(".home-icon").hide();
+    $("#humidity").hide();
+    $("#pressure").hide();
+    $("#desc").hide();
 });
 
 $(document).ready(function(){
-	// disp(this);
-    $(".pos").hide();
+    $(".left1").hide();
     $(".fa-tint").hide();
-    $(".fa-cog").hide();
+    $("#wind").hide();
     $(".fa-tachometer").hide();
     $(".home-icon").hide();
+    $("#humidity").hide();
+    $("#pressure").hide();
+    $("#desc").hide();
 });
 
 function nextpage(invokeElm)

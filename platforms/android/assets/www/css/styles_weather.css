@@ -20,10 +20,10 @@ body {
 
 .frame {
     position:absolute;
-    top:110px;
-    right:10px;
-    bottom:60px;
-    left:10px;
+    top:13px;
+    right:5px;
+    bottom:8px;
+    left:5px;
     background-color: #F1F2F2;
     border: 1px solid #BCBEC0;
     border-radius: 4px;

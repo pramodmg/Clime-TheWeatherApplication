@@ -7,6 +7,8 @@ $(document).ready(function(){
     document.getElementById("day").innerHTML = day + "th";
     document.getElementById("month").innerHTML = m[month] + ", " + y;
 
+    // Wait for device API libraries to load
+    //
     document.addEventListener("deviceready", onDeviceReady, false);
 
     // device APIs are available
@@ -18,18 +20,25 @@ $(document).ready(function(){
     // onSuccess Geolocation
     //
     function onSuccess(position) {
-        var element = document.getElementById('geolocation');
-        // alert(1);
-        alert("Latitude : "+ position.coords.latitude + "\n" + "longitude : "+position.coords.longitude);
-        element.innerHTML = 'Latitude: '           + position.coords.latitude              + '<br />' +
-                            'Longitude: '          + position.coords.longitude             + '<br />' +
-                            'Altitude: '           + position.coords.altitude              + '<br />' +
-                            'Accuracy: '           + position.coords.accuracy              + '<br />' +
-                            'Altitude Accuracy: '  + position.coords.altitudeAccuracy      + '<br />' +
-                            'Heading: '            + position.coords.heading               + '<br />' +
-                            'Speed: '              + position.coords.speed                 + '<br />' +
-                            'Timestamp: '          + position.timestamp                    + '<br />';
-                            alert(position.coords.latitude);
+        var locationPromise = $.ajax({
+            url: "http://api.openweathermap.org/data/2.5/weather",
+            data: {lat : position.coords.latitude,lon : position.coords.longitude},
+        });
+
+        
+        locationPromise.done(function(data) {
+            console.log(data);
+            $(".lab-loc").text(data.name);
+            $(".lab").text(data.weather[0].description);
+            temp = data.main.temp - 273.15;
+            temp_celcius = (temp).toFixed(1);
+            $(".temp").text(temp_celcius).append("<sup>o</sup>C");
+            $(".fa-tint").text(data.main.humidity).append(" %");
+            $(".fa-cog").text(data.main.pressure).append(" mPa");
+            $(".fa-tachometer").text(data.wind.speed).append(" mPs");
+            $("#desc").text(data.weather[0].description);
+            $(".icon1").attr("data-icon",array[data.weather[0].id]);
+        });    
     }
 
     // onError Callback receives a PositionError object
@@ -39,4 +48,5 @@ $(document).ready(function(){
               'message: ' + error.message + '\n');
     }
 
+    
 });

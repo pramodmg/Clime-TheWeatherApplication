@@ -53,10 +53,10 @@
             temp = data.main.temp - 273.15;
             temp_celcius = (temp).toFixed(1);
             $(".temp").text(temp_celcius).append("<sup>o</sup>C");
-            $(".fa-tint").text(data.main.humidity).append(" %");
-            $(".fa-cog").text(data.main.pressure).append(" mPa");
-            $(".fa-tachometer").text(data.wind.speed).append(" mPs");
-            $("#desc").text(data.weather[0].description);
+            $("#humidity").text(data.main.humidity).append('<span class="percentage"> %</span>');
+            $("#pressure").text(data.main.pressure).append('<span class="units"> hpa</span>');
+            $("#wind").text(data.wind.speed).append('<span class="units"> m/s</span');
+            $(".pos").text(data.weather[0].description);
             $(".icon1").attr("data-icon",array[data.weather[0].id]);
         });    
     }
