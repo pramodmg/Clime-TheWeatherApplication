@@ -18,19 +18,19 @@ function toggle()
 	}
 }
 
-function myFunction() {
-    setTimeout(function(){
-		$("#cir1").fadeOut();
-		$("#cir2").fadeOut();
-		$("#cir3").fadeOut();
-    }, 1);
-}
+// function myFunction() {
+//     setTimeout(function(){
+// 		$("#cir1").fadeOut();
+// 		$("#cir2").fadeOut();
+// 		$("#cir3").fadeOut();
+//     }, 1);
+// }
 
 function move_circle()
 {
-	$("#cir1").animate({right: "+230px"},"fast");
-	$("#cir2").animate({left: "+180px"},"fast");
-	$("#cir3").animate({left: "+180px"},"fast");
+	$("#cir1").fadeOut();
+	$("#cir2").fadeOut();
+	$("#cir3").fadeOut();
     $(".fa-tint").show();
     $("#wind").show();
     $(".fa-tachometer").show();
@@ -39,7 +39,6 @@ function move_circle()
     $("#humidity").show();
     $("#pressure").show();
     $("#desc").show();
-    myFunction();
     move_circle_1();
 }
 
@@ -90,9 +89,6 @@ function move_circle_back()
 	$("#cir1").show();
 	$("#cir2").show();
 	$("#cir3").show();
-	$("#cir1").animate({right: "0px"},"fast");
-	$("#cir2").animate({left: "0px"},"fast");
-	$("#cir3").animate({left: "0px"},"fast");
     $(".fa-tint").hide();
     $("#wind").hide();
     $(".fa-tachometer").hide();

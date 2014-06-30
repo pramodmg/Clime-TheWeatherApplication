@@ -27,8 +27,8 @@ body,html
 
 .pos
 {
-  font-size: 1.2em;
-  font-family: 'nexa_lightregular';
+  font-size: 1em;
+  font-family: 'nexa_lightregular_bold';
 }
 
 .left
@@ -37,7 +37,32 @@ body,html
   text-align: left;
   width: 49%;
   left: 10%;
-  font-size: 1em;
+  font-size: 1.4em;
+}
+
+#cle { 
+   width: 60px;
+   height: 60px;
+   background: white; 
+   -moz-border-radius: 70px; 
+   -webkit-border-radius: 70px; 
+   border-radius: 50%;
+   margin-top: 3%;
+   text-align: center;
+   position: relative;
+   left: 40%;
+   box-shadow: 2px 2px 3px grey;
+   color: rgba(0,204,255,1); 
+}
+
+.home
+{
+  font-size: 3em;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  left: 0;
+  top: 8%;
 }
 
 .right
@@ -45,85 +70,9 @@ body,html
   display: inline-block;
   text-align: right;
   width: 49%;
-  right: 10%;
-  font-size: 1em;
-}
-
-.text-container
-{
-  width: 100%;
-  line-height: 250%;
-}
-
-.top-bar
-{
-    width: 100%;
-    display: table;
-    background: #6666FF;
-    border-spacing: 20px;
-    text-align: center;
-    font-size: 1.5em;
-    box-shadow: 0px 4px 4px #666;
-    font-family: 'nexa_lightregular';
-}
-
-.top-set
-{
-    display: table-cell;
-    width: 30%;
-    background-color: transparent;
-    text-align: right;    
-    font-family: 'nexa_lightregular';
-}
-
-.top-title
-{
-    width: 100%;
-    text-align: center;
-    font-family: 'nexa_lightregular';
-}
-
-.bottom-bar
-{
-    bottom: 0;
-    position: fixed;
-    background-color: red;
-    text-align: center;
-    width: 100%;
-}
-
-.middle-top-row
-{
-    width: 100%;
-    display: table;
-    font-family: 'nexa_lightregular';
-    border-spacing: 10px;
-    text-align: center;   
-}
-
-.middle-top-label
-{
-    display: table-cell;
-    width: 40%;
-    background-color:transparent;
-    text-align: left;
-    font-family: 'nexa_lightregular';
-}
-
-.middle-top-right
-{
-    display: table-cell;
-    width: 100%;
-    background-color: transparent;
-    text-align: right;
-    font-family: 'nexa_lightregular';
-}
-
-.footer
-{
-    position: absolute;
-    bottom: 50px;
-    left: 45%;
+  right: 4%;
+  font-size: 1.4em;
+  text-align: center;
 }
 
 .fa-circle
@@ -149,6 +98,18 @@ font-weight: normal;
 font-style: normal;
 }
 
+@font-face {
+  font-family: 'nexa_lightregular_bold';
+      src: url('../fonts/nexa_free_light-webfont.eot');
+      src: url('../fonts/NexaFreeBoldwebfont.eot?#iefix') format('embedded-opentype'), 
+           url('../fonts/NexaFreeBoldwebfont.woff') format('woff'),
+           url('../fonts/nexa_bold.otf') format('otf'),
+           url('../fonts/NexaFreeBoldwebfont.ttf') format('truetype'),
+           url('../fonts/NexaFreeBoldwebfont.svg#nexa_lightregular') format('svg');
+font-weight: normal;
+font-style: normal;
+}
+
 /* max-width of 445px*/
 @media all and (min-width:320px) and (max-height: 640px) {
 
@@ -160,7 +121,7 @@ font-style: normal;
     .text-container
     {
       width: 100%;
-      line-height: 320%;
+      line-height: 120%;
     }
 }
 
@@ -176,7 +137,7 @@ font-style: normal;
     .text-container
     {
       width: 100%;
-      line-height: 300%;
+      line-height: 260%;
     }
 }
 
@@ -196,7 +157,6 @@ font-style: normal;
     .text-container
     {
       width: 100%;
-      line-height: 450%;
     }
 
     .footer

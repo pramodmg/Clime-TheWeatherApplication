@@ -1,6 +1,7 @@
 /* jshint loopfunc: true, quotmark:false */
 /* global jQuery:false, console */
 var loc = window.localStorage.getItem("location");
+var min = [],max = [];
 var week = { 0 : "Sunday", 1 : "Monday", 2 : "Tuesday", 3 : "Wednesday", 4 : "Thursday", 5 : "Friday", 6 : "Saturday"};
     $(document).ready(function(){
         $("#location").text(loc);
@@ -28,14 +29,23 @@ var week = { 0 : "Sunday", 1 : "Monday", 2 : "Tuesday", 3 : "Wednesday", 4 : "Th
             var da = myDate.getDay();
             console.log(week[da]);
             var x = "#" + da;
-            $(x).css("font-weight","bold");
-            $("#mon").text(data.list[0].temp.day.toFixed(1));
-            $("#tue").text(data.list[1].temp.day.toFixed(1));
-            $("#wed").text(data.list[2].temp.day.toFixed(1));
-            $("#thur").text(data.list[3].temp.day.toFixed(1));
-            $("#fri").text(data.list[4].temp.day.toFixed(1));
-            $("#sat").text(data.list[5].temp.day.toFixed(1));
-            $("#sun").text(data.list[6].temp.day.toFixed(1));
+            // $(x).css("font-style","italic");
+            var y = "#day" + da;
+            $(y).append("<sup>*</sup>");
+            
+            for(var i=0;i<=6;i++)
+            {
+                min[i]=(data.list[i].temp.min.toFixed(1)-273.15).toFixed(1);
+                // alert(cel[i]);
+                max[i]=(data.list[i].temp.max.toFixed(1)-273.15).toFixed(1);
+            }
+            $("#mon").text(min[0]).append("<sup>o</sup>C").append("<span> - </span>").append(max[0]).append("<sup>o</sup>C");
+            $("#tue").text(min[1]).append("<sup>o</sup>C").append("<span> - </span>").append(max[1]).append("<sup>o</sup>C");
+            $("#wed").text(min[2]).append("<sup>o</sup>C").append("<span> - </span>").append(max[2]).append("<sup>o</sup>C");
+            $("#thur").text(min[3]).append("<sup>o</sup>C").append("<span> - </span>").append(max[3]).append("<sup>o</sup>C");
+            $("#fri").text(min[4]).append("<sup>o</sup>C").append("<span> - </span>").append(max[4]).append("<sup>o</sup>C");
+            $("#sat").text(min[5]).append("<sup>o</sup>C").append("<span> - </span>").append(max[5]).append("<sup>o</sup>C");
+            $("#sun").text(min[6]).append("<sup>o</sup>C").append("<span> - </span>").append(max[6]).append("<sup>o</sup>C");
         });    
 
         function day(data)
@@ -43,6 +53,9 @@ var week = { 0 : "Sunday", 1 : "Monday", 2 : "Tuesday", 3 : "Wednesday", 4 : "Th
             var da = myDate.getDay();
             console.log(week[da]);
             return da;
-        }
-        
+        }       
+        $("#home").on("click",function(){
+            var home = "../www/index.html";    
+            $(location).attr('href',home);
+        });
     }

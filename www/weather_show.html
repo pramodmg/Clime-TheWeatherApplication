@@ -32,25 +32,14 @@
     </head>
     <body>
     <script type="text/javascript" src="js/index.js"></script>
-  <!--       <div class="top-bar">
-            <div class="top-title">IWeather</div>
-        
-        </div>
-        <div class="middle-top-row">
-            <div class="middle-top-label" id="location">
-                hello
-            </div>
-            <div class="middle-top-right" id="wel">
-                welcome
-            </div>
-        </div>
-        <br>
-        <br> -->
-
     <div class="frame">
         <div  id="container" class="page-container">
         <div id="page1" class="transition page stage-center">
-                <h1>Daily Weather </h1>
+                <h1>Weekly Weather </h1>
+            <div class="text-container">
+                <div class="pos left"> Week Days </div>
+                <div class="pos right"> Max - Min </div>
+            </div>
             <div class="text-container" id="1">
                 <div class="pos left" id="day1"> Monday </div>
                 <div class="pos right" id="mon"> -- </div>
@@ -76,12 +65,14 @@
                 <div class="pos right" id="sat"> -- </div>
             </div>
             <div class="text-container" id="7">
-                <div class="pos left" id="day7"> Saturday </div>
+                <div class="pos left" id="day7"> Sunday </div>
                 <div class="pos right" id="sun"> -- </div>
+            </div>
+            <div id="cle">
+            <i class="fa fa-home home" id="home"></i>
             </div>
         </div>
     </div>
-<script src="js/swipe.js"></script>
 <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src="js/week_weather.js "></script>
     </body>
