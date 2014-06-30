@@ -275,7 +275,7 @@ font-style: normal;
      width: 240px;
      height: 240px;
      margin-bottom: -80px;
-     margin-top: 13%;
+     margin-top: 2%;
     }
 
   #cir1 { 
@@ -403,7 +403,7 @@ font-style: normal;
 
   .left1
   {
-    top: 300px;
+    top: 320px;
     text-align: center;
     font-size: 2em;
     color: white;
@@ -415,7 +415,7 @@ font-style: normal;
   .right
   {
     position: relative;
-    top: 300px;
+    top: 320px;
     right: 0%;
     font-style: 'nexa_lightregular';
     color: white;
@@ -439,7 +439,7 @@ font-style: normal;
     z-index: 999;
     color: white;
     left: 45%;
-    top: 380px;
+    top: 340px;
     font-size: 3em;
   }
 
@@ -447,11 +447,12 @@ font-style: normal;
   {
     text-align: center;
     position: fixed;
-    top: 266px;
-    left: 25%;
+    top: 230px;
+    left: 21%;
     color: white;
     font-size: 2em;
     font-family: 'nexa_lightregular';
+    z-index: 999;
   }
 }
 

@@ -4,6 +4,8 @@ $("#circle").on("click", function(evr) {
 });
 
 var flag = true;
+var wi = $(window).width();
+
 function toggle()
 {
 	if(flag)
@@ -16,22 +18,19 @@ function toggle()
 	}
 }
 
-function myFunction() {
-    setTimeout(function(){
-		$("#cir1").fadeOut();
-		$("#cir2").fadeOut();
-		$("#cir3").fadeOut();
-    }, 1);
-}
+// function myFunction() {
+//     setTimeout(function(){
+// 		$("#cir1").fadeOut();
+// 		$("#cir2").fadeOut();
+// 		$("#cir3").fadeOut();
+//     }, 1);
+// }
 
 function move_circle()
 {
-	$("#cir1").animate({right: "+230px"},"fast");
-	$("#cir2").animate({left: "+180px"},"fast");
-	$("#cir3").animate({left: "+180px"},"fast");
-	$("#circle").animate({width :"+600px",height :"+600px",'margin-bottom':"0",left : "-20%"},"fast");
-	$("#circle").css({position : "relative"});
-	$("#cen").css({overflow :"hidden",position :"fixed"});
+	$("#cir1").fadeOut();
+	$("#cir2").fadeOut();
+	$("#cir3").fadeOut();
     $(".fa-tint").show();
     $("#wind").show();
     $(".fa-tachometer").show();
@@ -40,20 +39,56 @@ function move_circle()
     $("#humidity").show();
     $("#pressure").show();
     $("#desc").show();
-    myFunction();
+    move_circle_1();
 }
 
+function move_circle_1() {
+    if (wi <= 480){
+        // $("p.testp").text('Screen width is less than or equal to 480px. Width is currently: ' + wi + 'px.');
+		$("#circle").animate({width :"+580px",height :"+580px",'margin-bottom':"0",left : "-18%"},"fast");
+		$("#circle").css({position : "relative"});
+		$("#cen").css({overflow :"hidden",position :"fixed"});
+        }
+    else if (wi <= 767){
+        $("p.testp").text('Screen width is between 481px and 767px. Width is currently: ' + wi + 'px.');
+        }
+    else if (wi <= 980){
+        $("p.testp").text('Screen width is between 768px and 980px. Width is currently: ' + wi + 'px.');
+        }
+    else if (wi <= 1200){
+        $("p.testp").text('Screen width is between 981px and 1199px. Width is currently: ' + wi + 'px.');
+        }
+    else {
+        $("p.testp").text('Screen width is greater than 1200px. Width is currently: ' + wi + 'px.');
+        }
+}
+
+function move_cicle_1_back()
+{
+    if (wi <= 480){
+		$("#circle").animate({width :"240px",height :"240px",'margin-bottom':"-80px",left : "0%"},"fast");
+		$("#circle").css({position : "visible"});
+		$("#cen").css({overflow : "visible",position :"relative"});
+        }
+    else if (wi <= 767){
+        $("p.testp").text('Screen width is between 481px and 767px. Width is currently: ' + wi + 'px.');
+        }
+    else if (wi <= 980){
+        $("p.testp").text('Screen width is between 768px and 980px. Width is currently: ' + wi + 'px.');
+        }
+    else if (wi <= 1200){
+        $("p.testp").text('Screen width is between 981px and 1199px. Width is currently: ' + wi + 'px.');
+        }
+    else {
+        $("p.testp").text('Screen width is greater than 1200px. Width is currently: ' + wi + 'px.');
+        }
+
+}
 function move_circle_back()
 {
 	$("#cir1").show();
 	$("#cir2").show();
 	$("#cir3").show();
-	$("#cir1").animate({right: "0px"},"fast");
-	$("#cir2").animate({left: "0px"},"fast");
-	$("#cir3").animate({left: "0px"},"fast");
-	$("#circle").animate({width :"240px",height :"240px",'margin-bottom':"-80px",left : "0%"},"fast");
-	$("#circle").css({position : "visible"});
-	$("#cen").css({overflow : "visible",position :"relative"});
     $(".fa-tint").hide();
     $("#wind").hide();
     $(".fa-tachometer").hide();
@@ -62,6 +97,7 @@ function move_circle_back()
     $("#humidity").hide();
     $("#pressure").hide();
     $("#desc").hide();
+    move_cicle_1_back();
 }
 
 $("#cir3").on("click", function(evr) {
@@ -70,6 +106,7 @@ $("#cir3").on("click", function(evr) {
 
 $(".home-icon").on("click",function(){
 	move_circle_back();
+	move_cicle_1_back();
     $(".left1").hide();
     flag = true;
     $(".fa-tint").hide();

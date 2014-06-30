@@ -56,7 +56,7 @@
             $("#humidity").text(data.main.humidity).append('<span class="percentage"> %</span>');
             $("#pressure").text(data.main.pressure).append('<span class="units"> hpa</span>');
             $("#wind").text(data.wind.speed).append('<span class="units"> m/s</span');
-            $(".pos").text(data.weather[0].description);
+            $("#desc").text(data.weather[0].description);
             $(".icon1").attr("data-icon",array[data.weather[0].id]);
         });    
     }
