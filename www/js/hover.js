@@ -18,14 +18,6 @@ function toggle()
 	}
 }
 
-// function myFunction() {
-//     setTimeout(function(){
-// 		$("#cir1").fadeOut();
-// 		$("#cir2").fadeOut();
-// 		$("#cir3").fadeOut();
-//     }, 1);
-// }
-
 function move_circle()
 {
 	$("#cir1").fadeOut();

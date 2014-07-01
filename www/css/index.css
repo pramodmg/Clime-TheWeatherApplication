@@ -360,7 +360,7 @@ font-style: normal;
   {
     font-size: 1.5em;
     display: block;
-    margin-top: -20px;
+    margin-top: -39px;
     font-family: 'nexa_lightregular';  
     color: white;
   }
@@ -445,14 +445,14 @@ font-style: normal;
 
   .pos
   {
-    text-align: center;
     position: fixed;
-    top: 230px;
-    left: 21%;
+    top: 220px;
     color: white;
-    font-size: 2em;
+    font-size: 1.6em;
     font-family: 'nexa_lightregular';
     z-index: 999;
+    text-align: center;
+    width: 100%;
   }
 }
 

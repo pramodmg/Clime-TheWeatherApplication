@@ -29,7 +29,6 @@ var week = { 0 : "Sunday", 1 : "Monday", 2 : "Tuesday", 3 : "Wednesday", 4 : "Th
             var da = myDate.getDay();
             console.log(week[da]);
             var x = "#" + da;
-            // $(x).css("font-style","italic");
             var y = "#day" + da;
             $(y).append("<sup>*</sup>");
             
