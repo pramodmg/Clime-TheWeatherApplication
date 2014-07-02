@@ -30,16 +30,16 @@ var weather_description = { 200 : "Enjoy the Drizzingling Rain with music" , 201
     if(flag === "false")
 	{
 		var loc = window.localStorage.getItem("location");
-		var lab = window.localStorage.getItem("lab");
-		var labloc = window.localStorage.getItem("lab-loc");
+		var condition = window.localStorage.getItem("condition");
+		var location = window.localStorage.getItem("location");
 		var temp = window.localStorage.getItem("temp");
 		var humidity = window.localStorage.getItem("humidity");
 		var pressure = window.localStorage.getItem("pressure");
 		var wind = window.localStorage.getItem("wind");
 		var desc = window.localStorage.getItem("description");
 		var icon = window.localStorage.getItem("icon");
-		$(".lab-loc").text(labloc);
-		$(".lab").text(lab);
+		$(".location").text(location);
+		$(".condition").text(condition);
 		$(".temp").text(temp).append("<sup>o</sup>C");
 		$("#humidity").text(humidity).append('<span class="percentage"> %</span>');
 		$("#pressure").text(pressure).append('<span class="units"> hpa</span>');
@@ -98,8 +98,8 @@ var weather_description = { 200 : "Enjoy the Drizzingling Rain with music" , 201
             console.log(data);
             if(data.cod === 200)
             {
-	            $(".lab-loc").text(data.name);
-	            $(".lab").text(data.weather[0].description);
+	            $(".location").text(data.name);
+	            $(".location").text(data.weather[0].description);
 	            temp = data.main.temp - 273.15;
 	            temp_celcius = (temp).toFixed(1);
 	            $(".temp").text(temp_celcius).append("<sup>o</sup>C");

@@ -7,6 +7,11 @@ var week = { 0 : "Sunday", 1 : "Monday", 2 : "Tuesday", 3 : "Wednesday", 4 : "Th
         $("#location").text(loc);
         $("#wel").text("Weekly Weather");
         weather_get();
+         document.addeventListner("backbutton", function(){
+            var home = "../www/index.html";    
+            $(location).attr('href',home);
+        }, false);
+        
     });
 
     function weather_get()

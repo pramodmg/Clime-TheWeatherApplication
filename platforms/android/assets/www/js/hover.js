@@ -1,5 +1,4 @@
 $("#circle").on("click", function(evr) {
-    // Your code for circle click
     toggle();
 });
 
@@ -20,9 +19,7 @@ function toggle()
 
 function move_circle()
 {
-	$("#cir1").fadeOut();
-	$("#cir2").fadeOut();
-	$("#cir3").fadeOut();
+	move_circle_1();
     $(".fa-tint").show();
     $("#wind").show();
     $(".fa-tachometer").show();
@@ -31,25 +28,30 @@ function move_circle()
     $("#humidity").show();
     $("#pressure").show();
     $("#desc").show();
-    move_circle_1();
 }
 
 function move_circle_1() {
-    if (wi <= 480){
-        // $("p.testp").text('Screen width is less than or equal to 480px. Width is currently: ' + wi + 'px.');
-		$("#circle").animate({width :"+580px",height :"+580px",'margin-bottom':"0",left : "-18%"},"fast");
+
+	if(wi == 320)
+	{
+		$("#circle").animate({width :"570px",height :"570px",'margin-bottom':"0",left : "-23%"},"fast");
+		$(".condition").animate({top : "90px"},"fast");
 		$("#circle").css({position : "relative"});
 		$("#cen").css({overflow :"hidden",position :"fixed"});
-        }
-    else if (wi <= 767){
-        $("p.testp").text('Screen width is between 481px and 767px. Width is currently: ' + wi + 'px.');
-        }
-    else if (wi <= 980){
-        $("p.testp").text('Screen width is between 768px and 980px. Width is currently: ' + wi + 'px.');
-        }
-    else if (wi <= 1200){
-        $("p.testp").text('Screen width is between 981px and 1199px. Width is currently: ' + wi + 'px.');
-        }
+	}
+    if (wi >= 350 && wi <= 480)
+    {
+		$("#circle").animate({width :"580px",height :"580px",'margin-bottom':"0",left : "-18%"},"fast");
+		$("#circle").css({position : "relative"});
+		$("#cen").css({overflow :"hidden",position :"fixed"});
+    }
+
+    if (wi = 1280)
+    {
+		$("#circle").animate({width :"880px",height :"880px",'margin-bottom':"0",left : "30%"},"fast");
+		$("#circle").css({position : "relative"});
+		$("#cen").css({position :"fixed"});
+    }
     else {
         $("p.testp").text('Screen width is greater than 1200px. Width is currently: ' + wi + 'px.');
         }
@@ -57,19 +59,17 @@ function move_circle_1() {
 
 function move_cicle_1_back()
 {
-    if (wi <= 480){
+	if(wi == 320)
+	{
+		$("#circle").animate({width :"210px",height :"210px",'margin-bottom':"-80px",left :"0%"},"fast");
+		$(".condition").animate({top : "70px"},"fast");
+		$("#circle").css({position : "relative"});
+		$("#cen").css({overflow :"visible",position:"fixed"});
+	}
+    if (wi >= 350 && wi <= 480){
 		$("#circle").animate({width :"240px",height :"240px",'margin-bottom':"-80px",left : "0%"},"fast");
-		$("#circle").css({position : "visible"});
+		// $("#circle").css({position : "visible"});
 		$("#cen").css({overflow : "visible",position :"relative"});
-        }
-    else if (wi <= 767){
-        $("p.testp").text('Screen width is between 481px and 767px. Width is currently: ' + wi + 'px.');
-        }
-    else if (wi <= 980){
-        $("p.testp").text('Screen width is between 768px and 980px. Width is currently: ' + wi + 'px.');
-        }
-    else if (wi <= 1200){
-        $("p.testp").text('Screen width is between 981px and 1199px. Width is currently: ' + wi + 'px.');
         }
     else {
         $("p.testp").text('Screen width is greater than 1200px. Width is currently: ' + wi + 'px.');
@@ -119,6 +119,12 @@ $(document).ready(function(){
     $("#humidity").hide();
     $("#pressure").hide();
     $("#desc").hide();
+
+    document.addEventListener("backbutton", onback , false);
+    function onback()
+    {
+    	alert("hello");
+    }
 });
 
 function nextpage(invokeElm)

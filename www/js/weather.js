@@ -68,12 +68,13 @@
             console.log(data);
             if(data.cod === 200 && data.name === ""){
                 console.log(data.weather[0].main);
+                console.log(data.name);
                 window.localStorage.setItem("location",data.name);
-                $(".lab").text(data.weather[0].description);
-                window.localStorage.setItem("lab",data.weather[0].description);
-                $(".lab-loc").text(data.name).append('<span>N/A</span>');
+                $(".condition").text(data.weather[0].description);
+                window.localStorage.setItem("condition",data.weather[0].description);
+                $(".location").text(data.name).append('<span>N/A</span>');
                 var data_name = "N/A";
-                window.localStorage.setItem("lab-loc",data_name);
+                window.localStorage.setItem("location",data_name);
                 temp = data.main.temp - 273.15;
                 temp_celcius = (temp).toFixed(1);
                 $(".temp").text(temp_celcius).append("<sup>o</sup>C");
@@ -92,11 +93,12 @@
                 window.localStorage.setItem("flag",flag1);
             } else if(data.cod === 200){
                 console.log(data.weather[0].main);
+                console.log(data.name);
                 window.localStorage.setItem("location",data.name);
-                $(".lab").text(data.weather[0].description);
-                window.localStorage.setItem("lab",data.weather[0].description);
-                $(".lab-loc").text(data.name);
-                window.localStorage.setItem("lab-loc",data.name);
+                $(".condition").text(data.weather[0].description);
+                window.localStorage.setItem("condition",data.weather[0].description);
+                $(".location").text(data.name);
+                window.localStorage.setItem("location",data.name);
                 temp = data.main.temp - 273.15;
                 temp_celcius = (temp).toFixed(1);
                 $(".temp").text(temp_celcius).append("<sup>o</sup>C");
