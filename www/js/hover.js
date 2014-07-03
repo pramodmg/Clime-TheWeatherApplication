@@ -87,7 +87,8 @@ function move_circle_1() {
 
     else if(wi >=651 && wi <=900)
     {
-    	$("#circle").animate({width :"650px",height :"650px",'margin-bottom' :"0",left : "-40px"},"fast");
+    	$("#circle").animate({top :"170px"});
+    	$("#circle").animate({width :"650px",height :"650px",'margin-bottom' :"0",left : "0px"},"fast");
 		$("#circle").css({position : "relative"});
 		$("#cir1").hide();
 		$("#cir2").hide();
@@ -169,6 +170,12 @@ function move_cicle_1_back()
     	$("#cir1").fadeIn();
     	$("#cir2").fadeIn();
     	$("#cir3").fadeIn();
+    	$("#circle").animate({top :"0px"},"fast",function(){
+    							$("#cir1").fadeIn();
+								$("#cir2").fadeIn();
+								$("#cir3").fadeIn();
+							});
+
     }
 
     else if(wi === 1024)

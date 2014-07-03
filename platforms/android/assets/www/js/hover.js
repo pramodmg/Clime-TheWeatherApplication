@@ -74,6 +74,27 @@ function move_circle_1() {
 		$("#cir3").hide();
     }
 
+
+    else if(wi >=571 && wi <=650)
+    {
+    	$("#circle").animate({top :"170px"});
+    	$("#circle").animate({width :"600px",height :"600px",'margin-bottom' :"0"},"fast");
+		$("#circle").css({position : "relative"});
+		$("#cir1").hide();
+		$("#cir2").hide();
+		$("#cir3").hide();
+    }
+
+    else if(wi >=651 && wi <=900)
+    {
+    	$("#circle").animate({top :"170px"});
+    	$("#circle").animate({width :"650px",height :"650px",'margin-bottom' :"0",left : "0px"},"fast");
+		$("#circle").css({position : "relative"});
+		$("#cir1").hide();
+		$("#cir2").hide();
+		$("#cir3").hide();
+    }
+
     else if(wi === 1024)
     {
     	$("#circle").animate({width :"650px",height :"650px",'margin-bottom' :"0",left : "0px"},"fast");
@@ -103,7 +124,7 @@ function move_cicle_1_back()
 		$("#circle").animate({width :"220px",height :"220px",'margin-bottom':"-80px",left :"0%"},"fast");
 		$("#circle").css({position : "relative"});
 		$(".icon1").css({position:"relative",left:"0%"})
-		$(".condition").css({top : "39%"},"fast");
+		$(".condition").css({top : "32%"},"fast");
 		$("#cen").css({overflow :"visible",position : "relative"});
 		// alert("here");
 	}
@@ -132,9 +153,37 @@ function move_cicle_1_back()
 		$("#cen").css({overflow : "hidden"});	
     }
 
+    else if(wi >=571 && wi <=650)
+    {
+    	$("#circle").animate({width :"420px",height :"420px",'margin-bottom' :"0"},"fast");
+		$("#circle").css({position : "relative"});
+    	$("#circle").animate({top :"0px"},"fast",function(){
+    							$("#cir1").show();
+								$("#cir2").show();
+								$("#cir3").show();
+							});
+    }
+
+    else if(wi >=571 && wi <=900)
+    {
+    	$("#circle").animate({width :"300px",height :"300px",'margin-bottom' :"0",left : "0px"},"fast");
+    	$("#cir1").fadeIn();
+    	$("#cir2").fadeIn();
+    	$("#cir3").fadeIn();
+    	$("#circle").animate({top :"0px"},"fast",function(){
+    							$("#cir1").fadeIn();
+								$("#cir2").fadeIn();
+								$("#cir3").fadeIn();
+							});
+
+    }
+
     else if(wi === 1024)
     {
     	$("#circle").animate({width :"300px",height :"300px",'margin-bottom' :"0",left : "0px"},"fast");
+    	$("#cir1").fadeIn();
+    	$("#cir2").fadeIn();
+    	$("#cir3").fadeIn();
     }
   //   if (wi >= 451 && wi <= 500)
   //   {
@@ -147,11 +196,13 @@ function move_cicle_1_back()
         }
 
 }
+
 function move_circle_back()
 {
-	$("#cir1").show();
-	$("#cir2").show();
-	$("#cir3").show();
+    move_cicle_1_back();
+	// $("#cir1").show();
+	// $("#cir2").show();
+	// $("#cir3").show();
     $(".fa-tint").hide();
     $("#wind").hide();
     $(".fa-tachometer").hide();
@@ -160,7 +211,6 @@ function move_circle_back()
     $("#humidity").hide();
     $("#pressure").hide();
     $("#desc").hide();
-    move_cicle_1_back();
 }
 
 $("#cir3").on("click", function(evr) {

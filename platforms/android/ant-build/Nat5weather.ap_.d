@@ -70,6 +70,7 @@
 /var/www/html/Native5/platforms/android/assets/www/css/weather.css \
 /var/www/html/Native5/platforms/android/assets/www/css/index_weather.css \
 /var/www/html/Native5/platforms/android/assets/www/css/styles_weather.css \
+/var/www/html/Native5/platforms/android/assets/www/js/jqfloat.js \
 /var/www/html/Native5/platforms/android/assets/www/js/hover.js \
 /var/www/html/Native5/platforms/android/assets/www/js/transit.js \
 /var/www/html/Native5/platforms/android/assets/www/js/zepto.min.js \

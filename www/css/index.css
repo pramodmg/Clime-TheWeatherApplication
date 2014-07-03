@@ -440,7 +440,7 @@ font-style: normal;
 }
 
 /* width from 445px to 570px */
-@media all and (min-width : 446px) and (max-width: 570px) and (orientation: portrait) {
+@media all and (min-width : 446px) and (max-width: 570px) {
   #circle { 
      width: 320px;
      height: 320px;
@@ -560,6 +560,7 @@ font-style: normal;
      width: 420px;
      height: 420px;
      margin-top: 5%;
+     position: relative;
     }
 
   #cir1 { 

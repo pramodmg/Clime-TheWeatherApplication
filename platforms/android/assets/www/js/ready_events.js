@@ -122,6 +122,27 @@ var weather_description = { 200 : "Enjoy the Drizzingling Rain with music" , 201
         alert('code: '    + error.code    + '\n' +
               'message: ' + error.message + '\n');
     }
+// function antiGrav(ele, interval) { 
+//     var distance = 4;
+// 	$(ele).animate({
+// 		'position' : 'relative',
+//         'right' : "+=" + distance + "px",
+//         'left' : "+=" + distance + "px"
+// 	},interval,"linear",function(){
+// 		$(ele).animate({				
+            
+//             'right' : "-=" + distance + "px",
+//             'left' : "-=" + distance + "px"
+// 		},interval,"linear",function(){
+// 			antiGrav(ele, interval);
+//         });
+// 	});
+// }
 
-    
+// 	// $('#circle').click(function(){
+// 	    antiGrav('#circle', 1000); 
+// 	    antiGrav('#cir1', 1200); 
+// 	    antiGrav('#cir2', 1300); 
+// 	    antiGrav('#cir3', 1500); 
+// 	// });
 });
