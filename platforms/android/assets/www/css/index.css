@@ -324,7 +324,7 @@ font-style: normal;
   {
     font-size: 2em;
     color: white;
-    font-family: 'nexa_lightregular';
+    font-family: 'nexa_lightregular_bold';
     position: relative;
   }
 
@@ -335,6 +335,7 @@ font-style: normal;
     color: white;
     position: relative;
     top: 20px;
+    font-family: 'nexa_lightregular_bold';
   }
 
   .condition
@@ -350,7 +351,7 @@ font-style: normal;
   {
     font-size: 1.2em;
     margin-top: -70px;
-    font-family: 'nexa_lightregular';
+    font-family: 'nexa_lightregular_bold';
     color: white;
   }
 
@@ -359,6 +360,7 @@ font-style: normal;
     font-size: 0.9em;
     top: 55px;
     left: 10px;
+    font-family: 'nexa_lightregular_bold';
   }
 
 
@@ -430,7 +432,7 @@ font-style: normal;
     top: 220px;
     color: white;
     font-size: 1.6em;
-    font-family: 'nexa_lightregular';
+    font-family: 'nexa_lightregular_bold';
     z-index: 999;
     text-align: center;
     width: 100%;
@@ -536,6 +538,11 @@ font-style: normal;
     top: 270px;
   }
 
+  #cen
+  {
+    overflow: hidden;
+    position: fixed;
+  }
 }
 /* Smartphones (portrait and landscape) ----------- */
 /* Iphone 5 */

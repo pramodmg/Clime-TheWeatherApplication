@@ -52,15 +52,15 @@ function move_circle_1() {
 		// $("#cir2").hide();
 		// $("#cir3").hide();
     }
-    else if(wi == 480)
+    else if(wi === 480)
     {
     	$("#circle").animate({width :"790px",height :"790px",left : "-155px"},"fast");
 		$(".icon1").css({position:"relative",left:"-1%"});
 		$("#circle").css({position : "relative"});
 		$("#cen").css({overflow : "hidden",position :"fixed"});	
-		// $("#cir1").hide();
-		// $("#cir2").hide();
-		// $("#cir3").hide();
+		$("#cir1").hide();
+		$("#cir2").hide();
+		$("#cir3").hide();
     }
 
     else if(wi >=446 && wi<=570)
@@ -101,19 +101,23 @@ function move_cicle_1_back()
 		// alert("here");
 	}
 
-    if (wi >= 350 && wi <= 450)
+    else if (wi >= 350 && wi <= 450)
     {
 		$("#circle").animate({width :"240px",height :"240px",'margin-bottom':"-80px",left : "0%"},"fast");
 		// $("#circle").css({position : "visible"});
 		$("#cen").css({overflow : "visible",position :"relative"});
     }
 
-    if(wi === 480)
+    else if(wi === 480)
     {
-		$(".condition").css({top : "60%"},"fast");
+    	$("#circle").animate({width :"320px",height :"320px",'margin-bottom' :"0",left : "0px"},"fast");
+		$(".icon1").css({position:"relative",left:"0%"});
+		$("#circle").css({position : "relative"});
+		$("#cen").css({overflow : "hidden"});	
+		// $(".condition").css({top : "60%"},"fast");
     }
 
-    if(wi >=446 && wi<=570)
+    else if(wi >=446 && wi<=570)
     {
     	$("#circle").animate({width :"320px",height :"320px",'margin-bottom' :"0",left : "0px"},"fast");
 		$(".icon1").css({position:"relative",left:"-1%"});
@@ -121,12 +125,12 @@ function move_cicle_1_back()
 		$("#cen").css({overflow : "hidden"});	
     }
 
-    if (wi >= 451 && wi <= 500)
-    {
-		$("#circle").animate({width :"300px",height :"300px",left : "0%"},"fast");
-		// $("#circle").css({position : "visible"});
-		$("#cen").css({overflow : "visible",position :"relative"});
-    }
+  //   if (wi >= 451 && wi <= 500)
+  //   {
+		// $("#circle").animate({width :"300px",height :"300px",left : "0%"},"fast");
+		// // $("#circle").css({position : "visible"});
+		// $("#cen").css({overflow : "visible",position :"relative"});
+  //   }
     else {
         $("p.testp").text('Screen width is greater than 1200px. Width is currently: ' + wi + 'px.');
         }
