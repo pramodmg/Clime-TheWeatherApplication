@@ -74,6 +74,13 @@ function move_circle_1() {
 		$("#cir3").hide();
     }
 
+    else if(wi === 1024)
+    {
+    	$("#circle").animate({width :"650px",height :"650px",'margin-bottom' :"0",left : "0px"},"fast");
+    	$("#cir1").fadeOut();
+    	$("#cir2").fadeOut();
+    	$("#cir3").fadeOut();
+    }
   //   if (wi >= 451 && wi<=500)
   //   {
 		// $("#circle").animate({width :"790px",height :"790px",left : "-155px"},"fast");
@@ -125,6 +132,10 @@ function move_cicle_1_back()
 		$("#cen").css({overflow : "hidden"});	
     }
 
+    else if(wi === 1024)
+    {
+    	$("#circle").animate({width :"300px",height :"300px",'margin-bottom' :"0",left : "0px"},"fast");
+    }
   //   if (wi >= 451 && wi <= 500)
   //   {
 		// $("#circle").animate({width :"300px",height :"300px",left : "0%"},"fast");

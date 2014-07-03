@@ -544,6 +544,103 @@ font-style: normal;
     position: fixed;
   }
 }
+
+/* IPAD 2/4 */
+@media all and (max-width: 1024px) and (max-height: 768px){
+  
+  body
+  {
+    position: fixed;
+    width: 100%;
+  }
+
+  .icon1 
+  {
+    font-size: 9em;
+    position: relative;
+    top: 7px;
+  }
+
+  .condition
+  {
+    position: relative;
+    top: 0px;
+    font-size: 1.2em;
+    font-family: 'nexa_lightregular_bold';
+  }
+
+  .location
+  {
+    font-family: 'nexa_lightregular_bold';
+    position: relative;
+    top: -15px;
+  }
+
+  .temp
+  {
+    font-family: 'nexa_lightregular_bold';
+  }
+
+  .geo
+  {
+    position: relative;
+    top: -52px;
+    font-size: 6em;
+  }
+
+  .date-style
+  {
+    font-family: 'nexa_lightregular_bold';
+  }
+
+  .month
+  {
+    font-family: 'nexa_lightregular_bold';
+  }
+
+  .pos
+  {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    top: 120%;
+    color: white;
+    font-size: 2.3em;
+  }
+
+  .left
+  {
+    font-size: 3em;
+    text-align: center;
+    left: 5%;
+    color: white;
+  }
+
+  .right
+  {
+    font-size: 3em;
+    text-align: center;
+    right: 5%;
+    color: white;
+  }
+
+  .left1
+  {
+    text-align: center;
+    font-size: 3em;
+    position: relative;
+    top: 390px;
+  }
+
+  .home-icon
+  {
+    font-size: 5em;
+    position: absolute;
+    top: 70px;
+    color: rgba(0,204,255, 0.6);
+  }
+}
+
 /* Smartphones (portrait and landscape) ----------- */
 /* Iphone 5 */
 @media all and (max-width : 320px) and (max-height : 568px) and (orientation: portrait) {
