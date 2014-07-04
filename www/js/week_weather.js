@@ -7,7 +7,7 @@ var week = { 0 : "Sunday", 1 : "Monday", 2 : "Tuesday", 3 : "Wednesday", 4 : "Th
         $("#location").text(loc);
         $("#wel").text("Weekly Weather");
         weather_get();
-         document.addeventListner("backbutton", function(){
+         document.addEventListner("backbutton", function(){
             var home = "../www/index.html";    
             $(location).attr('href',home);
         }, false);
@@ -39,9 +39,9 @@ var week = { 0 : "Sunday", 1 : "Monday", 2 : "Tuesday", 3 : "Wednesday", 4 : "Th
             
             for(var i=0;i<=6;i++)
             {
-                min[i]=(data.list[i].temp.min.toFixed(1)-273.15).toFixed(1);
+                min[i]=(data.list[i].temp.min.toFixed(0)-273.15).toFixed(0);
                 // alert(cel[i]);
-                max[i]=(data.list[i].temp.max.toFixed(1)-273.15).toFixed(1);
+                max[i]=(data.list[i].temp.max.toFixed(0)-273.15).toFixed(0);
             }
             $("#mon").text(min[0]).append("<sup>o</sup>C").append("<span> - </span>").append(max[0]).append("<sup>o</sup>C");
             $("#tue").text(min[1]).append("<sup>o</sup>C").append("<span> - </span>").append(max[1]).append("<sup>o</sup>C");

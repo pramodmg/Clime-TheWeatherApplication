@@ -429,9 +429,9 @@ font-style: normal;
   .pos
   {
     position: fixed;
-    top: 220px;
+    top: 205px;
     color: white;
-    font-size: 1.6em;
+    font-size: 1.3em;
     font-family: 'nexa_lightregular_bold';
     z-index: 999;
     text-align: center;
