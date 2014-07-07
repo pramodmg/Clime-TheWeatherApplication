@@ -7,10 +7,6 @@ var week = { 0 : "Sunday", 1 : "Monday", 2 : "Tuesday", 3 : "Wednesday", 4 : "Th
         $("#location").text(loc);
         $("#wel").text("Weekly Weather");
         weather_get();
-         document.addEventListner("backbutton", function(){
-            var home = "../www/index.html";    
-            $(location).attr('href',home);
-        }, false);
         
     });
 
@@ -34,8 +30,8 @@ var week = { 0 : "Sunday", 1 : "Monday", 2 : "Tuesday", 3 : "Wednesday", 4 : "Th
             var da = myDate.getDay();
             console.log(week[da]);
             var x = "#" + da;
-            var y = "#day" + da;
-            $(y).append("<sup>*</sup>");
+            // var y = "#day" + da;
+            $(x).css("font-weight","bold");
             
             for(var i=0;i<=6;i++)
             {
@@ -59,6 +55,11 @@ var week = { 0 : "Sunday", 1 : "Monday", 2 : "Tuesday", 3 : "Wednesday", 4 : "Th
             return da;
         }       
         $("#home").on("click",function(){
+            var home = "../www/index.html";    
+            $(location).attr('href',home);
+        });
+
+        $("#back").on("click",function(){
             var home = "../www/index.html";    
             $(location).attr('href',home);
         });

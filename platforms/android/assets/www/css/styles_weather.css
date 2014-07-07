@@ -7,30 +7,25 @@ body {
 {
     color: white;
     font-weight: bold;
-    margin-top: 0px;
     font-size: 2em;
+    margin: 0%;
 }
 
 .frame {
-    position:absolute;
-    top:0px;
-    right:0px;
-    bottom:0px;
-    left:0px;
-    background-color: rgba(0,204,255, 08);;
+    position:relative;
+    background-color: rgba(0,204,255, 08);
+    color: white;
+    margin: 0%;
+    height: 100%;
+    width: 100%;
 }
 
-.page-container {
-    position:absolute;
-    top:20px;
-    right:20px;
-    bottom:20px;
-    left:20px;
-    overflow: hidden;
-    -webkit-transform:translate3d(0,0,0);
-    color: white;
-    text-decoration: bold;
+.dotted
+{
+    border-bottom: 3px dashed #CCFFFF;
+    text-decoration: none; 
 }
+
 
 .transition {
     -moz-transition-duration: .250s;

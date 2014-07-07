@@ -33,12 +33,13 @@
     <body>
     <script type="text/javascript" src="js/index.js"></script>
     <div class="frame">
-        <div  id="container" class="page-container">
-        <div id="page1" class="transition page stage-center">
-                <h1>Weekly Weather </h1>
-            <div class="text-container">
-                <div class="pos left"> Week Days </div>
-                <div class="pos right"> Max - Min </div>
+            <div class="top">
+                <span class="back"  id="back"><i class="fa fa-chevron-left"></i> Back </span>
+                <div class="main"> Forecast </div>
+            </div>
+            <div class="text-container" id="header">
+                <div class="pos left"> <u class="dotted">Week Days</u> </div>
+                <div class="pos right"> <u class="dotted">Max - Min</u> </div>
             </div>
             <div class="text-container" id="1">
                 <div class="pos left" id="day1"> Monday </div>
@@ -68,11 +69,13 @@
                 <div class="pos left" id="day7"> Sunday </div>
                 <div class="pos right" id="sun"> -- </div>
             </div>
+        
+          <!--   <center>
             <div id="cle">
             <i class="fa fa-home home" id="home"></i>
             </div>
-        </div>
-    </div>
+            </center> -->
+            </div>
 <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src="js/week_weather.js "></script>
     </body>

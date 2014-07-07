@@ -71,10 +71,10 @@
             if(data.cod === 200 && data.name === ""){
                 console.log(data.weather[0].main);
                 console.log(data.name);
-                console.log("hello");
-                alert(color_codes[data.weather[0].main]);
-                $("#circle").css(background,color_codes[data.weather[0].main]);
-
+                $("#circle").css("background",color_codes[data.weather[0].main]);
+                $("#cir1").css("background",color_codes[data.weather[0].main]);
+                $("#cir2").css("background",color_codes[data.weather[0].main]);
+                $("#cir3").css("background",color_codes[data.weather[0].main]);
                 window.localStorage.setItem("location",data.name);
                 $(".condition").text(data.weather[0].description);
                 window.localStorage.setItem("condition",data.weather[0].description);

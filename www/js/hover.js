@@ -243,13 +243,15 @@ $(document).ready(function(){
     $("#humidity").hide();
     $("#pressure").hide();
     $("#desc").hide();
-
-    document.addEventListener("backbutton", onback , false);
-    function onback()
-    {
-    	alert("hello");
-    }
+    $(".info").hide();
 });
+
+$("#show").on("click",function(){
+	$(".info").toggle();
+	// alert("hell");
+});
+
+
 
 function nextpage(invokeElm)
 {

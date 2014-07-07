@@ -24,6 +24,8 @@
                   950 : "Weather is plesent" , 951 : "Feel relaxed", 952 : "Enjoy the wind", 953 : "You will enjoy the Wind flow" ,954 : "Windy Weather", 955 : "Try to store this fresh breeze", 956 : "Dont fly away" , 957 : "Dont fly away", 958: "Protect your head" , 959 : "Wear a helmet",
                   960 : "Storm comming up" , 961 : "Revenge mode activated", 962 : "Round Round Round"};
 
+    var color_codes ={ Haze : "rgba(128,128,128,0.6)", Clouds : "rgba(0,192,255,0.6)" , Clear : "rgba(255,176,0,0.6)" , Rain : "rgba(51,204,255,0.6)"};
+
     $("#cir1").on("click",function(){
         document.getElementById('input_location').value="";
         // document.input_location.focus();
@@ -69,6 +71,10 @@
             if(data.cod === 200 && data.name === ""){
                 console.log(data.weather[0].main);
                 console.log(data.name);
+                $("#circle").css("background",color_codes[data.weather[0].main]);
+                $("#cir1").css("background",color_codes[data.weather[0].main]);
+                $("#cir2").css("background",color_codes[data.weather[0].main]);
+                $("#cir3").css("background",color_codes[data.weather[0].main]);
                 window.localStorage.setItem("location",data.name);
                 $(".condition").text(data.weather[0].description);
                 window.localStorage.setItem("condition",data.weather[0].description);
@@ -94,6 +100,10 @@
             } else if(data.cod === 200){
                 console.log(data.weather[0].main);
                 console.log(data.name);
+                $("#circle").css("background",color_codes[data.weather[0].main]);
+                $("#cir1").css("background",color_codes[data.weather[0].main]);
+                $("#cir2").css("background",color_codes[data.weather[0].main]);
+                $("#cir3").css("background",color_codes[data.weather[0].main]);
                 window.localStorage.setItem("location",data.name);
                 $(".condition").text(data.weather[0].description);
                 window.localStorage.setItem("condition",data.weather[0].description);

@@ -4,6 +4,10 @@ $("#circle").on("click", function(evr) {
 
 var flag = true;
 var wi = $(window).width();
+var hi = $(window).height();
+console.log(wi);
+console.log(hi);
+
 
 function toggle()
 {
@@ -36,7 +40,7 @@ function move_circle_1() {
 	{
 		$("#circle").animate({width :"500px",height :"500px",'margin-bottom':"0",left : "-17%"},"fast");
 		$(".icon1").css({position:"relative",left:"-1%"})
-		$(".condition").css({top : "21%"},"fast");
+		$(".condition").css({top : "18%"},"fast");
 		$("#circle").css({position : "relative"});
 		$("#cen").css({overflow :"hidden",position :"fixed"});
 		// $("#cir1").hide();
@@ -239,13 +243,15 @@ $(document).ready(function(){
     $("#humidity").hide();
     $("#pressure").hide();
     $("#desc").hide();
-
-    document.addEventListener("backbutton", onback , false);
-    function onback()
-    {
-    	alert("hello");
-    }
+    $(".info").hide();
 });
+
+$("#show").on("click",function(){
+	$(".info").toggle();
+	// alert("hell");
+});
+
+
 
 function nextpage(invokeElm)
 {

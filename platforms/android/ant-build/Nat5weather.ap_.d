@@ -38,6 +38,7 @@
 /var/www/html/Native5/platforms/android/assets/www/js \
 /var/www/html/Native5/platforms/android/assets/www/img \
 /var/www/html/Native5/platforms/android/assets/www/weather_show.html \
+/var/www/html/Native5/platforms/android/assets/www/Demo.html \
 /var/www/html/Native5/platforms/android/assets/www/fonts/fontawesome-webfont.ttf \
 /var/www/html/Native5/platforms/android/assets/www/fonts/nexa_free_light-webfont.ttf \
 /var/www/html/Native5/platforms/android/assets/www/fonts/FFF_EULA_license.pdf \
@@ -86,6 +87,7 @@
 /var/www/html/Native5/platforms/android/assets/www/js/bootstrap.min.js \
 /var/www/html/Native5/platforms/android/assets/www/js/swipe.js \
 /var/www/html/Native5/platforms/android/assets/www/js/svgLoader.js \
+/var/www/html/Native5/platforms/android/assets/www/js/demo.js \
 /var/www/html/Native5/platforms/android/assets/www/js/jquery-2.1.1.min.js \
 /var/www/html/Native5/platforms/android/assets/www/img/sunny_cloud.png \
 /var/www/html/Native5/platforms/android/assets/www/img/logo.png \

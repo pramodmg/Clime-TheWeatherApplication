@@ -189,6 +189,39 @@ font-weight: normal;
 font-style: normal;
 }
 
+.info
+{
+  width: 80%;
+  height: 100%;
+  position: fixed;
+  float: left;
+  color: red;
+  text-align: center;
+  background-color: white;
+  z-index: 9999;
+}
+
+.place
+{
+  text-align: left;
+  padding-top: 5%;
+  line-height: 25px;
+  list-style-type: none;
+}
+
+.loc-style
+{
+  border-style: solid;
+  width: 100%;
+}
+
+.circle
+{
+  position: fixed;
+  right: 10%;
+  font-size: 2em;
+}
+
 .temp
 {
   font-size: 2em;
@@ -429,9 +462,9 @@ font-style: normal;
   .pos
   {
     position: fixed;
-    top: 220px;
+    top: 205px;
     color: white;
-    font-size: 1.6em;
+    font-size: 1.3em;
     font-family: 'nexa_lightregular_bold';
     z-index: 999;
     text-align: center;
@@ -705,6 +738,60 @@ font-style: normal;
   .home
   {
 
+  }
+}
+
+@media all and (min-width: 651px) and (max-width: 900px) {
+  .pos
+  {
+    top: 430px;
+    position: absolute;
+    color: white;
+    z-index: 9999;
+    text-align: center;
+    width: 100%;
+    font-size: 2em;
+  }
+
+  .left
+  {
+    font-size: 3em;
+    text-align: center;
+    left: 5%;
+    color: white;
+    z-index: 999;
+    position: relative;
+    top: 520px;
+  }
+
+  .right
+  {
+    font-size: 3em;
+    text-align: center;
+    right: 5%;
+    color: white;
+    z-index: 999;
+    position: relative;
+    top: 520px;
+  }
+
+  .left1
+  {
+    z-index: 999;
+    position: relative;
+    font-size: 3em;
+    top: 540px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .home-icon
+  {
+    font-size: 5em;
+    position: absolute;
+    top: 8px;
+    left: 655px;
+    color: rgba(0,204,255, 0.6);
   }
 }
 
