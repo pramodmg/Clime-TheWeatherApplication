@@ -189,7 +189,7 @@ font-weight: normal;
 font-style: normal;
 }
 
-.info
+/*.info
 {
   width: 80%;
   height: 100%;
@@ -220,7 +220,12 @@ font-style: normal;
   position: fixed;
   right: 10%;
   font-size: 2em;
-}
+}*/
+/*
+.yo
+{
+  font-size: 3em;
+}*/
 
 .temp
 {

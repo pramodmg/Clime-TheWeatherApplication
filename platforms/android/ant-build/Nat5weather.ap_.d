@@ -60,6 +60,7 @@
 /var/www/html/Native5/platforms/android/assets/www/fonts/stylesheet.css \
 /var/www/html/Native5/platforms/android/assets/www/fonts/meteocons-webfont.svg \
 /var/www/html/Native5/platforms/android/assets/www/css/font-awesome.min.css \
+/var/www/html/Native5/platforms/android/assets/www/css/demo.css \
 /var/www/html/Native5/platforms/android/assets/www/css/bootstrap-theme.css.map \
 /var/www/html/Native5/platforms/android/assets/www/css/font-awesome.css \
 /var/www/html/Native5/platforms/android/assets/www/css/bootstrap.min.css \
@@ -82,12 +83,14 @@
 /var/www/html/Native5/platforms/android/assets/www/js/week_weather.js \
 /var/www/html/Native5/platforms/android/assets/www/js/index.js \
 /var/www/html/Native5/platforms/android/assets/www/js/ready_events.js \
+/var/www/html/Native5/platforms/android/assets/www/js/movement.js \
 /var/www/html/Native5/platforms/android/assets/www/js/testfx.min.js \
 /var/www/html/Native5/platforms/android/assets/www/js/classie.js \
 /var/www/html/Native5/platforms/android/assets/www/js/bootstrap.min.js \
 /var/www/html/Native5/platforms/android/assets/www/js/swipe.js \
 /var/www/html/Native5/platforms/android/assets/www/js/svgLoader.js \
 /var/www/html/Native5/platforms/android/assets/www/js/demo.js \
+/var/www/html/Native5/platforms/android/assets/www/js/hammer.js \
 /var/www/html/Native5/platforms/android/assets/www/js/jquery-2.1.1.min.js \
 /var/www/html/Native5/platforms/android/assets/www/img/sunny_cloud.png \
 /var/www/html/Native5/platforms/android/assets/www/img/logo.png \

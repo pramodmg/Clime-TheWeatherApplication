@@ -78,7 +78,7 @@ body,html
   padding-top: 5%;
 }
 
-#cle { 
+/*#cle { 
   width: 60px;
   height: 60px;
   background: white; 
@@ -86,7 +86,6 @@ body,html
   -webkit-border-radius: 70px; 
   border-radius: 50%;   
   position: relative;
-  /*left: 50%;*/
   box-shadow: 2px 2px 3px grey;
   color: rgba(0,204,255,1);
   background-color: #0F3B5F;
@@ -100,8 +99,7 @@ body,html
   width: 100%;
   left: 0;
   top: 8%;
-}
-
+}*/
 .right
 {
   display: inline-block;
@@ -115,8 +113,9 @@ body,html
 .text-container
 {
   padding-left: 5%;
-  line-height: 300%;
+  line-height: 170%;
 }
+
 h1
 {
   margin: 0%;
@@ -162,7 +161,7 @@ font-style: normal;
 
 @media all (min-width: 320px) and (max-width: 800px){
   .text-container{
-    line-height: 300%;
+    line-height: 250%;
   }
 }
 

@@ -9,6 +9,7 @@ console.log(wi);
 console.log(hi);
 
 
+
 function toggle()
 {
 	if(flag)
@@ -246,15 +247,10 @@ $(document).ready(function(){
     $(".info").hide();
 });
 
-$("#show").on("click",function(){
-	$(".info").toggle();
-	// alert("hell");
-});
-
-
-
 function nextpage(invokeElm)
 {
 	var url = "../www/weather_show.html";    
 	$(location).attr('href',url);
 }
+
+
