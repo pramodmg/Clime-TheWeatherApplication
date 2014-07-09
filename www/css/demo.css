@@ -4,3 +4,26 @@
 	height : 300px;
 	background-color: pink;
 }
+
+#circle { 
+   width: 200px;
+   height: 200px;
+   background: rgba(0,204,255, 0.6); 
+   -moz-border-radius: 70px; 
+   -webkit-border-radius: 70px; 
+   border-radius: 50%;  
+   text-align: center;
+   display: inline-block;
+}
+
+
+#circle2 { 
+   width: 200px;
+   height: 200px;
+   background: rgba(0,204,255, 0.6); 
+   -moz-border-radius: 70px; 
+   -webkit-border-radius: 70px; 
+   border-radius: 50%;  
+   text-align: center;
+   display: inline-block; 
+}

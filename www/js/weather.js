@@ -95,7 +95,7 @@
                 window.localStorage.setItem("wind",weather_data.wind.speed);
                 $("#desc").text(weather_description[weather_data.weather[0].id]);
                 window.localStorage.setItem("description",weather_description[weather_data.weather[0].id]);
-                $(".icon1").attr("weather_data-icon",array[weather_data.weather[0].id]);
+                $(".icon1").attr("data-icon",array[weather_data.weather[0].id]);
                 window.localStorage.setItem("icon",weather_data.weather[0].id);
                 flag = true;
                 window.localStorage.setItem("flag",flag1);
@@ -114,7 +114,7 @@
                 $("#pressure").text(weather_data.main.pressure).append('<span class="units"> hpa</span>');
                 $("#wind").text(weather_data.wind.speed).append('<span class="units"> m/s</span');
                 $("#desc").text(weather_description[weather_data.weather[0].id]);
-                $(".icon1").attr("weather_data-icon",array[weather_data.weather[0].id]);
+                $(".icon1").attr("data-icon",array[weather_data.weather[0].id]);
                 flag = true;
             } else {
                 alert("location not found");
@@ -127,20 +127,31 @@
             weather: [],
             state: false
         };
+        var count = 0;
         var restoredSession = JSON.parse(localStorage.getItem('weather'));
 
-        console.log(restoredSession);
+        // console.log(restoredSession);
         
         if(!$.isEmptyObject(restoredSession)) {
+            var id=0;
            for(var i = 0 ; i <restoredSession.weather.length;i++){
-                weather.weather.push(restoredSession.weather[i]);
+                var x=restoredSession.weather[i];
+                x.id=id++;
+                weather.weather.push(x);
             }
-            weather.weather.push({"flag":flag1,"icon":weather_description[weather_data.weather[0].id],"description":weather_description[weather_data.weather[0].id],"wind":weather_data.wind.speed,"pressure":weather_data.main.pressure,"humidity":weather_data.main.humidity,"temp":temp_celcius,"location_name":weather_data.name,"condition":weather_data.weather[0].description});
+            count++;
+            console.log(count);
+
+            weather.weather.push({"id":id,"flag":flag1,"icon":weather_data.weather[0].id,"description":weather_description[weather_data.weather[0].id],"wind":weather_data.wind.speed,"pressure":weather_data.main.pressure,"humidity":weather_data.main.humidity,"temp":temp_celcius,"location_name":weather_data.name,"condition":weather_data.weather[0].description});
             localStorage.setItem('weather', JSON.stringify(weather));
+            window.localStorage.setItem("location",weather_data.name);
         }else {
             console.log("push the new data");
-            weather.weather.push({"flag":flag1,"icon":weather_description[weather_data.weather[0].id],"description":weather_description[weather_data.weather[0].id],"wind":weather_data.wind.speed,"pressure":weather_data.main.pressure,"humidity":weather_data.main.humidity,"temp":temp_celcius,"location_name":weather_data.name,"condition":weather_data.weather[0].description});
+            var id=0;
+
+            weather.weather.push({"id":id,"flag":flag1,"icon":weather_data.weather[0].id,"description":weather_description[weather_data.weather[0].id],"wind":weather_data.wind.speed,"pressure":weather_data.main.pressure,"humidity":weather_data.main.humidity,"temp":temp_celcius,"location_name":weather_data.name,"condition":weather_data.weather[0].description});
             localStorage.setItem('weather', JSON.stringify(weather));
+            window.localStorage.setItem("location",weather_data.name);
         }
 
         var restSession = JSON.parse(localStorage.getItem('weather'));
