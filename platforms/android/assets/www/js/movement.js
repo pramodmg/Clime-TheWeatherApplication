@@ -1,4 +1,6 @@
 // alert("hello");
+
+
 var ele = document.getElementById('move');
 var array = { 200 : "P" , 201 : "Q", 202 : "R", 210 : "O", 211 : "P", 212 : "Q", 221 : "P" , 230 : "Q" , 231 : "Q" , 232 : "R" ,
                   300 : "Q" , 301 : "Q", 302 : "R", 310 : "Q" ,311 : "R", 312 : "R", 313 : "R" , 314 : "X" , 321 : "T" ,
@@ -29,37 +31,95 @@ console.log("total length : " +length);
 console.log("count initailly : "+count);
 AnimateRotate(360);
 getdata(count);
-Hammer(ele).on("swipeleft", function(event) {
-	count++;
-	console.log("count is " + count);
-	if(count < length){
-	AnimateRotate(360);
-	// count++;
-	console.log(count);
-	getdata(count);
-	// count++;
-	}else{
-		console.log("end of inputs");
-		count=0;
-		AnimateRotate(360);
-		getdata(count);
-	}
-});
 
-Hammer(ele).on("swiperight", function(event){
-	console.log("count" + count);
-	AnimateRotate(-360);
-	if(count > 0 ){
-		AnimateRotate(-360);
-		count--;
-		getdata(count);
- 	}else{
- 	  	console.log("you hav reached first element");
- 	  	count = length-1;
- 	  	console.log(count);
- 	  	getdata(count);
- 	}
-});
+// Hammer(ele).on("swipeleft", function(event) {
+// 	count++;
+// 	console.log("count is " + count);
+// 	if(count < length){
+// 	AnimateRotate(360);
+// 	// count++;
+// 	console.log(count);
+// 	getdata(count);
+// 	// count++;
+// 	}else{
+// 		console.log("end of inputs");
+// 		count=0;
+// 		AnimateRotate(360);
+// 		getdata(count);
+// 	}
+// });
+
+// Hammer(ele).on("swiperight", function(event){
+// 	console.log("count" + count);
+// 	AnimateRotate(-360);
+// 	if(count > 0 ){
+// 		AnimateRotate(-360);
+// 		count--;
+// 		getdata(count);
+//  	}else{
+//  	  	console.log("you hav reached first element");
+//  	  	count = length-1;
+//  	  	console.log(count);
+//  	  	getdata(count);
+//  	}
+// });
+
+// $(document).on("click",function(){
+	$("body").swipe( {
+		// count = count+1;
+		swipeLeft:function(event, phase, direction, distance, duration, fingers, fingerData) {
+					count++;
+				console.log("count is " + count);
+				if(count < length){
+				AnimateRotate(360);
+				// count++;
+				console.log(count);
+				getdata(count);
+				// count++;
+				}else{
+					console.log("end of inputs");
+					count=0;
+					AnimateRotate(360);
+					getdata(count);
+				}
+				},
+		swipeRight:function(event, phase, direction, distance, duration, fingers, fingerData) {
+
+				console.log("count" + count);
+				AnimateRotate(-360);
+				if(count > 0 ){
+					AnimateRotate(-360);
+					count--;
+					getdata(count);
+			 	}else{
+			 	  	console.log("you hav reached first element");
+			 	  	count = length-1;
+			 	  	console.log(count);
+			 	  	getdata(count);
+					}
+		// 	},
+		// 	// swipe:function(event, phase, direction, distance, duration, fingers, fingerData) {
+		// 	// 	stop(target);
+		// 	// },
+		// tap:function(event,target){
+  //       console.log("should click");
+  //       stop(target);
+     	},
+		threshold:0,
+		fingers:1
+	});
+
+// function stop(target)
+// {
+// 	target.preventDefault();
+// 	$("#cir1").click(function() {
+//                console.log("yahooooo");
+//     });
+// }
+
+
+    
+
 
 function getdata(index)
 {
@@ -106,5 +166,7 @@ function AnimateRotate(d){
             });
         }
     });
-    $("#text").text("welcome");
+    // $("#text").text("welcome");
 }
+
+

@@ -36,6 +36,7 @@
 /var/www/html/Native5/platforms/android/assets/www/plugins \
 /var/www/html/Native5/platforms/android/assets/www/cordova.js \
 /var/www/html/Native5/platforms/android/assets/www/js \
+/var/www/html/Native5/platforms/android/assets/www/Single_swipe.html \
 /var/www/html/Native5/platforms/android/assets/www/img \
 /var/www/html/Native5/platforms/android/assets/www/weather_show.html \
 /var/www/html/Native5/platforms/android/assets/www/Demo.html \
@@ -71,12 +72,14 @@
 /var/www/html/Native5/platforms/android/assets/www/css/bootstrap-theme.css \
 /var/www/html/Native5/platforms/android/assets/www/css/weather.css \
 /var/www/html/Native5/platforms/android/assets/www/css/index_weather.css \
+/var/www/html/Native5/platforms/android/assets/www/css/main.css \
 /var/www/html/Native5/platforms/android/assets/www/css/styles_weather.css \
 /var/www/html/Native5/platforms/android/assets/www/js/jqfloat.js \
 /var/www/html/Native5/platforms/android/assets/www/js/hover.js \
 /var/www/html/Native5/platforms/android/assets/www/js/transit.js \
 /var/www/html/Native5/platforms/android/assets/www/js/zepto.min.js \
 /var/www/html/Native5/platforms/android/assets/www/js/snap.svg-min.js \
+/var/www/html/Native5/platforms/android/assets/www/js/main.js \
 /var/www/html/Native5/platforms/android/assets/www/js/iscroll.js \
 /var/www/html/Native5/platforms/android/assets/www/js/weather.js \
 /var/www/html/Native5/platforms/android/assets/www/js/cordova.js \
@@ -86,6 +89,8 @@
 /var/www/html/Native5/platforms/android/assets/www/js/movement.js \
 /var/www/html/Native5/platforms/android/assets/www/js/testfx.min.js \
 /var/www/html/Native5/platforms/android/assets/www/js/classie.js \
+/var/www/html/Native5/platforms/android/assets/www/js/jquery.ui.ipad.js \
+/var/www/html/Native5/platforms/android/assets/www/js/jquery.touchSwipe.min.js \
 /var/www/html/Native5/platforms/android/assets/www/js/bootstrap.min.js \
 /var/www/html/Native5/platforms/android/assets/www/js/swipe.js \
 /var/www/html/Native5/platforms/android/assets/www/js/svgLoader.js \

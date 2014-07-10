@@ -8,8 +8,6 @@ var hi = $(window).height();
 console.log(wi);
 console.log(hi);
 
-
-
 function toggle()
 {
 	if(flag)
