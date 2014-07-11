@@ -478,6 +478,27 @@ font-style: normal;
   }
 }
 
+@media all and (width: 480px){
+  .pos
+  {
+    position: relative;
+    top: 275px;
+    z-index: 999;
+    color: white;
+    font-size: 2em;
+    font-family: 'nexa_lightregular';
+  }
+
+  .left
+  {
+    top: 400px;
+  }
+
+  .right
+  {
+
+  }
+}
 /* width from 445px to 570px */
 @media all and (min-width : 446px) and (max-width: 570px) {
   #circle { 
@@ -585,7 +606,108 @@ font-style: normal;
     position: fixed;
   }
 }
+/* width of 540px and height of 960px*/
+@media all and (min-width: 540px) and (max-width: 960px){
+  #circle
+  {
+    width: 370px;
+    height: 370px;
+    margin-left: 3%;
+  }
 
+  #cir1
+  {
+    margin-left: 4%;
+  }
+
+  #cir2
+  {
+    margin-left: 45%;
+  }
+
+  #cir3
+  {
+    width: 300px;
+    height: 300px;
+    margin-left: 3%;
+  }
+  #cen
+  {
+    width: 100%;
+  }
+
+  .left
+  {
+    top: 360px;
+    font-size: 3.3em;
+    position: relative;
+    left: 0%; 
+    text-align: center;
+    z-index: 999;
+    color: white;
+  }
+
+  .right
+  {
+    top: 360px;
+    font-size: 3.3em;
+    position: relative;
+    right: 0%; 
+    text-align: center;
+    z-index: 999;
+    color: white;
+  }
+
+  .left1
+  {
+    top: 400px;
+    z-index: 999;
+    color: white;
+    /*font-size: 'nexa_lightregular';*/
+    font-size: 3.3em;
+    position: relative;
+    text-align: center;
+    line-height: 40px;
+  }
+
+  .home-icon
+  {
+    top: 685px;
+    position: fixed;
+    left: 41%;
+    font-size: 7em;
+    z-index: 1000;
+    color: white;
+  }
+
+  .pos
+  {
+    position: relative;
+    top: 315px;
+    z-index: 999;
+    color: white;
+    font-size: 2.5em;
+    font-family: 'nexa_lightregular';
+  }
+
+  .date-style
+  {
+    font-size: 5.6em;
+    color: white;
+    top: 70px;
+    font-family: 'nexa_lightregular';
+  }
+
+  .month
+  {
+    top: 80px;
+  }
+
+  .condition
+  {
+    font-size: 2em;
+  }
+}
 /*width of 571px to 900px*/
 @media all and (min-width: 571px) and (max-width: 650px){
 

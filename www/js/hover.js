@@ -48,8 +48,8 @@ function move_circle_1() {
 	}
     else if (wi >= 350 && wi <= 450)
     {
-		$("#circle").animate({width :"580px",height :"580px",'margin-bottom':"0",left : "-18%"},"fast");
 		$("#circle").css({position : "relative"});
+		$("#circle").animate({width :"580px",height :"580px",'margin-bottom':"0",left : "-18%"},"fast");
 		$("#cen").css({overflow :"hidden",position :"fixed"});
 		// $("#cir1").hide();
 		// $("#cir2").hide();
@@ -57,7 +57,7 @@ function move_circle_1() {
     }
     else if(wi === 480)
     {
-    	$("#circle").animate({width :"790px",height :"790px",left : "-155px"},"fast");
+    	$("#circle").animate({width :"730px",height :"730px",left : "-115px"},"fast");
 		$(".icon1").css({position:"relative",left:"-1%"});
 		$("#circle").css({position : "relative"});
 		$("#cen").css({overflow : "hidden",position :"fixed"});	
@@ -105,6 +105,7 @@ function move_circle_1() {
     	$("#cir2").fadeOut();
     	$("#cir3").fadeOut();
     }
+    
   //   if (wi >= 451 && wi<=500)
   //   {
 		// $("#circle").animate({width :"790px",height :"790px",left : "-155px"},"fast");
@@ -141,21 +142,36 @@ function move_cicle_1_back()
 
     else if(wi === 480)
     {
-    	$("#circle").animate({width :"320px",height :"320px",'margin-bottom' :"0",left : "0px"},"fast");
-		$(".icon1").css({position:"relative",left:"0%"});
+    	$("#circle").animate({width :"320px",height :"320px",'margin-bottom' :"0",left : "0px"},"fast",function(){
+    							$("#cir1").show();
+								$("#cir2").show();
+								$("#cir3").show();
+    	});
+		// $(".icon1").css({position:"relative",left:"0%"});
 		$("#circle").css({position : "relative"});
-		$("#cen").css({overflow : "hidden"});	
+		$("#cen").css({overflow : "visible"});	
 		// $(".condition").css({top : "60%"},"fast");
     }
-
+	else if(wi >=540 && hi <=960){
+    	$("#circle").animate({width :"370px",height :"370px",'margin-bottom' :"0",left : "0px"},"fast",function(){
+    		$("#cir1").show();
+			$("#cir2").show();
+			$("#cir3").show();
+    	});
+    }
     else if(wi >=446 && wi<=570)
     {
-    	$("#circle").animate({width :"320px",height :"320px",'margin-bottom' :"0",left : "0px"},"fast");
-		$(".icon1").css({position:"relative",left:"-1%"});
-		$("#circle").css({position : "relative"});
-		$("#cen").css({overflow : "hidden"});	
+    	$("#circle").animate({width :"320px",height :"320px",'margin-bottom' :"0",left : "0px"},"fast",function(){
+    		$("#cir1").show();
+			$("#cir2").show();
+			$("#cir3").show();
+    	});
+		// $(".icon1").css({position:"relative",left:"-1%"});
+		// $("#circle").css({position : "relative"});
+		// $("#cen").css({overflow : "hidden"});	
     }
 
+    
     else if(wi >=571 && wi <=650)
     {
     	$("#circle").animate({width :"420px",height :"420px",'margin-bottom' :"0"},"fast");
@@ -187,6 +203,11 @@ function move_cicle_1_back()
     	$("#cir1").fadeIn();
     	$("#cir2").fadeIn();
     	$("#cir3").fadeIn();
+    }
+
+    else if(wi <= 1025)
+    {
+    	$("#circle").animate({width :"300px",height :"300px",'margin-bottom' :"0",left : "0px"},"fast");
     }
   //   if (wi >= 451 && wi <= 500)
   //   {
