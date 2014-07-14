@@ -31,6 +31,7 @@ var week = { 0 : "Sunday", 1 : "Monday", 2 : "Tuesday", 3 : "Wednesday", 4 : "Th
             console.log(week[da]);
             var x = "#" + da;
             // var y = "#day" + da;
+            console.log(x);
             $(x).css("font-weight","bold");
             
             for(var i=0;i<=6;i++)

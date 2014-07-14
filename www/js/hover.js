@@ -105,7 +105,7 @@ function move_circle_1() {
     	$("#cir2").fadeOut();
     	$("#cir3").fadeOut();
     }
-    
+
   //   if (wi >= 451 && wi<=500)
   //   {
 		// $("#circle").animate({width :"790px",height :"790px",left : "-155px"},"fast");
@@ -117,7 +117,8 @@ function move_circle_1() {
   //   }
 
     else {
-        $("p.testp").text('Screen width is greater than 1200px. Width is currently: ' + wi + 'px.');
+    	$("#circle").animate({width :"650px",height :"650px",'margin-bottom' :"0",left : "0px"},"fast");
+
         }
 }
 
@@ -152,13 +153,13 @@ function move_cicle_1_back()
 		$("#cen").css({overflow : "visible"});	
 		// $(".condition").css({top : "60%"},"fast");
     }
-	else if(wi >=540 && hi <=960){
-    	$("#circle").animate({width :"370px",height :"370px",'margin-bottom' :"0",left : "0px"},"fast",function(){
-    		$("#cir1").show();
-			$("#cir2").show();
-			$("#cir3").show();
-    	});
-    }
+	// else if(wi >=540 && hi <=960){
+ //    	$("#circle").animate({width :"370px",height :"370px",'margin-bottom' :"0",left : "0px"},"fast",function(){
+ //    		$("#cir1").show();
+	// 		$("#cir2").show();
+	// 		$("#cir3").show();
+ //    	});
+ //    }
     else if(wi >=446 && wi<=570)
     {
     	$("#circle").animate({width :"320px",height :"320px",'margin-bottom' :"0",left : "0px"},"fast",function(){

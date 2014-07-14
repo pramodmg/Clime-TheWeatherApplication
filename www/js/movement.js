@@ -21,9 +21,15 @@ var weather_description = { 200 : "Enjoy the Drizzingling Rain with music" , 201
                   950 : "Weather is plesent" , 951 : "Feel relaxed", 952 : "Enjoy the wind", 953 : "You will enjoy the Wind flow" ,954 : "Windy Weather", 955 : "Try to store this fresh breeze", 956 : "Dont fly away" , 957 : "Dont fly away", 958: "Protect your head" , 959 : "Wear a helmet",
                   960 : "Storm comming up" , 961 : "Revenge mode activated", 962 : "Round Round Round"};
 
-var color_codes ={ Haze : "rgba(128,128,128,0.6)", Clouds : "rgba(0,192,255,0.6)" , Clear : "rgba(255,176,0,0.6)" , Rain : "rgba(51,204,255,0.6)"};
+var color_codes ={ Haze : "rgba(128,128,128,0.6)", Mist : "rgba(128,128,128,0.6)" , Clouds : "rgba(0,192,255,0.6)" , Clear : "rgba(255,176,0,0.6)" , Rain : "rgba(51,204,255,0.6)" , Drizzle : "rgba(51,204,255,0.6)"};
 var restoredSession = JSON.parse(localStorage.getItem('weather'));
-var count = 0;
+if(restoredSession === null)
+{
+	var count=0;
+}
+else{
+var count = (restoredSession.weather.length)-1;
+}
 if (restoredSession) {
 	var length = restoredSession.weather.length;
 }
@@ -76,11 +82,13 @@ getdata(count);
 				console.log(count);
 				getdata(count);
 				// count++;
-				}else{
+				}
+					else{
 					console.log("end of inputs");
-					count=0;
-					AnimateRotate(360);
-					getdata(count);
+					count=length-1;
+					// AnimateRotate(360);
+					// getdata(count);
+					alert("end");
 				}
 				},
 		swipeRight:function(event, phase, direction, distance, duration, fingers, fingerData) {
@@ -91,11 +99,16 @@ getdata(count);
 					AnimateRotate(-360);
 					count--;
 					getdata(count);
-			 	}else{
+			 	}else if(count === length)
+			 	{
+			 		count = count-1;
+			 		console.log("count is : "+count);
+			 	} else{
 			 	  	console.log("you hav reached first element");
-			 	  	count = length-1;
-			 	  	console.log(count);
-			 	  	getdata(count);
+			 	  	// count = length-1;
+			 	  	// console.log(count);
+			 	  	// getdata(count);
+			 	  	alert("start");
 					}
 		// 	},
 		// 	// swipe:function(event, phase, direction, distance, duration, fingers, fingerData) {
@@ -123,8 +136,8 @@ getdata(count);
 
 function getdata(index)
 {
+var restoredSession = JSON.parse(localStorage.getItem('weather'));
 	if (restoredSession) {
-		
 		$(".condition").text(restoredSession.weather[index].condition);
 	    $(".location").text(restoredSession.weather[index].location_name);
 	    $(".temp").text(restoredSession.weather[index].temp).append("<sup>o</sup>C");
@@ -134,12 +147,30 @@ function getdata(index)
 	    $("#desc").text(restoredSession.weather[index].description);
 	    $(".icon1").attr("data-icon",array[restoredSession.weather[index].icon]);
 	    console.log(restoredSession.weather[index].main);
+	    console.log(restoredSession.weather[index].color);
 	    $("#circle").css("background",color_codes[restoredSession.weather[index].color]);
 	    $("#cir1").css("background",color_codes[restoredSession.weather[index].color]);
 	    $("#cir2").css("background",color_codes[restoredSession.weather[index].color]);
 	    $("#cir3").css("background",color_codes[restoredSession.weather[index].color]);
 		console.log(restoredSession);
 	}
+	// else{
+	// 	$(".condition").text(restoredSession.weather[index].condition);
+	//     $(".location").text(restoredSession.weather[index].location_name);
+	//     $(".temp").text(restoredSession.weather[index].temp).append("<sup>o</sup>C");
+	//     $("#humidity").text(restoredSession.weather[index].humidity).append('<span class="percentage"> %</span>');
+	//     $("#pressure").text(restoredSession.weather[index].pressure).append('<span class="units"> hpa</span>');
+	//     $("#wind").text(restoredSession.weather[index].wind).append('<span class="units"> m/s</span');
+	//     $("#desc").text(restoredSession.weather[index].description);
+	//     $(".icon1").attr("data-icon",array[restoredSession.weather[index].icon]);
+	//     console.log(restoredSession.weather[index].main);
+	//     console.log(restoredSession.weather[index].color);
+	//     $("#circle").css("background",color_codes[restoredSession.weather[index].color]);
+	//     $("#cir1").css("background",color_codes[restoredSession.weather[index].color]);
+	//     $("#cir2").css("background",color_codes[restoredSession.weather[index].color]);
+	//     $("#cir3").css("background",color_codes[restoredSession.weather[index].color]);
+	// 	console.log(restoredSession);	
+	// }
 	// index = index;
 	// console.log(restoredSession.weather[index].condition);
 	    

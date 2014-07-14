@@ -4,6 +4,7 @@ body,html
   padding: 0;
   line-height: 0;
   height: 98%;
+  padding: 0px;
 }
 
 #circle { 
@@ -17,6 +18,20 @@ body,html
    text-align: center;
 }
 
+.modal_but
+{
+  width: 100%;
+  /*padding: 0;*/
+}
+
+ul,ol
+{
+  padding: 0;
+  height: 124px;
+  overflow: auto;
+  line-height: 40px;
+  background-color: white;
+}
 
 .icon:before {
     font-family: 'MeteoconsRegular';
@@ -984,6 +999,7 @@ font-style: normal;
     top: 120%;
     color: white;
     font-size: 2.3em;
+    z-index: 999;
   }
 
   .left
@@ -992,6 +1008,7 @@ font-style: normal;
     text-align: center;
     left: 5%;
     color: white;
+    z-index: 999;
   }
 
   .right
@@ -1000,6 +1017,7 @@ font-style: normal;
     text-align: center;
     right: 5%;
     color: white;
+    z-index: 999;
   }
 
   .left1
@@ -1008,6 +1026,7 @@ font-style: normal;
     font-size: 3em;
     position: relative;
     top: 390px;
+    z-index: 999;
   }
 
   .home-icon

@@ -116,6 +116,8 @@ var weather_description = { 200 : "Enjoy the Drizzingling Rain with music" , 201
         });    
     }
 
+
+    
     // onError Callback receives a PositionError object
     //
     function onError(error) {
