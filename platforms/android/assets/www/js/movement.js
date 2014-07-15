@@ -90,7 +90,7 @@ getdata(count);
 					// getdata(count);
 					alert("end");
 				}
-				},
+			},
 		swipeRight:function(event, phase, direction, distance, duration, fingers, fingerData) {
 
 				console.log("count" + count);
@@ -109,15 +109,8 @@ getdata(count);
 			 	  	// console.log(count);
 			 	  	// getdata(count);
 			 	  	alert("start");
-					}
-		// 	},
-		// 	// swipe:function(event, phase, direction, distance, duration, fingers, fingerData) {
-		// 	// 	stop(target);
-		// 	// },
-		// tap:function(event,target){
-  //       console.log("should click");
-  //       stop(target);
-     	},
+				}
+     		},
 		threshold:0,
 		fingers:1
 	});

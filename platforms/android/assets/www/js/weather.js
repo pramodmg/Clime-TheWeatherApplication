@@ -53,20 +53,19 @@
     {
         var restoredSession = 0;
     } else {
-    var restoredSession = JSON.parse(localStorage.getItem('weather'));}
+        var restoredSession = JSON.parse(localStorage.getItem('weather'));
+    }
     $('#location-modal').on('show.bs.modal', function () {
         // do something…
         // alert("clicked");
         // alert(restoredSession.weather.length);
+    var restoredSession = JSON.parse(localStorage.getItem('weather'));
         if(restoredSession){
             $("#loc_name").empty();
-            
             for(var i=0;i<restoredSession.weather.length;i++){
-                var disp = "<div class='btn btn-default modal_but' id="+id+">";
-                id++;
+            var disp = "<div class='btn btn-default modal_but' id="+i+">";
                 $("#loc_name").append(disp+restoredSession.weather[i].location_name).append("<br>");
                 console.log(restoredSession.weather[i].location_name);
-
             }
             $(".modal_but").click(function(){
                 // alert($(this).attr("id"));
@@ -74,14 +73,42 @@
                 $('#location-modal').modal('hide');
                 console.log(restoredSession);
                 modal_location_data(divId);
+                AnimateRotate(360);
             });
         }else{
-            $("#loc_name").append(disp+location).append("No Locations");
+            var disp = "<div class='btn btn-default modal_but'>";
+            var location =" No location";
+            $("#loc_name").append(disp+location);
         }
     });
 
+    function AnimateRotate(d){
+        // var elem = $("#circle");
+        // var elem = $("#circle2");
+
+        $({deg: 0}).animate({deg: d}, {
+            duration: 400,
+            step: function(now){
+                $("#circle").css({
+                     transform: "rotate(" + now + "deg)"
+                });
+                $("#cir1").css({
+                     transform: "rotate(" + now + "deg)"
+                });
+                $("#cir2").css({
+                     transform: "rotate(" + now + "deg)"
+                });
+                $("#cir3").css({
+                     transform: "rotate(" + now + "deg)"
+                });
+            }
+        });
+        // $("#text").text("welcome");
+    }
+
     function modal_location_data(index)
     {
+        var restoredSession = JSON.parse(localStorage.getItem('weather'));
         console.log(restoredSession.weather[index]);
         $(".condition").text(restoredSession.weather[index].condition);
         $(".location").text(restoredSession.weather[index].location_name);
@@ -137,34 +164,34 @@
             if(weather_data.cod === 200 && weather_data.name === ""){
                 console.log(weather_data.weather[0].main);
                 console.log(weather_data.name);
-                store_weather();
+                // store_weather();
                 $("#circle").css("background",color_codes[weather_data.weather[0].main]);
                 $("#cir1").css("background",color_codes[weather_data.weather[0].main]);
                 $("#cir2").css("background",color_codes[weather_data.weather[0].main]);
                 $("#cir3").css("background",color_codes[weather_data.weather[0].main]);
-                window.localStorage.setItem("color",weather_data.weather[0].main);
-                window.localStorage.setItem("location",weather_data.name);
+                // window.localStorage.setItem("color",weather_data.weather[0].main);
+                // window.localStorage.setItem("location",weather_data.name);
                 $(".condition").text(weather_data.weather[0].description);
-                window.localStorage.setItem("condition",weather_data.weather[0].description);
+                // window.localStorage.setItem("condition",weather_data.weather[0].description);
                 $(".location").text(weather_data.name).append('<span>N/A</span>');
-                var weather_data_name = "N/A";
-                window.localStorage.setItem("location",weather_data_name);
+                // var weather_data_name = "N/A";
+                // window.localStorage.setItem("location",weather_data_name);
                 temp = weather_data.main.temp - 273.15;
                 temp_celcius = (temp).toFixed(1);
                 $(".temp").text(temp_celcius).append("<sup>o</sup>C");
-                window.localStorage.setItem("temp",temp_celcius);
+                // window.localStorage.setItem("temp",temp_celcius);
                 $("#humidity").text(weather_data.main.humidity).append('<span class="percentage"> %</span>');
-                window.localStorage.setItem("humidity",weather_data.main.humidity);
+                // window.localStorage.setItem("humidity",weather_data.main.humidity);
                 $("#pressure").text(weather_data.main.pressure).append('<span class="units"> hpa</span>');
-                window.localStorage.setItem("pressure",weather_data.main.pressure);
+                // window.localStorage.setItem("pressure",weather_data.main.pressure);
                 $("#wind").text(weather_data.wind.speed).append('<span class="units"> m/s</span');
-                window.localStorage.setItem("wind",weather_data.wind.speed);
+                // window.localStorage.setItem("wind",weather_data.wind.speed);
                 $("#desc").text(weather_description[weather_data.weather[0].id]);
-                window.localStorage.setItem("description",weather_description[weather_data.weather[0].id]);
+                // window.localStorage.setItem("description",weather_description[weather_data.weather[0].id]);
                 $(".icon1").attr("data-icon",array[weather_data.weather[0].id]);
-                window.localStorage.setItem("icon",weather_data.weather[0].id);
+                // window.localStorage.setItem("icon",weather_data.weather[0].id);
                 flag = true;
-                window.localStorage.setItem("flag",flag1);
+                // window.localStorage.setItem("flag",flag1);
             } else if(weather_data.cod === 200){
                 store_weather();
                 if(restoredSession === null){
