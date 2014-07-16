@@ -34,6 +34,7 @@
 /var/www/html/Native5/platforms/android/assets/www/cordova_plugins.js \
 /var/www/html/Native5/platforms/android/assets/www/css \
 /var/www/html/Native5/platforms/android/assets/www/plugins \
+/var/www/html/Native5/platforms/android/assets/www/new.html \
 /var/www/html/Native5/platforms/android/assets/www/cordova.js \
 /var/www/html/Native5/platforms/android/assets/www/js \
 /var/www/html/Native5/platforms/android/assets/www/Single_swipe.html \
@@ -65,6 +66,7 @@
 /var/www/html/Native5/platforms/android/assets/www/css/bootstrap-theme.css.map \
 /var/www/html/Native5/platforms/android/assets/www/css/font-awesome.css \
 /var/www/html/Native5/platforms/android/assets/www/css/bootstrap.min.css \
+/var/www/html/Native5/platforms/android/assets/www/css/weekly_index.css \
 /var/www/html/Native5/platforms/android/assets/www/css/bootstrap.css.map \
 /var/www/html/Native5/platforms/android/assets/www/css/bootstrap.css \
 /var/www/html/Native5/platforms/android/assets/www/css/bootstrap-theme.min.css \
@@ -92,6 +94,7 @@
 /var/www/html/Native5/platforms/android/assets/www/js/jquery.ui.ipad.js \
 /var/www/html/Native5/platforms/android/assets/www/js/jquery.touchSwipe.min.js \
 /var/www/html/Native5/platforms/android/assets/www/js/bootstrap.min.js \
+/var/www/html/Native5/platforms/android/assets/www/js/new_weekly.js \
 /var/www/html/Native5/platforms/android/assets/www/js/swipe.js \
 /var/www/html/Native5/platforms/android/assets/www/js/svgLoader.js \
 /var/www/html/Native5/platforms/android/assets/www/js/demo.js \
