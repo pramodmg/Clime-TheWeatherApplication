@@ -29,9 +29,7 @@ if(restoredSession === null)
 }
 else{
 var count = (restoredSession.weather.length)-1;
-}
-if (restoredSession) {
-	var length = restoredSession.weather.length;
+var length = restoredSession.weather.length;
 }
 console.log("total length : " +length);
 console.log("count initailly : "+count);
@@ -80,6 +78,7 @@ getdata(count);
 				AnimateRotate(360);
 				// count++;
 				console.log(count);
+				localStorage.setItem("count",count);
 				getdata(count);
 				// count++;
 				}
@@ -88,6 +87,7 @@ getdata(count);
 					count=length-1;
 					// AnimateRotate(360);
 					// getdata(count);
+					localStorage.setItem("count",count);
 					alert("end");
 				}
 			},
@@ -98,11 +98,13 @@ getdata(count);
 				if(count > 0 ){
 					AnimateRotate(-360);
 					count--;
+					localStorage.setItem("count",count);
 					getdata(count);
 			 	}else if(count === length)
 			 	{
 			 		count = count-1;
 			 		console.log("count is : "+count);
+					localStorage.setItem("count",count);
 			 	} else{
 			 	  	console.log("you hav reached first element");
 			 	  	// count = length-1;
@@ -133,6 +135,7 @@ var restoredSession = JSON.parse(localStorage.getItem('weather'));
 	if (restoredSession) {
 		$(".condition").text(restoredSession.weather[index].condition);
 	    $(".location").text(restoredSession.weather[index].location_name);
+	    localStorage.setItem("location",restoredSession.weather[index].location_name);
 	    $(".temp").text(restoredSession.weather[index].temp).append("<sup>o</sup>C");
 	    $("#humidity").text(restoredSession.weather[index].humidity).append('<span class="percentage"> %</span>');
 	    $("#pressure").text(restoredSession.weather[index].pressure).append('<span class="units"> hpa</span>');

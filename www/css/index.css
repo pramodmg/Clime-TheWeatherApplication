@@ -27,7 +27,8 @@ body,html
 ul,ol
 {
   padding: 0;
-  height: 124px;
+  max-height: 124px;
+  /*height: 124px;*/
   overflow: auto;
   line-height: 40px;
   background-color: white;
@@ -101,6 +102,8 @@ ul,ol
    position: relative;
    top: -200px;
 }
+
+
 
 .align
 {

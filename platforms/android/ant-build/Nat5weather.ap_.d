@@ -79,6 +79,7 @@
 /var/www/html/Native5/platforms/android/assets/www/js/jqfloat.js \
 /var/www/html/Native5/platforms/android/assets/www/js/hover.js \
 /var/www/html/Native5/platforms/android/assets/www/js/transit.js \
+/var/www/html/Native5/platforms/android/assets/www/js/jquery_withoutdiv.js \
 /var/www/html/Native5/platforms/android/assets/www/js/zepto.min.js \
 /var/www/html/Native5/platforms/android/assets/www/js/snap.svg-min.js \
 /var/www/html/Native5/platforms/android/assets/www/js/main.js \
@@ -87,6 +88,7 @@
 /var/www/html/Native5/platforms/android/assets/www/js/cordova.js \
 /var/www/html/Native5/platforms/android/assets/www/js/week_weather.js \
 /var/www/html/Native5/platforms/android/assets/www/js/index.js \
+/var/www/html/Native5/platforms/android/assets/www/js/dragend.js \
 /var/www/html/Native5/platforms/android/assets/www/js/ready_events.js \
 /var/www/html/Native5/platforms/android/assets/www/js/movement.js \
 /var/www/html/Native5/platforms/android/assets/www/js/testfx.min.js \

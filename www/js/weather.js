@@ -54,11 +54,14 @@
         var restoredSession = 0;
     } else {
         var restoredSession = JSON.parse(localStorage.getItem('weather'));
+        var disp = "<div class='btn btn-default modal_but'>";
+        var location =" No location";
+        $("#loc_name").append(disp+location);
     }
     $('#location-modal').on('show.bs.modal', function () {
         // do something…
         // alert("clicked");
-        // alert(restoredSession.weather.length);
+        // alert(restoredSession.weather.length);        
     var restoredSession = JSON.parse(localStorage.getItem('weather'));
         if(restoredSession){
             $("#loc_name").empty();
@@ -75,11 +78,7 @@
                 modal_location_data(divId);
                 AnimateRotate(360);
             });
-        }else{
-            var disp = "<div class='btn btn-default modal_but'>";
-            var location =" No location";
-            $("#loc_name").append(disp+location);
-        }
+        } 
     });
 
     function AnimateRotate(d){
@@ -112,6 +111,7 @@
         console.log(restoredSession.weather[index]);
         $(".condition").text(restoredSession.weather[index].condition);
         $(".location").text(restoredSession.weather[index].location_name);
+        localStorage.setItem("location",restoredSession.weather[index].location_name);
         $(".temp").text(restoredSession.weather[index].temp).append("<sup>o</sup>C");
         $("#humidity").text(restoredSession.weather[index].humidity).append('<span class="percentage"> %</span>');
         $("#pressure").text(restoredSession.weather[index].pressure).append('<span class="units"> hpa</span>');
@@ -221,6 +221,7 @@
                 // isPresent = false;
                 flag_re = true;
                 console.log("Dont add this location");
+                alert("Location is present already");
                 break;
             } 
         }
@@ -230,8 +231,6 @@
           isNotPresent = true;
         } else  {
             isNotPresent = false;
-            console.log("data is isPresent");
-            alert("this city is already Present");
         }
            
         console.log(isNotPresent);

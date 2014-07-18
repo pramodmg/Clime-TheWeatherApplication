@@ -221,6 +221,7 @@
                 // isPresent = false;
                 flag_re = true;
                 console.log("Dont add this location");
+                alert("Location is present already");
                 break;
             } 
         }
@@ -230,8 +231,6 @@
           isNotPresent = true;
         } else  {
             isNotPresent = false;
-            console.log("data is isPresent");
-            alert("this city is already Present");
         }
            
         console.log(isNotPresent);

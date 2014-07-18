@@ -8,9 +8,21 @@ body,html{
 
 .top_div
 {
-	box-shadow: 0px 0px 8px;
+	box-shadow: 0px 4px 8px;
 	z-index: 999;
-	height: 340px;
+	height: 350px;
+	z-index: 999;
+}
+
+
+.back
+{
+	position: absolute;
+	font-size: 1.3em;
+	line-height: 50px;
+	padding-left: 2%;
+	z-index: 999;
+	top: 7px;
 }
 
 p{
@@ -92,7 +104,7 @@ p{
 {
     width: 100%;
     position: relative;
-    top: 10px;
+    top: 30px;
 }
 
 
@@ -124,7 +136,9 @@ font-style: normal;
 
 .bottom_div
 {
-
+	position: relative;
+	top: 0px;
+	padding-left: 1%;
 }
 
 .icon_bottom
@@ -139,8 +153,16 @@ font-style: normal;
 	font-size: 2em;
 }
 
+* 
+{
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+
+
 #parent_div_1, #parent_div_2, #parent_div_3{
-    width:100px;
+    width:90px;
     height:100px;
     text-align: center;
     padding-top: 10%;
@@ -156,7 +178,13 @@ font-style: normal;
 .day_name_bottom
 {
 	text-align: center;
-	font-size: 1.3em;
+	font-size: 1.4em;
+}
+
+.day_name_bottom_temp
+{
+	text-align: center;
+	font-size: 1.2em;
 }
 
 .cen
@@ -179,4 +207,42 @@ font-style: normal;
 {
 	display: inline-block;
 	width: 100%;
+}
+
+#demo {
+	width: 380px;
+	height: 190px;
+	visibility: hidden;
+	margin: 30px auto;
+	/*background: #457;*/
+	/*box-shadow: 0px 0px 4px;*/
+	cursor: hand;
+	cursor: -moz-grab;
+	cursor: -webkit-grab;
+	cursor: grab;
+}
+
+#demo li.first {
+    background: white;
+}
+
+#demo li.middle {
+    background: white;
+}
+
+#demo li.last {
+	background: white;
+}
+
+#dragend {
+	position: absolute;
+	bottom: 50px;
+	right: 50px;
+	/*background: #345;*/
+	padding: 18px;
+	color: #fff;
+	border-radius: 3px;
+	width: 150px;
+	font-size: 15px;
+	display: inline-block;
 }
