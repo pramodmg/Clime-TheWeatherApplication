@@ -2,79 +2,74 @@
 <html>
 <head>
 <title>Weekly Weather </title>
-<meta charset="utf-8"/>
-        <meta name="format-detection" content="telephone=no" />
-        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
-        <!-- <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-density-dpi=device-dpi" /> -->
-        <meta name="viewport" id="metaViewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-        <link rel="stylesheet" href="css/font-awesome.min.css">
-        <link rel="stylesheet" type="text/css" href="css/weekly_index.css">
-        <meta name="msapplication-tap-highlight" content="no" />
+	<meta charset="utf-8"/>
+    <meta name="format-detection" content="telephone=no" />
+    <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+    <!-- <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-density-dpi=device-dpi" /> -->
+    <meta name="viewport" id="metaViewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/weekly_index.css">
+    <meta name="msapplication-tap-highlight" content="no" />
         
 </head>
-<body>
+<body class="main">
 <div class="top_div">
+<div class="back"  id="back"><i class="fa fa-chevron-left"></i> Back</div>
 	<p id="loc_name"> Location </p>
+
 	<div class="icon_container">
-		<div class="icon icon1" data-icon="H"></div>
+		<div class="icon icon1" id="main_icon" data-icon="H">
 	</div>
 	<div class="text-container">
 	    <div id="week_day" class="left">
-	    	<div id="day">Sept</div>
-	    	<div id="month">23</div>
+	    	<div id="day"> -- </div>
+	    	<div id="month"> -- </div>
 	    </div>
-	    <div id="temp" class="right">23/45 C</div>
+	    <div id="temp" class="right"> -- C</div>
 	</div>
+</div>
 </div>
 <div class="bottom_div">
     <div id="demo">
-    <ul>
-      <li class="first dragend-page">
-      <div id='parent_div_1'>
-        <div class="icon icon_bottom child_div_1" data-icon="H"></div>
-        <p class="day_name_bottom"> Mon</p>
-        <p class="day_name_bottom"> 16/15 C</p>
-      </div>
-      <div id='parent_div_2'>
-        <div class="icon icon_bottom child_div_1" data-icon="H"></div>
-        <p class="day_name_bottom"> Mon</p>
-        <p class="day_name_bottom"> 16/15 C</p>
-      </div>
-      <div id='parent_div_3'>
-        <div class="icon icon_bottom child_div_1" data-icon="H"></div>
-        <p class="day_name_bottom"> Mon</p>
-        <p class="day_name_bottom"> 16/15 C</p>
-      </div>
-      </li>
-      <li class="dragend-page">
-      <div id='parent_div_1'>
-      <div class="icon icon_bottom child_div_1" data-icon="H"></div>
-      <p class="day_name_bottom"> Thur</p>
-      <p class="day_name_bottom"> 16/15 C</p>
-      </div>
-
-      <div id='parent_div_2'>
-        <div class="icon icon_bottom child_div_1" data-icon="H"></div>
-        <p class="day_name_bottom"> Fri</p>
-        <p class="day_name_bottom"> 16/15 C</p>
-      </div>
-
-      <div id='parent_div_3'>
-        <div class="icon icon_bottom child_div_1" data-icon="H"></div>
-        <p class="day_name_bottom"> Sat</p>
-        <p class="day_name_bottom"> 16/15 C</p>
-      </div>
-      </li>
-      <!-- <li class="middle dragend-page"></li>
-      <li class="dragend-page"></li>
-      <li class="last dragend-page"></li> -->
-    </ul>
+   
+    </div>
   </div>
 </div>
 <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
-<script type="text/javascript" src="js/jquery_withoutdiv.js"></script>
-<script type="text/javascript" src="js/dragend.js"></script>
 <script type="text/javascript" src="js/new_weekly.js"></script>
+  <script type="text/javascript" src="js/dragend.js"></script>
+  <script>
+
+    $(function() {
+
+      var firstChild = $("#demo li:first-child").clone(),
+          lastChild  = $("#demo li:last-child").clone(),
+          container  = $("#demo ul");
+
+      firstChild.appendTo(container);
+      lastChild.prependTo(container);
+
+      $("#demo").dragend({
+        jumpToPage: 2,
+        onSwipeEnd: function() {
+          var first = this.pages[0],
+              last = this.pages[this.pages.length - 1];
+
+          if (first === this.activeElement) {
+            this.jumpToPage(this.pages.length - 1 );
+          }
+
+          if (last === this.activeElement) {
+            this.jumpToPage(2);
+          }
+
+        },
+        afterInitialize: function() {
+          this.container.style.visibility = "visible";
+        }
+      });
+    });
+  </script>
 
 </body>
 </html>

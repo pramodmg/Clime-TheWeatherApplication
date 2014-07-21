@@ -269,7 +269,7 @@ $(document).ready(function(){
 
 function nextpage(invokeElm)
 {
-	var url = "../www/new.html";    
+	var url = "../www/Mobile_weather.html";    
 	$(location).attr('href',url);
 }
 

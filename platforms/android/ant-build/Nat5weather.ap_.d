@@ -30,6 +30,7 @@
 /var/www/html/Native5/platforms/android/assets/_where-is-www.txt \
 /var/www/html/Native5/platforms/android/assets/www \
 /var/www/html/Native5/platforms/android/assets/www/index.html \
+/var/www/html/Native5/platforms/android/assets/www/ex.html \
 /var/www/html/Native5/platforms/android/assets/www/fonts \
 /var/www/html/Native5/platforms/android/assets/www/cordova_plugins.js \
 /var/www/html/Native5/platforms/android/assets/www/css \
@@ -37,7 +38,6 @@
 /var/www/html/Native5/platforms/android/assets/www/new.html \
 /var/www/html/Native5/platforms/android/assets/www/cordova.js \
 /var/www/html/Native5/platforms/android/assets/www/js \
-/var/www/html/Native5/platforms/android/assets/www/Single_swipe.html \
 /var/www/html/Native5/platforms/android/assets/www/img \
 /var/www/html/Native5/platforms/android/assets/www/weather_show.html \
 /var/www/html/Native5/platforms/android/assets/www/Demo.html \
@@ -65,6 +65,7 @@
 /var/www/html/Native5/platforms/android/assets/www/css/demo.css \
 /var/www/html/Native5/platforms/android/assets/www/css/bootstrap-theme.css.map \
 /var/www/html/Native5/platforms/android/assets/www/css/font-awesome.css \
+/var/www/html/Native5/platforms/android/assets/www/css/ex.css \
 /var/www/html/Native5/platforms/android/assets/www/css/bootstrap.min.css \
 /var/www/html/Native5/platforms/android/assets/www/css/weekly_index.css \
 /var/www/html/Native5/platforms/android/assets/www/css/bootstrap.css.map \
@@ -79,6 +80,7 @@
 /var/www/html/Native5/platforms/android/assets/www/js/jqfloat.js \
 /var/www/html/Native5/platforms/android/assets/www/js/hover.js \
 /var/www/html/Native5/platforms/android/assets/www/js/transit.js \
+/var/www/html/Native5/platforms/android/assets/www/js/new_we.js \
 /var/www/html/Native5/platforms/android/assets/www/js/jquery_withoutdiv.js \
 /var/www/html/Native5/platforms/android/assets/www/js/zepto.min.js \
 /var/www/html/Native5/platforms/android/assets/www/js/snap.svg-min.js \

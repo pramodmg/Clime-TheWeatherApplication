@@ -524,12 +524,12 @@
         if ( this.settings.direction === "horizontal" ) {
           width = width - parseInt( this.settings.scribe, 10 );
         } else {
-          height = height - parseInt( this.settings.scribe, 10 );
+          // height = height - parseInt( this.settings.scribe, 10 );
         }
 
         this.pageDimentions = {
           width : width,
-          height: height
+          // height: height
         };
 
       },

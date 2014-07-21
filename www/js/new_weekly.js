@@ -29,24 +29,14 @@ $("#back").on("click",function(){
 	$(location).attr('href',home);
 });
 
-document.addEventListener("DOMContentLoaded", function() {
-      var container = document.getElementById("demo");
-      dragend = new Dragend(container, {
-        afterInitialize: function() {
-          container.style.visibility = "visible";
-        }
-      });
-    }, false)
-
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-219062-10']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-})();
+// document.addEventListener("DOMContentLoaded", function() {
+//       var container = document.getElementById("demo");
+//       dragend = new Dragend(container, {
+//         afterInitialize: function() {
+//           container.style.visibility = "visible";
+//         }
+//       });
+//     }, false);
 
 function weather_get()
     {
@@ -59,6 +49,7 @@ function weather_get()
         
         locationPromise.done(function(data) {
             console.log(data);
+
             // var len = data.list;
             // console.log(len.length);
             // var le = len.length;
@@ -78,6 +69,7 @@ function weather_get()
                 // alert(cel[i]);
                 max[i]=(data.list[i].temp.max.toFixed(0)-273.15).toFixed(0);
             }
+            $("#temp").text(min[0]).append("/").append(max[0]).append("<sup>o</sup>C");
             // $("#mon").text(min[0]).append("<sup>o</sup>C").append("<span> - </span>").append(max[0]).append("<sup>o</sup>C");
             // $("#tue").text(min[1]).append("<sup>o</sup>C").append("<span> - </span>").append(max[1]).append("<sup>o</sup>C");
             // $("#wed").text(min[2]).append("<sup>o</sup>C").append("<span> - </span>").append(max[2]).append("<sup>o</sup>C");
@@ -143,11 +135,11 @@ function check_day()
 		document.getElementById("day_6").innerHTML = week_day_three[3];
 	}else if(day === 5) {
 		document.getElementById("day_1").innerHTML = week_day_three[day+1];
-		document.getElementById("day_1").innerHTML = week_day_three[0];
-		document.getElementById("day_2").innerHTML = week_day_three[1];
-		document.getElementById("day_3").innerHTML = week_day_three[2];
-		document.getElementById("day_4").innerHTML = week_day_three[3];
-		document.getElementById("day_5").innerHTML = week_day_three[4];
+		document.getElementById("day_2").innerHTML = week_day_three[0];
+		document.getElementById("day_3").innerHTML = week_day_three[1];
+		document.getElementById("day_4").innerHTML = week_day_three[2];
+		document.getElementById("day_5").innerHTML = week_day_three[3];
+		document.getElementById("day_6").innerHTML = week_day_three[4];
 	} else if(day === 6) {
 		document.getElementById("day_1").innerHTML = week_day_three[0];
 		document.getElementById("day_2").innerHTML = week_day_three[1];

@@ -7,6 +7,12 @@ body,html
   padding: 0px;
 }
 
+#move
+{
+  position: absolute;
+  width: 98%;
+}
+
 #circle { 
    width: 300px;
    height: 300px;
@@ -27,7 +33,8 @@ body,html
 ul,ol
 {
   padding: 0;
-  height: 124px;
+  max-height: 124px;
+  /*height: 124px;*/
   overflow: auto;
   line-height: 40px;
   background-color: white;
@@ -97,10 +104,11 @@ ul,ol
    -webkit-border-radius: 70px; 
    border-radius: 50%;
    text-align: center;
-   margin-left: 20px;
    position: relative;
    top: -200px;
 }
+
+
 
 .align
 {
@@ -332,7 +340,6 @@ font-style: normal;
      width: 180px;
      height: 180px;
      margin-top: -160px;
-     margin-left: 20px;
      top: 30px;
   }
 
@@ -1052,7 +1059,7 @@ font-style: normal;
      width: 150px;
      height: 150px;
      top: 60px;
-     margin-right: 48%;
+     margin-right: 45%;
   }
 
   #cir2 { 
@@ -1063,10 +1070,9 @@ font-style: normal;
   }
 
   #cir3 { 
-     width: 180px;
+     /*width: 180px;*/
      height: 180px;
      margin-top: -150px;
-     margin-left: 10px;
   }
 
   .icon1
