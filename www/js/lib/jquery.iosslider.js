@@ -1173,7 +1173,7 @@
 				'scrollbarOpacity': 0.4,
 				'scrollbarHeight': '0px',
 				'scrollbarBorder': '0',
-				'scrollbarMargin': '5px',
+				'scrollbarMargin': '0px',
 				'scrollbarBackground': '#000',
 				'scrollbarBorderRadius': '100px',
 				'scrollbarShadow': '0 0 0 #000',

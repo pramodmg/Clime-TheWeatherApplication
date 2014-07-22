@@ -146,4 +146,10 @@ var weather_description = { 200 : "Enjoy the Drizzingling Rain with music" , 201
 // 	    antiGrav('#cir2', 1300); 
 // 	    antiGrav('#cir3', 1500); 
 // 	// });
+
+// alert("hello");
+    $('.iosSlider').iosSlider({
+        snapToChildren: true,
+        desktopClickDrag: true
+    });
 });

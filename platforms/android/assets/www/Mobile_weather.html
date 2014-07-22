@@ -9,90 +9,25 @@
     <meta name = "apple-mobile-web-app-capable" content = "yes" /> 
     <link rel="stylesheet" type="text/css" href="css/mobile.css">
     <!-- jQuery library -->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
     <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src = "js/jquery.easing-1.3.js"></script>
     
     <!-- iosSlider plugin -->
     <script src = "js/jquery.iosslider.js"></script>
+    <script src = "js/swipe_weather.js"></script>
     
-    <script type="text/javascript">
-      $(document).ready(function() {
-      
-        $('.iosSlider').iosSlider({
-          scrollbar: true,
-          snapToChildren: true,
-          desktopClickDrag: true,
-          scrollbarLocation: 'top',
-          scrollbarMargin: '10px 10px 0 10px',
-          scrollbarBorderRadius: '0',
-          responsiveSlideWidth: true,
-          navSlideSelector: $('.iosSliderButtons .button'),
-          infiniteSlider: true,
-          startAtSlide: '1',
-          onSlideChange: slideContentChange,
-          onSlideComplete: slideContentComplete,
-          onSliderLoaded: slideContentLoaded
-        });
-        
-        function slideContentChange(args) {
-          
-          /* indicator */
-          $(args.sliderObject).parent().find('.iosSliderButtons .button').removeClass('selected');
-          $(args.sliderObject).parent().find('.iosSliderButtons .button:eq(' + (args.currentSlideNumber - 1) + ')').addClass('selected');
-          
-        }
-        
-        function slideContentComplete(args) {
-          
-          if(!args.slideChanged) return false;
-          
-          /* animation */
-          $(args.sliderObject).find('.text1, .text2').attr('style', '');
-          
-          $(args.currentSlideObject).children('.text1').animate({
-            right: '100px',
-            opacity: '1'
-          }, 400, 'easeOutQuint');
-          
-          $(args.currentSlideObject).children('.text2').delay(200).animate({
-            right: '50px',
-            opacity: '1'
-          }, 400, 'easeOutQuint');
-          
-        }
-        
-        function slideContentLoaded(args) {
-          
-          /* animation */
-          $(args.sliderObject).find('.text1, .text2').attr('style', '');
-          
-          $(args.currentSlideObject).children('.text1').animate({
-            right: '100px',
-            opacity: '1'
-          }, 400, 'easeOutQuint');
-          
-          $(args.currentSlideObject).children('.text2').delay(200).animate({
-            right: '50px',
-            opacity: '1'
-          }, 400, 'easeOutQuint');
-          
-          /* indicator */
-          $(args.sliderObject).parent().find('.iosSliderButtons .button').removeClass('selected');
-          $(args.sliderObject).parent().find('.iosSliderButtons .button:eq(' + (args.currentSlideNumber - 1) + ')').addClass('selected');
-          
-        }
-        
-      });
-    </script>
     
-    <title>Ex #2: Rotating Banner</title>
+    <title>Weekly Weather</title>
     
   </head>
   
   <body>
     
     <div class="top_div">
-    <div class="back"  id="back"><i class="fa fa-chevron-left"></i> Back</div>
+    <div class="back"  id="back">
+      <i class="fa fa-chevron-left b_icon"></i> Back
+      </div>
       <p id="loc_name"> Location </p>
 
       <div class="icon_container">
@@ -107,41 +42,54 @@
       </div>
     </div>
     </div>
+    <center class="icons">
+      <div class="fa fa-circle" id="sr"></div>
+      <div class="fa fa-circle-o" id="sl"></div>
+    </center>
     <div class = 'iosSlider'>
     
       <div class = 'slider'>  
         
         <div class = 'item' id = 'item2'>
-        
-          <!-- <div class = 'text1'><span>Responsive.</span></div>
-          
-          <div class = 'text2'><span>Respond to change in browser<br />width and adjust automatically</span></div> -->
-          
+
+        <div id='parent_div_1'>
+          <div class="icon icon_bottom child_div_1" data-icon="H" id="w1"></div>
+          <p class="day_name_bottom" id="day_1"> Mon</p>
+          <p class="day_name_bottom_temp" id="day1_temp"> -- C</p>
+        </div>
+          <div id='parent_div_1'>
+          <div class="icon icon_bottom child_div_1" data-icon="H" id="w1"></div>
+          <p class="day_name_bottom" id="day_2"> Mon</p>
+          <p class="day_name_bottom_temp" id="day2_temp"> -- C</p>
+        </div>
+        <div id='parent_div_1'>
+          <div class="icon icon_bottom child_div_1" data-icon="H" id="w1"></div>
+          <p class="day_name_bottom" id="day_3"> Mon</p>
+          <p class="day_name_bottom_temp" id="day3_temp"> -- C</p>
+        </div>
         </div>
         
         <div class = 'item' id = 'item3'>
         
-          
-        
+        <div id='parent_div_1'>
+          <div class="icon icon_bottom child_div_1" data-icon="H" id="w1"></div>
+          <p class="day_name_bottom" id="day_4"> Mon</p>
+          <p class="day_name_bottom_temp" id="day4_temp"> -- C</p>
         </div>
-        
-        <div class = 'item' id = 'item4'>
-        
-          
-        
+          <div id='parent_div_1'>
+          <div class="icon icon_bottom child_div_1" data-icon="H" id="w1"></div>
+          <p class="day_name_bottom" id="day_5"> Mon</p>
+          <p class="day_name_bottom_temp" id="day5_temp"> -- C</p>
         </div>
-      
+        <div id='parent_div_1'>
+          <div class="icon icon_bottom child_div_1" data-icon="H" id="w1"></div>
+          <p class="day_name_bottom" id="day_6"> Mon</p>
+          <p class="day_name_bottom_temp" id="day6_temp"> -- C</p>
+        </div>
+        </div>
       </div>
-      
-      <!-- <div class = 'iosSliderButtons'>
-        <div class = 'button'></div>
-        <div class = 'button'></div>
-        <div class = 'button'></div>
-        <div class = 'button'></div>
-      </div> -->
-    
     </div>
-  
+  <script type="text/javascript" src="js/new_weekly.js"></script>
   </body>
 
 </html>

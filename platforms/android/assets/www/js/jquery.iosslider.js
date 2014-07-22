@@ -1199,7 +1199,7 @@
 				'hardwareAccelBuffer': 5,
 				'stageCSS': {
 					position: 'relative',
-					top: '0',
+					top: '30px',
 					left: '0',
 					overflow: 'hidden',
 					zIndex: 1
@@ -1379,7 +1379,7 @@
 						'webkitPerspective': 1000,
 						'webkitBackfaceVisibility': 'hidden',
 						'msTouchAction': 'pan-y',
-						width: stageWidth
+						width: stageWidth - 4
 					});
 					
 					$(settings.unselectableSelector).css({

@@ -1,4 +1,3 @@
-// alert("hello");
 
 
 var ele = document.getElementById('move');
@@ -35,104 +34,14 @@ console.log("total length : " +length);
 console.log("count initailly : "+count);
 AnimateRotate(360);
 getdata(count);
-
-// Hammer(ele).on("swipeleft", function(event) {
-// 	count++;
-// 	console.log("count is " + count);
-// 	if(count < length){
-// 	AnimateRotate(360);
-// 	// count++;
-// 	console.log(count);
-// 	getdata(count);
-// 	// count++;
-// 	}else{
-// 		console.log("end of inputs");
-// 		count=0;
-// 		AnimateRotate(360);
-// 		getdata(count);
-// 	}
-// });
-
-// Hammer(ele).on("swiperight", function(event){
-// 	console.log("count" + count);
-// 	AnimateRotate(-360);
-// 	if(count > 0 ){
-// 		AnimateRotate(-360);
-// 		count--;
-// 		getdata(count);
-//  	}else{
-//  	  	console.log("you hav reached first element");
-//  	  	count = length-1;
-//  	  	console.log(count);
-//  	  	getdata(count);
-//  	}
-// });
-
-// $(document).on("click",function(){
-	$("body").swipe( {
-		// count = count+1;
-		swipeLeft:function(event, phase, direction, distance, duration, fingers, fingerData) {
-					count++;
-				console.log("count is " + count);
-				if(count < length){
-				AnimateRotate(360);
-				// count++;
-				console.log(count);
-				localStorage.setItem("count",count);
-				getdata(count);
-				// count++;
-				}
-					else{
-					console.log("end of inputs");
-					count=length-1;
-					// AnimateRotate(360);
-					// getdata(count);
-					localStorage.setItem("count",count);
-					alert("end");
-				}
-			},
-		swipeRight:function(event, phase, direction, distance, duration, fingers, fingerData) {
-
-				console.log("count" + count);
-				AnimateRotate(-360);
-				if(count > 0 ){
-					AnimateRotate(-360);
-					count--;
-					localStorage.setItem("count",count);
-					getdata(count);
-			 	}else if(count === length)
-			 	{
-			 		count = count-1;
-			 		console.log("count is : "+count);
-					localStorage.setItem("count",count);
-			 	} else{
-			 	  	console.log("you hav reached first element");
-			 	  	// count = length-1;
-			 	  	// console.log(count);
-			 	  	// getdata(count);
-			 	  	alert("start");
-				}
-     		},
-		threshold:0,
-		fingers:1
-	});
-
-// function stop(target)
-// {
-// 	target.preventDefault();
-// 	$("#cir1").click(function() {
-//                console.log("yahooooo");
-//     });
-// }
-
-
-    
+  
 
 
 function getdata(index)
 {
 var restoredSession = JSON.parse(localStorage.getItem('weather'));
-	if (restoredSession) {
+	if (restoredSession) 
+	{
 		$(".condition").text(restoredSession.weather[index].condition);
 	    $(".location").text(restoredSession.weather[index].location_name);
 	    localStorage.setItem("location",restoredSession.weather[index].location_name);
@@ -144,12 +53,65 @@ var restoredSession = JSON.parse(localStorage.getItem('weather'));
 	    $(".icon1").attr("data-icon",array[restoredSession.weather[index].icon]);
 	    console.log(restoredSession.weather[index].main);
 	    console.log(restoredSession.weather[index].color);
-	    $("#circle").css("background",color_codes[restoredSession.weather[index].color]);
-	    $("#cir1").css("background",color_codes[restoredSession.weather[index].color]);
-	    $("#cir2").css("background",color_codes[restoredSession.weather[index].color]);
-	    $("#cir3").css("background",color_codes[restoredSession.weather[index].color]);
+	    $(".circle").css("background",color_codes[restoredSession.weather[index].color]);
+	    $(".cir1").css("background",color_codes[restoredSession.weather[index].color]);
+	    $(".cir2").css("background",color_codes[restoredSession.weather[index].color]);
+	    $(".cir3").css("background",color_codes[restoredSession.weather[index].color]);
 		console.log(restoredSession);
+    	var length = restoredSession.weather.length;
+    	console.log(length);
+    	for(var i=0;i<length-1;i++)
+		{
+		  create_div();
+		}
 	}
+
+
+
+    function create_div()
+    {
+        // var div_creation = "<div class = 'item page1'><div class='circle1'><center><div class='pos' id='desc'> -- </div></center><div class='text-container'><div class='fa fa-tint left'></div><div class='fa fa-tachometer right'></div></div><div class='text-container'><div id='humidity' class='left'>he</div><div id='pressure' class='right'>pr</div></div><div class='text-container'><div class='icon left1' data-icon='F'></div><div class='icon left1' id='wind'>wi</div></div><div class='fa fa-home home-icon'></div></div><center class='cen'><div class='circle'><div class='icon icon1' data-icon='H'></div><label class='condition'>Cloudy</label></div><div class='cir1' data-toggle='modal' data-target='#location-modal'><i class='fa fa-map-marker geo'></i><div class='location'>India</div></div><div class='cir2'><span class='temp'> 25<sup class='degree'>o</sup>C</span></div><div class='cir3'><span id='day' class='date-style'></span><span id='month' class='month'>September, 2014</span></div></center></div></div>";
+		var restoredSession = JSON.parse(localStorage.getItem('weather'));
+		console.log(restoredSession);
+		console.log(restoredSession.weather[0].description);
+		var description = restoredSession.weather[0].description;
+		for(var i =0;i<length-1;i++){
+			var description = restoredSession.weather[i].description;
+			var loc_name = restoredSession.weather[i].location_name;
+			var condition = restoredSession.weather[i].condition;
+			var humidity = restoredSession.weather[i].humidity;
+			var pressure = restoredSession.weather[i].pressure;
+			var temp = restoredSession.weather[i].temp;
+			var wind = restoredSession.weather[i].wind;
+		    
+		    $("#pressure").text(restoredSession.weather[i].pressure).append('<span class="units"> hpa</span>');
+		    $("#wind").text(restoredSession.weather[i].wind).append('<span class="units"> m/s</span');
+			console.log(description);
+        var div_creation = "<div class = 'item page1'><div class='circle1'><center><div class='pos' id='desc'> " + restoredSession.weather[i].description + " </div></center><div class='text-container'><div class='fa fa-tint left'></div><div class='fa fa-tachometer right'></div></div><div class='text-container'><div class='humidity left'>" + humidity + "<span class='percentage'> %</span>"+ "</div><div id='pressure' class='right'>" + pressure + "<span class='units'> hpa</span>" + "</div></div><div class='text-container'><div class='icon left1' data-icon='F'></div><div class='icon left1' id='wind'>" + wind + "<span class='units'> m/s</span>" + "</div></div><div class='fa fa-home home-icon'></div></div><center class='cen'><div class='circle'><div class='icon icon1' data-icon='H'></div><label class='condition'>" + condition + "</label></div><div class='cir1' data-toggle='modal' data-target='#location-modal'><i class='fa fa-map-marker geo'></i><div class='location'>" + loc_name + "</div></div><div class='cir2'><span class='temp'> "+ temp + "<sup class='degree'>o</sup>C</span></div><div class='cir3'><span id='day' class='date-style'> 25 </span><span id='month' class='month'>September, 2014</span></div></center></div>";
+  
+        $(".slider").append(div_creation);
+    	}
+            ready_events_load();
+            // $('.iosSlider').sliderCSS({
+            //  width : '384px'
+            // });
+            // $('.iosSlider').iosSlider('addSlide', div_creation);
+            $('.iosSlider').iosSlider('update');
+    } 
+
+    function ready_events_load()
+    {
+		$(".left1").hide();
+		$(".fa-tint").hide();
+		$("#wind").hide();
+		$(".fa-tachometer").hide();
+		$(".home-icon").hide();
+		$("#humidity").hide();
+		$("#pressure").hide();
+		$(".pos").hide();
+		$(".left").hide();
+		$(".right").hide();
+    }
 	// else{
 	// 	$(".condition").text(restoredSession.weather[index].condition);
 	//     $(".location").text(restoredSession.weather[index].location_name);
@@ -179,16 +141,16 @@ function AnimateRotate(d){
     $({deg: 0}).animate({deg: d}, {
         duration: 400,
         step: function(now){
-            $("#circle").css({
+            $(".circle").css({
                  transform: "rotate(" + now + "deg)"
             });
-            $("#cir1").css({
+            $(".cir1").css({
                  transform: "rotate(" + now + "deg)"
             });
-            $("#cir2").css({
+            $(".cir2").css({
                  transform: "rotate(" + now + "deg)"
             });
-            $("#cir3").css({
+            $(".cir3").css({
                  transform: "rotate(" + now + "deg)"
             });
         }
