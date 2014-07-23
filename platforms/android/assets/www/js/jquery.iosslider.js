@@ -1199,7 +1199,7 @@
 				'hardwareAccelBuffer': 5,
 				'stageCSS': {
 					position: 'relative',
-					top: '30px',
+					top: '0',
 					left: '0',
 					overflow: 'hidden',
 					zIndex: 1
@@ -1379,7 +1379,7 @@
 						'webkitPerspective': 1000,
 						'webkitBackfaceVisibility': 'hidden',
 						'msTouchAction': 'pan-y',
-						width: stageWidth - 4
+						width: stageWidth
 					});
 					
 					$(settings.unselectableSelector).css({
@@ -1648,6 +1648,7 @@
 							borderRadius: settings.scrollbarBorderRadius,
 							background: settings.scrollbarBackground,
 							height: settings.scrollbarHeight,
+							width: scrollbarWidth - scrollBorder + 'px',
 							minWidth: settings.scrollbarHeight,
 							border: settings.scrollbarBorder,
 							'webkitPerspective': 1000,

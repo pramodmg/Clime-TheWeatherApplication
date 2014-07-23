@@ -7,60 +7,6 @@ body,html
   padding: 0px;
 }
 
-.circle_top
-{
-  width: 280px;
-  height: 280px;
-  background: rgba(0,204,255, 0.6); 
-  -moz-border-radius: 70px; 
-  -webkit-border-radius: 70px; 
-  border-radius: 50%;
-  text-align: center;
-  margin-top: 2%;
-}
-
-.circle_middle1
-{
-  width: 180px;
-  height: 180px;
-  background: rgba(0,204,255, 0.6); 
-  -moz-border-radius: 70px; 
-  -webkit-border-radius: 70px; 
-  border-radius: 50%;  
-  text-align: center;
-  display: inline-block;
-  position: relative;
-  top: -30px;
-}
-
-.circle_middle2
-{
-  width: 180px;
-  height: 180px;
-  background: rgba(0,204,255, 0.6); 
-  -moz-border-radius: 70px; 
-  -webkit-border-radius: 70px; 
-  border-radius: 50%;
-  text-align: center;
-  display: inline-block;
-  position: relative;
-  top: -30px;
-}
-
-.circle_bottom
-{
-  width: 210px;
-   height: 210px;
-   background: rgba(0,204,255, 0.6); 
-   -moz-border-radius: 70px; 
-   -webkit-border-radius: 70px; 
-   border-radius: 50%;
-   text-align: center;
-   position: relative;
-   top: -60px;
-}
-
-
 .container_page {
     position: absolute;
     top: 0;
@@ -92,7 +38,7 @@ body,html
    -moz-border-radius: 70px; 
    -webkit-border-radius: 70px; 
    border-radius: 50%;
-   margin-top: 3%;
+   margin-top: 1%;
    text-align: center;
 }
 
@@ -387,8 +333,8 @@ font-style: normal;
 @media all and (min-width:320px) and (max-width : 445px) {
 
   .circle { 
-     width: 280px;
-     height: 280px;
+     width: 240px;
+     height: 240px;
      margin-bottom: -80px;
      margin-top: 2%;
     }
@@ -409,8 +355,8 @@ font-style: normal;
   }
 
   .cir3 { 
-     width: 210px;
-     height: 210px;
+     width: 190px;
+     height: 190px;
      margin-top: -160px;
      top: 9px;
   }

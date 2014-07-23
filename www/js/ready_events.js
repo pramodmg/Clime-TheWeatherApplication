@@ -23,60 +23,61 @@ var weather_description = { 200 : "Enjoy the Drizzingling Rain with music" , 201
                   950 : "Weather is plesent" , 951 : "Feel relaxed", 952 : "Enjoy the wind", 953 : "You will enjoy the Wind flow" ,954 : "Windy Weather", 955 : "Try to store this fresh breeze", 956 : "Dont fly away" , 957 : "Dont fly away", 958: "Protect your head" , 959 : "Wear a helmet",
                   960 : "Storm comming up" , 961 : "Revenge mode activated", 962 : "Round Round Round"};
 
-
+var color_codes ={ Haze : "rgba(128,128,128,0.6)", Mist : "rgba(128,128,128,0.6)" , Clouds : "rgba(0,192,255,0.6)" , Clear : "rgba(255,176,0,0.6)" , Rain : "rgba(51,204,255,0.6)" , Drizzle : "rgba(51,204,255,0.6)"};
     var y = d.getFullYear();
-    var flag = window.localStorage.getItem("flag");
-    if(flag === "false")
-	{
-		var loc = window.localStorage.getItem("location");
-		var condition = window.localStorage.getItem("condition");
-		var location = window.localStorage.getItem("location");
-		var temp = window.localStorage.getItem("temp");
-		var humidity = window.localStorage.getItem("humidity");
-		var pressure = window.localStorage.getItem("pressure");
-		var wind = window.localStorage.getItem("wind");
-		var desc = window.localStorage.getItem("description");
-		var icon = window.localStorage.getItem("icon");
-		$(".location").text(location);
-		$(".condition").text(condition);
-		$(".temp").text(temp).append("<sup>o</sup>C");
-		$("#humidity").text(humidity).append('<span class="percentage"> %</span>');
-		$("#pressure").text(pressure).append('<span class="units"> hpa</span>');
-		$("#wind").text(wind).append('<span class="units"> m/s</span');
-		$("#desc").text(desc);
-		$(".loc").text(array[loc]);
-		$(".icon1").attr("data-icon",array[icon]);
-	}
+
     switch(day)
     {
     	case 1 :
-    		document.getElementById("day").innerHTML = day + "<sup>st</sup>";
+            $(".date-style").html(day + "<sup>st</sup>");
     		break;
     	case 21 :
-    		document.getElementById("day").innerHTML = day + "<sup>st</sup>";
-    		break;
+            $(".date-style").html(day + "<sup>st</sup>"); 
+            break;
     	case 32 :
-    		document.getElementById("day").innerHTML = day + "<sup>st</sup>";
+            $(".date-style").html(day + "<sup>st</sup>");
     		break;
     	case 2 :
-    		document.getElementById("day").innerHTML = day + "<sup>nd</sup>";
+            $(".date-style").html(day + "<sup>nd</sup>");
     		break;
     	case 22 :
-    		document.getElementById("day").innerHTML = day + "<sup>nd</sup>";
+            $(".date-style").html(day + "<sup>nd</sup>");
     		break;
     	case 3:
-    		document.getElementById("day").innerHTML = day + "<sup>rd</sup>";
+            $(".date-style").html(day + "<sup>rd</sup>");
     		break;
     	default :
-    		document.getElementById("day").innerHTML = day + "<sup>th</sup>";
-    		break;
+            $(".date-style").html(day + "<sup>th</sup>");
+            break;
     }
     
     document.getElementById("month").innerHTML = m[month] + ", " + y;
 
     // Wait for device API libraries to load
     //
-    document.addEventListener("deviceready", onDeviceReady, false);
+
+    $('.iosSlider').iosSlider({
+        snapToChildren: true,
+        desktopClickDrag: true
+    });
+
+    $(".left1").hide();
+    $(".fa-tint").hide();
+    $("#wind").hide();
+    $(".fa-tachometer").hide();
+    $(".home-icon").hide();
+    $("#humidity").hide();
+    $("#pressure").hide();
+    $("#desc").hide();
+});
+
+  // var weather = {
+  //       weather: [],
+  //       state: false
+  //   };
+
+
+document.addEventListener("deviceready", onDeviceReady, false);
 
     // device APIs are available
     //
@@ -94,25 +95,52 @@ var weather_description = { 200 : "Enjoy the Drizzingling Rain with music" , 201
 
         
         locationPromise.done(function(data) {
-            console.log(data);
+        console.log(data);
+        var id=1;
+        var restoredSession = JSON.parse(localStorage.getItem('weather'));
+        if($.isEmptyObject(restoredSession)) {
+            var weather = {
+                weather: [],
+                state: false
+            };
+       
+            weather_data = data;
             if(data.cod === 200)
             {
-	            $(".location").text(data.name);
-	            $(".location").text(data.weather[0].description);
-	            temp = data.main.temp - 273.15;
-	            temp_celcius = (temp).toFixed(1);
-	            $(".temp").text(temp_celcius).append("<sup>o</sup>C");
-	            $("#humidity").text(data.main.humidity).append('<span class="percentage"> %</span>');
-	            $("#pressure").text(data.main.pressure).append('<span class="units"> hpa</span>');
-	            $("#wind").text(data.wind.speed).append('<span class="units"> m/s</span');
-	            $("#desc").text(data.weather[0].description);
-	            $(".icon1").attr("data-icon",array[data.weather[0].id]);
-	            flag=true;
-	            window.localStorage.setItem("flag",flag);
-	        } else {
-	        	alert("No location found");
-	        }
-        });    
+                flag=true;
+                window.localStorage.setItem("flag",flag);
+                $(".circle").css("background",color_codes[weather_data.weather[0].main]);
+                $(".cir1").css("background",color_codes[weather_data.weather[0].main]);
+                $(".cir2").css("background",color_codes[weather_data.weather[0].main]);
+                $(".cir3").css("background",color_codes[weather_data.weather[0].main]);
+                $(".condition").text(weather_data.weather[0].description);
+                $(".location").text(weather_data.name);
+                temp = weather_data.main.temp - 273.15;
+                temp_celcius = (temp).toFixed(1);
+                window.localStorage.setItem("temp",temp_celcius);
+                window.localStorage.setItem("location",weather_data.name);
+                $(".temp").text(temp_celcius).append("<sup>o</sup>C");
+                $("#humidity").text(weather_data.main.humidity).append('<span class="percentage"> %</span>');
+                $("#pressure").text(weather_data.main.pressure).append('<span class="units"> hpa</span>');
+                $("#wind").text(weather_data.wind.speed).append('<span class="units"> m/s</span');
+                $("#desc").text(weather_description[weather_data.weather[0].id]);
+                $(".icon1").attr("data-icon",array[weather_data.weather[0].id]);
+                var id = 0;
+                var flag1 =  false;
+                $(function() {
+                    all_function.a();
+                });
+                weather.weather.push({"id":id,"color": weather_data.weather[0].main,"flag":flag1,"icon":weather_data.weather[0].id,"description":weather_description[weather_data.weather[0].id],"wind":weather_data.wind.speed,"pressure":weather_data.main.pressure,"humidity":weather_data.main.humidity,"temp":temp_celcius,"location_name":weather_data.name,"condition":weather_data.weather[0].description});
+                localStorage.setItem('weather', JSON.stringify(weather));
+                var restSession = JSON.parse(localStorage.getItem('weather'));
+                console.log(restSession);
+            } else {
+                alert("No location found");
+            }
+        } else {
+
+        }
+    });    
     }
 
 
@@ -123,33 +151,3 @@ var weather_description = { 200 : "Enjoy the Drizzingling Rain with music" , 201
         alert('code: '    + error.code    + '\n' +
               'message: ' + error.message + '\n');
     }
-// function antiGrav(ele, interval) { 
-//     var distance = 4;
-// 	$(ele).animate({
-// 		'position' : 'relative',
-//         'right' : "+=" + distance + "px",
-//         'left' : "+=" + distance + "px"
-// 	},interval,"linear",function(){
-// 		$(ele).animate({				
-            
-//             'right' : "-=" + distance + "px",
-//             'left' : "-=" + distance + "px"
-// 		},interval,"linear",function(){
-// 			antiGrav(ele, interval);
-//         });
-// 	});
-// }
-
-// 	// $('#circle').click(function(){
-// 	    antiGrav('#circle', 1000); 
-// 	    antiGrav('#cir1', 1200); 
-// 	    antiGrav('#cir2', 1300); 
-// 	    antiGrav('#cir3', 1500); 
-// 	// });
-
-// alert("hello");
-    $('.iosSlider').iosSlider({
-        snapToChildren: true,
-        desktopClickDrag: true
-    });
-});

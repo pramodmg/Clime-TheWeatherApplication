@@ -19,62 +19,73 @@
 -->
 <html>
     <head>
-        <meta charset="utf-8"/>
-        <meta name="format-detection" content="telephone=no" />
-        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
-        <!-- <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-density-dpi=device-dpi" /> -->
-        <meta name="viewport" id="metaViewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-        <link rel="stylesheet" href="css/font-awesome.min.css">
-	    <link rel="stylesheet" type="text/css" href="css/index.css" />
-        <meta name="msapplication-tap-highlight" content="no" />
-        <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <!-- Optional theme -->
-        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-        <title>Weather App</title>
+    <meta charset="utf-8"/>
+    <meta name="format-detection" content="telephone=no" />
+    <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+    <!-- <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-density-dpi=device-dpi" /> -->
+    <meta name="viewport" id="metaViewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <meta name="msapplication-tap-highlight" content="no" />
+
+        <script src = "js/jquery-1.4.min.js"></script>
+        <script src = "js/jquery.easing-1.3.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <title>Weather App</title>
     </head>
-    <body id="move">
-    	<div class="circle1">
-            <center>
-            <div class="pos" id="desc"> -- </div></center>
-    		<div class="text-container">
-		        <div class="fa fa-tint left"></div>
-		       	<div class="fa fa-tachometer right"></div>
-        	</div>
-            <div class="text-container">
-                <div id="humidity" class="left">he</div>
-                <div id="pressure" class="right">pr</div>
+    <body>
+        <div class = 'container_page'>
+            <div class = 'iosSlider'>
+                <div class = 'slider'>
+                  <!--   <div class = 'item page1'>
+                    	<div class="circle1">
+                            <center>
+                            <div class="pos" id="desc"> -- </div></center>
+                    		<div class="text-container">
+                		        <div class="fa fa-tint left"></div>
+                		       	<div class="fa fa-tachometer right"></div>
+                        	</div>
+                            <div class="text-container">
+                                <div id="humidity" class="left">he</div>
+                                <div id="pressure" class="right">pr</div>
+                            </div>
+                        	<div class="text-container">
+                		        <div class="icon left1" data-icon="F"></div>
+                                <div class="icon left1" id="wind">wi</div>
+                		    </div>
+                		    <div class="fa fa-home home-icon"></div>
+                        </div>
+                        
+                        <center class="cen">
+                        <div class="circle">
+                            <div class="icon icon1" data-icon="H"></div>
+                            <label class="condition">Cloudy</label>
+                        </div>
+                        
+
+                        <div class="cir1" data-toggle="modal" data-target="#location-modal">
+                        	<i class="fa fa-map-marker geo"></i>
+                        	<div class="location">India</div>
+                        </div>
+
+                       	<div class="cir2">
+                       		<span class="temp"> 25<sup class="degree">o</sup>C</span>
+                       	</div>
+                       	
+                       	<div class="cir3">
+                       		<span id="day" class="date-style">25</span>
+                       		<span id="month" class="month">September, 2014</span>
+                       	</div>
+                       	</center>
+                    </div> -->
+                </div>
             </div>
-        	<div class="text-container">
-		        <div class="icon left1" data-icon="F"></div>
-                <div class="icon left1" id="wind">wi</div>
-		    </div>
-		    <div class="fa fa-home home-icon"></div>
         </div>
-        
-        <center id="cen">
-        <div id="circle">
-            <div class="icon icon1" data-icon="H"></div>
-            <label class="condition">Cloudy</label>
-        </div>
-        
-
-        <div id="cir1" data-toggle="modal" data-target="#location-modal">
-        	<i class="fa fa-map-marker geo"></i>
-        	<div class="location">India</div>
-        </div>
-
-       	<div id="cir2">
-       		<span class="temp"> 25<sup class="degree">o</sup>C</span>
-       	</div>
-       	
-       	<div id="cir3">
-       		<span id="day" class="date-style"></span>
-       		<span id="month" class="month">September, 2014</span>
-       	</div>
-       	</center>
-
-
+                        
         <!-- modal -->
         <div class="modal fade" id="location-modal">
             <div class="modal-dialog">
@@ -96,16 +107,14 @@
                     </div>
                 </div>
             </div>
-        </div>
-
-        
+        </div>        
+        <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+        <script src = "js/jquery.iosslider.js"></script>
+        <script type="text/javascript" src="js/ready_events.js"></script>  
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
-        <!-- // <script type="text/javascript" src="js/hammer.js"></script> -->
-        <script type="text/javascript" src="js/jquery.touchSwipe.min.js"></script>
-        <script type="text/javascript" src="js/movement.js"></script>
-        <script type="text/javascript" src="js/ready_events.js"></script>      
-        <script type="text/javascript" src="js/weather.js"></script>
         <script type="text/javascript" src="js/hover.js"></script>
+        <script type="text/javascript" src="js/movement.js"></script>
+        <script type="text/javascript" src="js/weather.js"></script>
         </body>
 </html>

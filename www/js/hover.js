@@ -1,3 +1,5 @@
+var all_function = (function($, all_function) {
+all_function.a = function() {
 $(".circle").on("click", function(evr) {
     toggle();
 });
@@ -18,7 +20,7 @@ function toggle()
 		move_circle_back();
 		flag = true;
 	}
-}
+};
 
 function move_circle()
 {
@@ -34,7 +36,7 @@ function move_circle()
     $(".pos").show();
     $(".left").show();
     $(".right").show();
-}
+};
 
 function move_circle_1() {
 	
@@ -123,7 +125,7 @@ function move_circle_1() {
     	$(".circle").animate({width :"650px",height :"650px",'margin-bottom' :"0",left : "0px"},"fast");
 
         }
-}
+};
 
 function move_cicle_1_back()
 {
@@ -223,7 +225,7 @@ function move_cicle_1_back()
         $("p.testp").text('Screen width is greater than 1200px. Width is currently: ' + wi + 'px.');
         }
 
-}
+};
 
 function move_circle_back()
 {
@@ -242,7 +244,7 @@ function move_circle_back()
     $(".pos").hide();
     $(".left").hide();
     $(".right").hide();
-}
+};
 
 $(".cir3").on("click", function(evr) {
     nextpage(this);
@@ -261,21 +263,13 @@ $(".home-icon").on("click",function(){
     $("#desc").hide();
 });
 
-$(document).ready(function(){
-    $(".left1").hide();
-    $(".fa-tint").hide();
-    $("#wind").hide();
-    $(".fa-tachometer").hide();
-    $(".home-icon").hide();
-    $("#humidity").hide();
-    $("#pressure").hide();
-    $("#desc").hide();
-});
+
 
 function nextpage(invokeElm)
 {
 	var url = "../www/Mobile_weather.html";    
 	$(location).attr('href',url);
 }
-
-
+};
+return all_function;
+}(jQuery, all_function || {}));
