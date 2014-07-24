@@ -3,6 +3,7 @@ $(document).ready(function(){
     var day = d.getDate();
     var month = d.getMonth();
     var flag = false;
+    var index = 0;
     var m = ["January","February","March","April","May","June","July","August","September","October","November","December"];
     var array = { 200 : "P" , 201 : "Q", 202 : "R", 210 : "O", 211 : "P", 212 : "Q", 221 : "P" , 230 : "Q" , 231 : "Q" , 232 : "R" ,
                   300 : "Q" , 301 : "Q", 302 : "R", 310 : "Q" ,311 : "R", 312 : "R", 313 : "R" , 314 : "X" , 321 : "T" ,

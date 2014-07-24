@@ -9,6 +9,7 @@
     var restoredSession;
     var flag1 = false;
     var id=1;
+    var index = 0;
     var array = { 200 : "P" , 201 : "Q", 202 : "R", 210 : "O", 211 : "P", 212 : "Q", 221 : "P" , 230 : "Q" , 231 : "Q" , 232 : "R" ,
                   300 : "Q" , 301 : "Q", 302 : "R", 310 : "Q" ,311 : "R", 312 : "R", 313 : "R" , 314 : "X" , 321 : "T" ,
                   500 : "Q" , 501 : "R", 502 : "6", 503 : "7" ,504 : "8", 511 : "\"", 520 : "7" , 521 : "$" , 522 : "8" ,531 : "9",
@@ -56,8 +57,11 @@
                 var divId = $(this).attr("id");
                 $('#location-modal').modal('hide');
                 console.log(restoredSession);
+                divId = parseInt(divId);
+                divId = divId + 1;
+                console.log(divId);
                 modal_location_data(divId);
-                AnimateRotate(360);
+                // AnimateRotate(360);
             });
         } 
     });
@@ -87,24 +91,11 @@
     }
 
     function modal_location_data(index)
-    {
-        var restoredSession = JSON.parse(localStorage.getItem('weather'));
-        console.log(restoredSession.weather[index]);
-        $(".condition").text(restoredSession.weather[index].condition);
-        $(".location").text(restoredSession.weather[index].location_name);
-        localStorage.setItem("location",restoredSession.weather[index].location_name);
-        $(".temp").text(restoredSession.weather[index].temp).append("<sup>o</sup>C");
-        window.localStorage.setItem("temp",restoredSession.weather[index].temp);
-        $("#humidity").text(restoredSession.weather[index].humidity).append('<span class="percentage"> %</span>');
-        $("#pressure").text(restoredSession.weather[index].pressure).append('<span class="units"> hpa</span>');
-        $("#wind").text(restoredSession.weather[index].wind).append('<span class="units"> m/s</span');
-        $("#desc").text(restoredSession.weather[index].description);
-        $(".icon1").attr("data-icon",array[restoredSession.weather[index].icon]);
-        console.log(restoredSession.weather[index].color);
-        $(".circle").css("background",color_codes[restoredSession.weather[index].color]);
-        $(".cir1").css("background",color_codes[restoredSession.weather[index].color]);
-        $(".cir2").css("background",color_codes[restoredSession.weather[index].color]);
-        $(".cir3").css("background",color_codes[restoredSession.weather[index].color]);
+    {  
+        var restSession = JSON.parse(localStorage.getItem('weather'));
+            var length = restSession.weather.length;
+            // console.log(length);
+            $('.iosSlider').iosSlider('goToSlide', index, 1000);
     }
 
 
@@ -241,29 +232,9 @@
             weather.weather.push({"id":id,"color": weather_data.weather[0].main,"flag":flag1,"icon":weather_data.weather[0].id,"description":weather_description[weather_data.weather[0].id],"wind":weather_data.wind.speed,"pressure":weather_data.main.pressure,"humidity":weather_data.main.humidity,"temp":temp_celcius,"location_name":weather_data.name,"condition":weather_data.weather[0].description});
             localStorage.setItem('weather', JSON.stringify(weather));
             window.localStorage.setItem("location",weather_data.name);
+            window.localStorage.setItem("id",id);
             // /////////////////////////////////////////////////////////////////////////////////////////////////
             // //////////////////////////////////////////////////////////////////////////////////////////////
-            // $(".circle").css("background",color_codes[weather_data.weather[0].main]);
-            // $(".cir1").css("background",color_codes[weather_data.weather[0].main]);
-            // $(".cir2").css("background",color_codes[weather_data.weather[0].main]);
-            // $(".cir3").css("background",color_codes[weather_data.weather[0].main]);
-            // $(".condition").text(weather_data.weather[0].description);
-            // $(".location").text(weather_data.name);
-            // temp = weather_data.main.temp - 273.15;
-            // temp_celcius = (temp).toFixed(1);
-            // console.log(temp_celcius);
-            // window.localStorage.setItem("temp",temp_celcius);
-            // $(".temp").text(temp_celcius).append("<sup>o</sup>C");
-            // $("#humidity").text(weather_data.main.humidity).append('<span class="percentage"> %</span>');
-            // $("#pressure").text(weather_data.main.pressure).append('<span class="units"> hpa</span>');
-            // $("#wind").text(weather_data.wind.speed).append('<span class="units"> m/s</span');
-            // $("#desc").text(weather_description[weather_data.weather[0].id]);
-            // $(".icon1").attr("data-icon",array[weather_data.weather[0].id]);
-            // flag = true;
-            
-            // length = restoredSession.weather.length;
-            // console.log("data is isPresent");
-            // create_div();
             var description = weather_description[weather_data.weather[0].id];
             var loc_name = weather_data.name;
             var condition = weather_data.weather[0].description;
@@ -276,13 +247,18 @@
             var icon = weather_data.weather[0].id;
             var color = weather_data.weather[0].main;
             window.localStorage.setItem("location",loc_name);
-            var div_creation = "<div class = 'item page1'><div class='circle1'><center><div class='pos' id='desc'> " + description + " </div></center><div class='text-container'><div class='fa fa-tint left'></div><div class='fa fa-tachometer right'></div></div><div class='text-container'><div class='humidity left'>" + humidity + "<span class='percentage'> %</span>" + "</div><div id='pressure' class='right'>" + pressure + "<span class='units'> hpa</span>" + "</div></div><div class='text-container'><div class='icon left1' data-icon='F'></div><div class='icon left1' id='wind'>" + wind + "<span class='units'> m/s</span>" + "</div></div><div class='fa fa-home home-icon'></div></div><center class='cen'><div class='circle' style = 'background: "+ color_codes[color] +"'><div class='icon icon1' data-icon='"+ array[icon] +"'></div>"+ " " + "<label class='condition'>" + condition + "</label></div><div class='cir1' data-toggle='modal' data-target='#location-modal' style = 'background: "+ color_codes[color] +"'><i class='fa fa-map-marker geo'></i><div class='location'>" + loc_name + "</div></div><div class='cir2' style = 'background: "+ color_codes[color] +"' data-temp = " + temp + " data-flag = 'c' ><span class='temp'>" + temp + "<sup class='degree'>o</sup>C</span></div><div class='cir3' style = 'background: "+ color_codes[color] +"'><span id='day' class='date-style'> 25 </span><span id='month' class='month'>September, 2014</span></div></center></div></div>";
+            index = index + 1;
+            var div_creation = "<div class = 'item page1' data-index='"+ id +"'><div class='circle1'><center><div class='pos' id='desc'> " + description + " </div></center><div class='text-container'><div class='fa fa-tint left'></div><div class='fa fa-tachometer right'></div></div><div class='text-container'><div class='humidity left'>" + humidity + "<span class='percentage'> %</span>" + "</div><div id='pressure' class='right'>" + pressure + "<span class='units'> hpa</span>" + "</div></div><div class='text-container'><div class='icon left1' data-icon='F'></div><div class='icon left1' id='wind'>" + wind + "<span class='units'> m/s</span>" + "</div></div><div class='fa fa-home home-icon'></div></div><center class='cen'><div class='circle' style = 'background: "+ color_codes[color] +"'><div class='icon icon1' data-icon='"+ array[icon] +"'></div>"+ " " + "<label class='condition'>" + condition + "</label></div><div class='cir1' data-toggle='modal' data-target='#location-modal' style = 'background: "+ color_codes[color] +"'><i class='fa fa-map-marker geo'></i><div class='location'>" + loc_name + "</div></div><div class='cir2' style = 'background: "+ color_codes[color] +"' data-temp = " + temp + " data-flag = 'c' ><span class='temp'>" + temp + "<sup class='degree'>o</sup>C</span></div><div class='cir3' style = 'background: "+ color_codes[color] +"'><span id='day' class='date-style'> 25 </span><span id='month' class='month'>September, 2014</span></div></center></div></div>";
             $(".slider").append(div_creation);
             $(function() {
                 all_function.a();
             });
             ready_events_load();
             $('.iosSlider').iosSlider('update');
+            var restSession = JSON.parse(localStorage.getItem('weather'));
+            var length = restSession.weather.length;
+            console.log(length);
+            $('.iosSlider').iosSlider('goToSlide', length, 1000);
             restoredSession = JSON.parse(localStorage.getItem('weather'));
             define_modal_events();
             // count++;
@@ -290,22 +266,6 @@
         }else {
             console.log("push the new data");
             id=1;
-            // $(".circle").css("background",color_codes[weather_data.weather[0].main]);
-            // $(".cir1").css("background",color_codes[weather_data.weather[0].main]);
-            // $(".cir2").css("background",color_codes[weather_data.weather[0].main]);
-            // $(".cir3").css("background",color_codes[weather_data.weather[0].main]);
-            // $(".condition").text(weather_data.weather[0].description);
-            // $(".location").text(weather_data.name);
-            // temp = weather_data.main.temp - 273.15;
-            // temp_celcius = (temp).toFixed(1);
-            // window.localStorage.setItem("temp",temp_celcius);
-            // console.log(temp_celcius);
-            // $(".temp").text(temp_celcius).append("<sup>o</sup>C");
-            // $("#humidity").text(weather_data.main.humidity).append('<span class="percentage"> %</span>');
-            // $("#pressure").text(weather_data.main.pressure).append('<span class="units"> hpa</span>');
-            // $("#wind").text(weather_data.wind.speed).append('<span class="units"> m/s</span');
-            // $("#desc").text(weather_description[weather_data.weather[0].id]);
-            // $(".icon1").attr("data-icon",array[weather_data.weather[0].id]);
             weather.weather.push({"id":id,"color":weather_data.weather[0].main,"flag":flag1,"icon":weather_data.weather[0].id,"description":weather_description[weather_data.weather[0].id],"wind":weather_data.wind.speed,"pressure":weather_data.main.pressure,"humidity":weather_data.main.humidity,"temp":temp_celcius,"location_name":weather_data.name,"condition":weather_data.weather[0].description});
             localStorage.setItem('weather', JSON.stringify(weather));
             window.localStorage.setItem("location",weather_data.name);
@@ -322,13 +282,18 @@
             var icon = weather_data.weather[0].id;
             var color = weather_data.weather[0].main;
             window.localStorage.setItem("location",restoredSession.weather[i].location_name);
-            var div_creation = "<div class = 'item page1'><div class='circle1'><center><div class='pos' id='desc'> " + description + " </div></center><div class='text-container'><div class='fa fa-tint left'></div><div class='fa fa-tachometer right'></div></div><div class='text-container'><div class='humidity left'>" + humidity + "<span class='percentage'> %</span>" + "</div><div id='pressure' class='right'>" + pressure + "<span class='units'> hpa</span>" + "</div></div><div class='text-container'><div class='icon left1' data-icon='F'></div><div class='icon left1' id='wind'>" + wind + "<span class='units'> m/s</span>" + "</div></div><div class='fa fa-home home-icon'></div></div><center class='cen'><div class='circle' style = 'background: "+ color_codes[restoredSession.weather[i].color] +"'><div class='icon icon1' data-icon='"+ array[restoredSession.weather[i].icon] +"'></div>"+ " " + "<label class='condition'>" + condition + "</label></div><div class='cir1' data-toggle='modal' data-target='#location-modal' style = 'background: "+ color_codes[restoredSession.weather[i].color] +"'><i class='fa fa-map-marker geo'></i><div class='location'>" + loc_name + "</div></div><div class='cir2' style = 'background: "+ color_codes[restoredSession.weather[i].color] +"' data-temp = " + temp + " data-flag = 'c' ><span class='temp'>" + temp + "<sup class='degree'>o</sup>C</span></div><div class='cir3' style = 'background: "+ color_codes[restoredSession.weather[i].color] +"'><span id='day' class='date-style'> 25 </span><span id='month' class='month'>September, 2014</span></div></center></div></div>";
+            window.localStorage.setItem("id",id);
+            var div_creation = "<div class = 'item page1' data-index='"+ id +"'><div class='circle1'><center><div class='pos' id='desc'> " + description + " </div></center><div class='text-container'><div class='fa fa-tint left'></div><div class='fa fa-tachometer right'></div></div><div class='text-container'><div class='humidity left'>" + humidity + "<span class='percentage'> %</span>" + "</div><div id='pressure' class='right'>" + pressure + "<span class='units'> hpa</span>" + "</div></div><div class='text-container'><div class='icon left1' data-icon='F'></div><div class='icon left1' id='wind'>" + wind + "<span class='units'> m/s</span>" + "</div></div><div class='fa fa-home home-icon'></div></div><center class='cen'><div class='circle' style = 'background: "+ color_codes[restoredSession.weather[i].color] +"'><div class='icon icon1' data-icon='"+ array[restoredSession.weather[i].icon] +"'></div>"+ " " + "<label class='condition'>" + condition + "</label></div><div class='cir1' data-toggle='modal' data-target='#location-modal' style = 'background: "+ color_codes[restoredSession.weather[i].color] +"'><i class='fa fa-map-marker geo'></i><div class='location'>" + loc_name + "</div></div><div class='cir2' style = 'background: "+ color_codes[restoredSession.weather[i].color] +"' data-temp = " + temp + " data-flag = 'c' ><span class='temp'>" + temp + "<sup class='degree'>o</sup>C</span></div><div class='cir3' style = 'background: "+ color_codes[restoredSession.weather[i].color] +"'><span id='day' class='date-style'> 25 </span><span id='month' class='month'>September, 2014</span></div></center></div></div>";
             $(function() {
                 all_function.a();
             });
             ready_events_load();
             $(".slider").append(div_creation);
             $('.iosSlider').iosSlider('update');
+            var restSession = JSON.parse(localStorage.getItem('weather'));
+            var length = restSession.weather.length;
+            console.log(length);
+            $('iosSlider').iosSlider('goToSlide', length, 1000);
             define_modal_events();
 
         }
@@ -336,7 +301,6 @@
 
         var restSession = JSON.parse(localStorage.getItem('weather'));
 
-        
         console.log(restSession);
     }
     function define_modal_events() {
@@ -362,7 +326,22 @@
             // alert(temp_celcius);
             toggle(this);
         });
+        $(".cir3").off("click");
+        $(".cir3").on("click", function(evr) {
+
+        var x = $(this).parent().parent().data("index");
+        console.log(x);
+
+        var restSession = JSON.parse(localStorage.getItem('weather'));
+        var ses_data = restSession.weather[x-1];
+        console.log(ses_data);
+        localStorage.setItem("location",ses_data.location_name);
+        window.location.href = "../www/Mobile_weather.html";
+        });
+
     }
+
+   
 
     function ready_events_load()
     {
@@ -377,39 +356,6 @@
         $(".left").hide();
         $(".right").hide();
     }
-  
-    function create_div()
-    {
-        var restoredSession = JSON.parse(localStorage.getItem('weather'));
-        console.log(restoredSession);
-        console.log(restoredSession.weather[0].description);
-        var description = restoredSession.weather[0].description;
-        var length = restoredSession.weather.length;
-        console.log(length);
-        for(var i =0;i<length;i++)
-        {
-            var description = restoredSession.weather[i].description;
-            var loc_name = restoredSession.weather[i].location_name;
-            var condition = restoredSession.weather[i].condition;
-            var humidity = restoredSession.weather[i].humidity;
-            var pressure = restoredSession.weather[i].pressure;
-            var temp = restoredSession.weather[i].temp;
-            var wind = restoredSession.weather[i].wind;
-            var icon = restoredSession.weather[i].icon;
-            var color = restoredSession.weather[i].color;
-            window.localStorage.setItem("temp",temp);
-            window.localStorage.setItem("location",restoredSession.weather[i].location_name);
-            var div_creation = "<div class = 'item page1'><div class='circle1'><center><div class='pos' id='desc'> " + description + " </div></center><div class='text-container'><div class='fa fa-tint left'></div><div class='fa fa-tachometer right'></div></div><div class='text-container'><div class='humidity left'>" + humidity + "<span class='percentage'> %</span>" + "</div><div id='pressure' class='right'>" + pressure + "<span class='units'> hpa</span>" + "</div></div><div class='text-container'><div class='icon left1' data-icon='F'></div><div class='icon left1' id='wind'>" + wind + "<span class='units'> m/s</span>" + "</div></div><div class='fa fa-home home-icon'></div></div><center class='cen'><div class='circle' style = 'background: "+ color_codes[restoredSession.weather[i].color] +"'><div class='icon icon1' data-icon='"+ array[restoredSession.weather[i].icon] +"'></div>"+ " " + "<label class='condition'>" + condition + "</label></div><div class='cir1' data-toggle='modal' data-target='#location-modal' style = 'background: "+ color_codes[restoredSession.weather[i].color] +"'><i class='fa fa-map-marker geo'></i><div class='location'>" + loc_name + "</div></div><div class='cir2' style = 'background: "+ color_codes[restoredSession.weather[i].color] +"' data-temp = " + temp + " data-flag = 'c' ><span class='temp'>" + temp + "<sup class='degree'>o</sup>C</span></div><div class='cir3' style = 'background: "+ color_codes[restoredSession.weather[i].color] +"'><span id='day' class='date-style'> 25 </span><span id='month' class='month'>September, 2014</span></div></center></div></div>";
-         //    $(".circle").css("background",color_codes[restoredSession.weather[i].color]);
-            // $(".cir1").css("background",color_codes[restoredSession.weather[i].color]);
-            // $(".cir2").css("background",color_codes[restoredSession.weather[i].color]);
-            // $(".cir3").css("background",color_codes[restoredSession.weather[i].color]);
-         //    $(".icon1").attr("data-icon",array[restoredSession.weather[i].icon]);
-            $(".slider").append(div_creation);
-        }
-            ready_events_load();
-            $('.iosSlider').iosSlider('update');
-    } 
 
 } (jQuery));
 

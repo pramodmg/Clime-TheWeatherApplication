@@ -246,9 +246,6 @@ function move_circle_back()
     $(".right").hide();
 };
 
-$(".cir3").on("click", function(evr) {
-    nextpage(this);
-});
 
 $(".home-icon").on("click",function(){
 	move_circle_back();
@@ -264,11 +261,22 @@ $(".home-icon").on("click",function(){
 });
 
 
+$(".cir3").on("click", function(evr) {
+
+    var x = $(this).parent().parent().data("index");
+    console.log(x);
+
+    var restSession = JSON.parse(localStorage.getItem('weather'));
+    var ses_data = restSession.weather[x-1];
+    console.log(ses_data);
+    localStorage.setItem("location",ses_data.location_name);
+    nextpage(this);
+});
 
 function nextpage(invokeElm)
 {
-	var url = "../www/Mobile_weather.html";    
-	$(location).attr('href',url);
+    var url = "../www/Mobile_weather.html";    
+    $(location).attr('href',url);
 }
 };
 return all_function;

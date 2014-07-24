@@ -1647,7 +1647,7 @@
 						$('.' + scrollbarBlockClass + ' .' + scrollbarClass).css({ 
 							borderRadius: settings.scrollbarBorderRadius,
 							background: settings.scrollbarBackground,
-							height: settings.scrollbarHeight,
+							// height: settings.scrollbarHeight,
 							width: scrollbarWidth - scrollBorder + 'px',
 							minWidth: settings.scrollbarHeight,
 							border: settings.scrollbarBorder,
