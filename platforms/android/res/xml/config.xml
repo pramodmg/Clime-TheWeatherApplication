@@ -5,7 +5,7 @@
     <feature name="App">
         <param name="android-package" value="org.apache.cordova.App" />
     </feature>
-    <name>Nat5weather</name>
+    <name>Clime</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.
     </description>

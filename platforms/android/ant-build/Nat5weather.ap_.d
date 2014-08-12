@@ -90,4 +90,5 @@
 /var/www/html/Native5/platforms/android/assets/www/img/sunny_cloud.png \
 /var/www/html/Native5/platforms/android/assets/www/img/logo.png \
 /var/www/html/Native5/platforms/android/assets/www/img/sun.png \
+/var/www/html/Native5/platforms/android/assets/www/img/icon.png \
 /var/www/html/Native5/platforms/android/ant-build/AndroidManifest.xml \

@@ -14,28 +14,34 @@ function toggle()
 {
 	if(flag)
 	{
-		move_circle();
+		move_circle_1();
+        $(".fa-tint").show();
+        $(".wind").show();
+        $(".fa-tachometer").show();
+        $(".left1").show();
+        $(".home-icon").show();
+        $("#humidity").show();
+        $("#pressure").show();
+        $("#desc").show();
+        $(".pos").show();
+        $(".left").show();
+        $(".right").show();
 		flag = false;
 	} else	{
-		move_circle_back();
+		move_cicle_1_back();
+        $(".fa-tint").hide();
+        $("#wind").hide();
+        $(".fa-tachometer").hide();
+        $(".left1").hide();
+        $(".home-icon").hide();
+        $("#humidity").hide();
+        $("#pressure").hide();
+        $("#desc").hide();
+        $(".pos").hide();
+        $(".left").hide();
+        $(".right").hide();
 		flag = true;
 	}
-};
-
-function move_circle()
-{
-	move_circle_1();
-    $(".fa-tint").show();
-    $(".wind").show();
-    $(".fa-tachometer").show();
-    $(".left1").show();
-    $(".home-icon").show();
-    $("#humidity").show();
-    $("#pressure").show();
-    $("#desc").show();
-    $(".pos").show();
-    $(".left").show();
-    $(".right").show();
 };
 
 function move_circle_1() {
@@ -110,16 +116,6 @@ function move_circle_1() {
     	$(".cir2").fadeOut();
     	$(".cir3").fadeOut();
     }
-
-  //   if (wi >= 451 && wi<=500)
-  //   {
-		// $(".circle").animate({width :"790px",height :"790px",left : "-155px"},"fast");
-		// $(".circle").css({position : "relative"});
-		// $(".cen").css({overflow : "hidden",position :"fixed"});
-		// // $(".cir1").hide();
-		// // $(".cir2").hide();
-		// // $(".cir3").hide();
-  //   }
 
     else {
     	$(".circle").animate({width :"650px",height :"650px",'margin-bottom' :"0",left : "0px"},"fast");
@@ -227,28 +223,10 @@ function move_cicle_1_back()
 
 };
 
-function move_circle_back()
-{
-    move_cicle_1_back();
-	// $(".cir1").show();
-	// $(".cir2").show();
-	// $(".cir3").show();
-    $(".fa-tint").hide();
-    $("#wind").hide();
-    $(".fa-tachometer").hide();
-    $(".left1").hide();
-    $(".home-icon").hide();
-    $("#humidity").hide();
-    $("#pressure").hide();
-    $("#desc").hide();
-    $(".pos").hide();
-    $(".left").hide();
-    $(".right").hide();
-};
-
 
 $(".home-icon").on("click",function(){
-	move_circle_back();
+    flag = false;
+	toggle();
     $(".left1").hide();
     flag = true;
     $(".fa-tint").hide();
@@ -270,14 +248,29 @@ $(".cir3").on("click", function(evr) {
     var ses_data = restSession.weather[x-1];
     console.log(ses_data);
     localStorage.setItem("location",ses_data.location_name);
-    nextpage(this);
+    window.location.href = "../www/Mobile_weather.html";
 });
 
-function nextpage(invokeElm)
-{
-    var url = "../www/Mobile_weather.html";    
-    $(location).attr('href',url);
-}
+// $(".cir2").on("click",function(){
+//     toggle();
+// });
+
+// var flag = true;
+// function toggle(){
+//     var temp_celcius = localStorage.getItem("temp");
+//     temp_celcius = parseInt(temp_celcius);
+//     if(flag)
+//     {
+//         farenheit = (temp_celcius * (9/5) + 32).toFixed(1);
+//         $(".temp").text(farenheit).append("<sup>o</sup>F");
+//         flag = false;
+//     }
+//     else
+//     {
+//         flag = true;
+//         $(".temp").text(temp_celcius).append("<sup>o</sup>C");
+//     }
+// }
 };
 return all_function;
 }(jQuery, all_function || {}));

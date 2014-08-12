@@ -149,3 +149,4 @@ function check_day()
 		document.getElementById("day_6").innerHTML = week_day_three[6];
 	}
 }
+

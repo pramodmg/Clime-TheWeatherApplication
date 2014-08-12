@@ -1351,7 +1351,7 @@
 					allScrollerNodeChildren = $(scrollerNode).find('*');
 					
 					$(stageNode).css('width', '');
-					$(stageNode).css('height', '');
+					// $(stageNode).css('height', '');
 					$(scrollerNode).css('width', '');
 					slideNodes = $(scrollerNode).children().not('script').get();
 					slideNodeWidths = new Array();
@@ -1647,7 +1647,7 @@
 						$('.' + scrollbarBlockClass + ' .' + scrollbarClass).css({ 
 							borderRadius: settings.scrollbarBorderRadius,
 							background: settings.scrollbarBackground,
-							height: settings.scrollbarHeight,
+							// height: settings.scrollbarHeight,
 							width: scrollbarWidth - scrollBorder + 'px',
 							minWidth: settings.scrollbarHeight,
 							border: settings.scrollbarBorder,

@@ -1351,7 +1351,6 @@
 					allScrollerNodeChildren = $(scrollerNode).find('*');
 					
 					$(stageNode).css('width', '');
-					$(stageNode).css('height', '');
 					$(scrollerNode).css('width', '');
 					slideNodes = $(scrollerNode).children().not('script').get();
 					slideNodeWidths = new Array();
@@ -1506,7 +1505,7 @@
 					}
 					
 					$(stageNode).css({
-						height: stageHeight
+
 					});
 
 					helpers.setSliderOffset(scrollerNode, childrenOffsets[activeChildOffsets[sliderNumber]]);

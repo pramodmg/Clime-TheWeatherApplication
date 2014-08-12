@@ -4,6 +4,7 @@ $(document).ready(function(){
     var month = d.getMonth();
     var flag = false;
     var index = 0;
+    var temp_celcius;
     var m = ["January","February","March","April","May","June","July","August","September","October","November","December"];
     var array = { 200 : "P" , 201 : "Q", 202 : "R", 210 : "O", 211 : "P", 212 : "Q", 221 : "P" , 230 : "Q" , 231 : "Q" , 232 : "R" ,
                   300 : "Q" , 301 : "Q", 302 : "R", 310 : "Q" ,311 : "R", 312 : "R", 313 : "R" , 314 : "X" , 321 : "T" ,
@@ -84,6 +85,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
     //
     function onDeviceReady() {
         navigator.geolocation.getCurrentPosition(onSuccess, onError);
+        document.addEventListener("backbutton", function(){if(confirm("want to exit ?")){navigator.app.exitApp();} }, false);
     }
 
     // onSuccess Geolocation
@@ -121,6 +123,8 @@ document.addEventListener("deviceready", onDeviceReady, false);
                 window.localStorage.setItem("temp",temp_celcius);
                 window.localStorage.setItem("location",weather_data.name);
                 $(".temp").text(temp_celcius).append("<sup>o</sup>C");
+                $(".temp").parent().data("temp",temp_celcius);
+                $(".temp").parent().data("flag","C");
                 $("#humidity").text(weather_data.main.humidity).append('<span class="percentage"> %</span>');
                 $("#pressure").text(weather_data.main.pressure).append('<span class="units"> hpa</span>');
                 $("#wind").text(weather_data.wind.speed).append('<span class="units"> m/s</span');
@@ -144,6 +148,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
     });    
     }
 
+  
 
     
     // onError Callback receives a PositionError object
