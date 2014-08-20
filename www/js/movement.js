@@ -1,3 +1,11 @@
+var d = new Date();
+var day = d.getDate();
+var month = d.getMonth();
+var m = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+var y = d.getFullYear();
+
+
+
 var ele = document.getElementById('move');
 var array = { 200 : "P" , 201 : "Q", 202 : "R", 210 : "O", 211 : "P", 212 : "Q", 221 : "P" , 230 : "Q" , 231 : "Q" , 232 : "R" ,
                   300 : "Q" , 301 : "Q", 302 : "R", 310 : "Q" ,311 : "R", 312 : "R", 313 : "R" , 314 : "X" , 321 : "T" ,
@@ -89,7 +97,7 @@ var restoredSession = JSON.parse(localStorage.getItem('weather'));
             window.localStorage.setItem("temp",temp);
             window.localStorage.setItem("location",restoredSession.weather[i].location_name);
         	
-	        var div_creation = "<div class = 'item page1' data-index='"+ parseInt(i+1) +"'><div class='circle1'><center><div class='pos' id='desc'> " + description + " </div></center><div class='text-container'><div class='fa fa-tint left'></div><div class='fa fa-tachometer right'></div></div><div class='text-container'><div class='humidity left'>" + humidity + "<span class='percentage'> %</span>" + "</div><div id='pressure' class='right'>" + pressure + "<span class='units'> hpa</span>" + "</div></div><div class='text-container'><div class='icon left1' data-icon='F'></div><div class='icon left1' id='wind'>" + wind + "<span class='units'> m/s</span>" + "</div></div><div class='fa fa-home home-icon'></div></div><center class='cen'><div class='circle' style = 'background: "+ color_codes[restoredSession.weather[i].color] +"'><div class='icon icon1' data-icon='"+ array[restoredSession.weather[i].icon] +"'></div>"+ " " + "<label class='condition'>" + condition + "</label></div><div class='cir1' data-toggle='modal' data-target='#location-modal' style = 'background: "+ color_codes[restoredSession.weather[i].color] +"'><i class='fa fa-map-marker geo'></i><div class='location'>" + loc_name + "</div></div><div class='cir2' style = 'background: "+ color_codes[restoredSession.weather[i].color] +"' data-temp = " + temp + " data-flag = 'c' ><span class='temp'>" + temp + "<sup>o</sup>C</span></div><div class='cir3' style = 'background: "+ color_codes[restoredSession.weather[i].color] +"'><span id='day' class='date-style'> 25 </span><span id='month' class='month'>September, 2014</span></div></center></div></div>";
+	        var div_creation = "<div class = 'item page1' data-index='"+ parseInt(i+1) +"'><div class='circle1'><center><div class='pos' id='desc'> " + description + " </div></center><div class='text-container'><div class='fa fa-tint left'></div><div class='fa fa-tachometer right'></div></div><div class='text-container'><div class='humidity left'>" + humidity + "<span class='percentage'> %</span>" + "</div><div id='pressure' class='right'>" + pressure + "<span class='units'> hpa</span>" + "</div></div><div class='text-container'><div class='icon left1' data-icon='F'></div><div class='icon left1' id='wind'>" + wind + "<span class='units'> m/s</span>" + "</div></div><div class='fa fa-home home-icon'></div></div><center class='cen'><div class='circle' style = 'background: "+ color_codes[restoredSession.weather[i].color] +"'><div class='icon icon1' data-icon='"+ array[restoredSession.weather[i].icon] +"'></div>"+ " " + "<label class='condition'>" + condition + "</label></div><div class='cir1' data-toggle='modal' data-target='#location-modal' style = 'background: "+ color_codes[restoredSession.weather[i].color] +"'><i class='fa fa-map-marker geo'></i><div class='location'>" + loc_name + "</div></div><div class='cir2' style = 'background: "+ color_codes[restoredSession.weather[i].color] +"' data-temp = " + temp + " data-flag = 'c' ><span class='temp'>" + temp + "<sup>o</sup>C</span></div><div class='cir3' style = 'background: "+ color_codes[restoredSession.weather[i].color] +"'><span id='day' class='date-style'> 235 </span><span id='month' class='month'>" + m[month] + "," + y + "</span></div></center></div></div>";
 	        $(function() {
                 all_function.a();
             });
@@ -102,7 +110,12 @@ var restoredSession = JSON.parse(localStorage.getItem('weather'));
     function create_div_nodata()
     {
     	var index = 1;
-    	var div_creation = "<div class = 'item page1' data-index='"+ index +"'><div class='circle1'><center><div class='pos' id='desc'> -- </div></center><div class='text-container'><div class='fa fa-tint left'></div><div class='fa fa-tachometer right'></div></div><div class='text-container'><div id='humidity' class='left'>he</div><div id='pressure' class='right'>pr</div></div><div class='text-container'><div class='icon left1' data-icon='F'></div><div class='icon left1' id='wind'>wi</div></div><div class='fa fa-home home-icon'></div></div><center class='cen'><div class='circle'><div class='icon icon1' data-icon='H'></div><label class='condition'>Cloudy</label></div><div class='cir1' data-toggle='modal' data-target='#location-modal'><i class='fa fa-map-marker geo'></i><div class='location'>India</div></div><div class='cir2'><span class='temp'> 25<sup class='degree'>o</sup>C</span></div><div class='cir3'><span id='day' class='date-style'>25</span><span id='month' class='month'>September, 2014</span></div></center></div>";
+        var d = new Date();
+        var day = d.getDate();
+        var month = d.getMonth();
+        var y = d.getFullYear();
+        var m = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+    	var div_creation = "<div class = 'item page1' data-index='"+ index +"'><div class='circle1'><center><div class='pos' id='desc'> -- </div></center><div class='text-container'><div class='fa fa-tint left'></div><div class='fa fa-tachometer right'></div></div><div class='text-container'><div id='humidity' class='left'>he</div><div id='pressure' class='right'>pr</div></div><div class='text-container'><div class='icon left1' data-icon='F'></div><div class='icon left1' id='wind'>wi</div></div><div class='fa fa-home home-icon'></div></div><center class='cen'><div class='circle'><div class='icon icon1' data-icon='H'></div><label class='condition'>Cloudy</label></div><div class='cir1' data-toggle='modal' data-target='#location-modal'><i class='fa fa-map-marker geo'></i><div class='location'>India</div></div><div class='cir2'><span class='temp'> 25<sup class='degree'>o</sup>C</span></div><div class='cir3'><span id='day' class='date-style'>255555</span><span id='month' class='month'>September, 2014</span></div></center></div>";
     		$(".slider").append(div_creation);
     		ready_events_load();
 	        $('.iosSlider').iosSlider('update');

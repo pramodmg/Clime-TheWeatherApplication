@@ -154,6 +154,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
     // onError Callback receives a PositionError object
     //
     function onError(error) {
+        console.log(error.code + "   " + error.message);
         alert('code: '    + error.code    + '\n' +
               'message: ' + error.message + '\n');
     }
