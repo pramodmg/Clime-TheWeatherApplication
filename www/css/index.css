@@ -7,6 +7,10 @@ body,html
   padding: 0px;
 }
 
+.close_icon
+{
+  float: right;
+}
 .container_page {
     position: absolute;
     top: 0;
@@ -51,7 +55,7 @@ body,html
 ul,ol
 {
   padding: 0;
-  max-height: 124px;
+  max-height: 120px;
   /*height: 124px;*/
   overflow: auto;
   line-height: 40px;

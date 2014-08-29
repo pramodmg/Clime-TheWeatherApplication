@@ -3,6 +3,17 @@ body
   margin: 0 0 0 0;
 }
 
+
+@media all and (min-width:320px) and (max-width : 445px)
+{
+   .text-container {
+  width: 100%;
+  position: relative;
+/* top: 25px; */ 
+  }
+}
+
+
 body,html{
   background-color: white;
   padding: 0;

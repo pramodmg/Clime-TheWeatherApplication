@@ -44,7 +44,7 @@
         var restoredSession = 0;
     } else {
         var restoredSession = JSON.parse(localStorage.getItem('weather'));
-        var disp = "<div class='btn btn-default modal_but'>";
+        var disp = "<div class='list-group-item modal_but'>";
         var location =" No location";
         $("#loc_name").append(disp+location);
     }
@@ -52,11 +52,23 @@
     var restoredSession = JSON.parse(localStorage.getItem('weather'));
         if(restoredSession){
             $("#loc_name").empty();
-            for(var i=0;i<restoredSession.weather.length;i++){
-            var disp = "<div class='btn btn-default modal_but' id="+i+">";
-                $("#loc_name").append(disp+restoredSession.weather[i].location_name).append("<br>");
+            for(var i=1;i<restoredSession.weather.length;i++){
+            var disp = "<div class='list-group-item modal_but' id="+i+">"+ restoredSession.weather[i].location_name + "<i class='fa fa-times close_icon'>";
+                $("#loc_name").append(disp);
                 console.log(restoredSession.weather[i].location_name);
             }
+
+            $(".close_icon").click(function(ev){
+                ev.stopPropagation();
+                var divId = $(this).parent().attr("id");
+                $('#location-modal').modal('hide');
+                divId = parseInt(divId);
+                var co = confirm("do you want to Delete?");
+                if(co)
+                {
+                   modal_delete_data(divId);
+                }
+            });
             $(".modal_but").click(function(){
                 // alert($(this).attr("id"));
                 var divId = $(this).attr("id");
@@ -71,6 +83,14 @@
         } 
     });
 
+    function modal_delete_data(e)
+    {
+        var restSession = JSON.parse(localStorage.getItem('weather'));
+        restSession.weather.splice(e,1);
+        localStorage.setItem('weather', JSON.stringify(restSession));
+        $('.iosSlider').iosSlider('removeSlide', parseInt(e)+1);
+        console.log(restSession);
+    }
     function AnimateRotate(d){
         // var elem = $("#circle");
         // var elem = $("#circle2");
@@ -292,6 +312,7 @@
             var length = restSession.weather.length;
             console.log(length);
             $('.iosSlider').iosSlider('goToSlide', length, 1000);
+
             restoredSession = JSON.parse(localStorage.getItem('weather'));
             define_modal_events();
             // count++;
