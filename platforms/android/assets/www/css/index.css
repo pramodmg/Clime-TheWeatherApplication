@@ -504,7 +504,7 @@ font-style: normal;
   {
     z-index: 999;
     color: white;
-    left: 45%;
+    left: 1%;
     top: 340px;
     font-size: 3em;
   }
@@ -1115,7 +1115,7 @@ font-style: normal;
 
   .date-style
   {
-    margin-top: 5%;
+    top:30px;
     font-size: 3em;
     color: white;
     font-family: 'nexa_lightregular_bold';
@@ -1124,7 +1124,7 @@ font-style: normal;
   .month
   {
     font-size: 1.4em;
-    margin-top: 30px;
+    margin-top: 5px;
     color: white;
   }
 

@@ -48,40 +48,40 @@
         var location =" No location";
         $("#loc_name").append(disp+location);
     }
-    $('#location-modal').on('show.bs.modal', function () {      
-    var restoredSession = JSON.parse(localStorage.getItem('weather'));
-        if(restoredSession){
-            $("#loc_name").empty();
-            for(var i=1;i<restoredSession.weather.length;i++){
-            var disp = "<div class='list-group-item modal_but' id="+i+">"+ restoredSession.weather[i].location_name + "<i class='fa fa-times close_icon'>";
-                $("#loc_name").append(disp);
-                console.log(restoredSession.weather[i].location_name);
-            }
+    // $('#location-modal').on('show.bs.modal', function () {      
+    // var restoredSession = JSON.parse(localStorage.getItem('weather'));
+    //     if(restoredSession){
+    //         $("#loc_name").empty();
+    //         for(var i=1;i<restoredSession.weather.length;i++){
+    //         var disp = "<div class='list-group-item modal_but' id="+i+">"+ restoredSession.weather[i].location_name + "<i class='fa fa-times close_icon'>";
+    //             $("#loc_name").append(disp);
+    //             console.log(restoredSession.weather[i].location_name);
+    //         }
 
-            $(".close_icon").click(function(ev){
-                ev.stopPropagation();
-                var divId = $(this).parent().attr("id");
-                $('#location-modal').modal('hide');
-                divId = parseInt(divId);
-                var co = confirm("do you want to Delete?");
-                if(co)
-                {
-                   modal_delete_data(divId);
-                }
-            });
-            $(".modal_but").click(function(){
-                // alert($(this).attr("id"));
-                var divId = $(this).attr("id");
-                $('#location-modal').modal('hide');
-                console.log(restoredSession);
-                divId = parseInt(divId);
-                divId = divId + 1;
-                console.log(divId);
-                modal_location_data(divId);
-                // AnimateRotate(360);
-            });
-        } 
-    });
+    //         $(".close_icon").click(function(ev){
+    //             ev.stopPropagation();
+    //             var divId = $(this).parent().attr("id");
+    //             $('#location-modal').modal('hide');
+    //             divId = parseInt(divId);
+    //             var co = confirm("do you want to Delete?");
+    //             if(co)
+    //             {
+    //                modal_delete_data(divId);
+    //             }
+    //         });
+    //         $(".modal_but").click(function(){
+    //             // alert($(this).attr("id"));
+    //             var divId = $(this).attr("id");
+    //             $('#location-modal').modal('hide');
+    //             console.log(restoredSession);
+    //             divId = parseInt(divId);
+    //             divId = divId + 1;
+    //             console.log(divId);
+    //             modal_location_data(divId);
+    //             // AnimateRotate(360);
+    //         });
+    //     } 
+    // });
 
     function modal_delete_data(e)
     {
@@ -338,7 +338,7 @@
             var color = weather_data.weather[0].main;
             window.localStorage.setItem("location",loc_name);
             window.localStorage.setItem("id",id);
-            var div_creation = "<div class = 'item page1' data-index='"+ id +"'><div class='circle1'><center><div class='pos' id='desc'> " + description + " </div></center><div class='text-container'><div class='fa fa-tint left'></div><div class='fa fa-tachometer right'></div></div><div class='text-container'><div class='humidity left'>" + humidity + "<span class='percentage'> %</span>" + "</div><div id='pressure' class='right'>" + pressure + "<span class='units'> hpa</span>" + "</div></div><div class='text-container'><div class='icon left1' data-icon='F'></div><div class='icon left1' id='wind'>" + wind + "<span class='units'> m/s</span>" + "</div></div><div class='fa fa-home home-icon'></div></div><center class='cen'><div class='circle' style = 'background: "+ color_codes[restoredSession.weather[i].color] +"'><div class='icon icon1' data-icon='"+ array[restoredSession.weather[i].icon] +"'></div>"+ " " + "<label class='condition'>" + condition + "</label></div><div class='cir1' data-toggle='modal' data-target='#location-modal' style = 'background: "+ color_codes[restoredSession.weather[i].color] +"'><i class='fa fa-map-marker geo'></i><div class='location'>" + loc_name + "</div></div><div class='cir2' style = 'background: "+ color_codes[restoredSession.weather[i].color] +"' data-temp = " + temp + " data-flag = 'c' ><span class='temp'>" + temp + "<sup>o</sup>C</span></div><div class='cir3' style = 'background: "+ color_codes[restoredSession.weather[i].color] +"'><span id='day' class='date-style'>" + check_day() +"</span><span id='month' class='month'>" + m[month] + "," + y + "</span></div></center></div></div>";
+            var div_creation = "<div class = 'item page1' data-index='"+ id +"'><div class='circle1'><center><div class='pos' id='desc'> " + description + " </div></center><div class='text-container'><div class='fa fa-tint left'></div><div class='fa fa-tachometer right'></div></div><div class='text-container'><div class='humidity left'>" + humidity + "<span class='percentage'> %</span>" + "</div><div id='pressure' class='right'>" + pressure + "<span class='units'> hpa</span>" + "</div></div><div class='text-container'><div class='icon left1' data-icon='F'></div><div class='icon left1' id='wind'>" + wind + "<span class='units'> m/s</span>" + "</div></div><div class='fa fa-home home-icon'></div></div><center class='cen'><div class='circle' style = 'background: "+ color_codes[color] +"'><div class='icon icon1' data-icon='"+ array[icon] +"'></div>"+ " " + "<label class='condition'>" + condition + "</label></div><div class='cir1' data-toggle='modal' data-target='#location-modal' style = 'background: "+ color_codes[color] +"'><i class='fa fa-map-marker geo'></i><div class='location'>" + loc_name + "</div></div><div class='cir2' style = 'background: "+ color_codes[color] +"' data-temp = " + temp + " data-flag = 'c' ><span class='temp'>" + temp + "<sup>o</sup>C</span></div><div class='cir3' style = 'background: "+ color_codes[color] +"'><span id='day' class='date-style'>" + check_day() +"</span><span id='month' class='month'>" + m[month] + "," + y + "</span></div></center></div></div>";
             $(function() {
                 all_function.a();
             });

@@ -71,9 +71,11 @@
 /var/www/html/Native5/platforms/android/assets/www/css/bootstrap-theme.css \
 /var/www/html/Native5/platforms/android/assets/www/css/weather.css \
 /var/www/html/Native5/platforms/android/assets/www/css/main.css \
+/var/www/html/Native5/platforms/android/assets/www/js/native5.ui.sidemenu.min.js \
 /var/www/html/Native5/platforms/android/assets/www/js/hover.js \
 /var/www/html/Native5/platforms/android/assets/www/js/j_slide.js \
 /var/www/html/Native5/platforms/android/assets/www/js/snap.svg-min.js \
+/var/www/html/Native5/platforms/android/assets/www/js/native5.ui.UIComponent.min.js \
 /var/www/html/Native5/platforms/android/assets/www/js/jquery.easing-1.3.js \
 /var/www/html/Native5/platforms/android/assets/www/js/main.js \
 /var/www/html/Native5/platforms/android/assets/www/js/weather.js \
@@ -84,6 +86,7 @@
 /var/www/html/Native5/platforms/android/assets/www/js/jquery-1.4.min.js \
 /var/www/html/Native5/platforms/android/assets/www/js/movement.js \
 /var/www/html/Native5/platforms/android/assets/www/js/bootstrap.min.js \
+/var/www/html/Native5/platforms/android/assets/www/js/klass.js \
 /var/www/html/Native5/platforms/android/assets/www/js/new_weekly.js \
 /var/www/html/Native5/platforms/android/assets/www/js/swipe_weather.js \
 /var/www/html/Native5/platforms/android/assets/www/js/jquery-2.1.1.min.js \
