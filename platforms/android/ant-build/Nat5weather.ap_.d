@@ -84,6 +84,7 @@
 /var/www/html/Native5/platforms/android/assets/www/js/jquery.iosslider.js \
 /var/www/html/Native5/platforms/android/assets/www/js/ready_events.js \
 /var/www/html/Native5/platforms/android/assets/www/js/jquery-1.4.min.js \
+/var/www/html/Native5/platforms/android/assets/www/js/load_dynamic.js \
 /var/www/html/Native5/platforms/android/assets/www/js/movement.js \
 /var/www/html/Native5/platforms/android/assets/www/js/bootstrap.min.js \
 /var/www/html/Native5/platforms/android/assets/www/js/klass.js \

@@ -24,9 +24,132 @@ var weather_description = { 200 : "Enjoy the Drizzingling Rain with music" , 201
                   900 : "Weather is Upset" , 901 : "weather is taking revange", 902 : "Fight mode activated", 903 : "Thick frabric is cumpulsory" ,904 : "Weather is Hot", 905 : "Fly with the wind" , 906: "Protect your head with a cap",
                   950 : "Weather is plesent" , 951 : "Feel relaxed", 952 : "Enjoy the wind", 953 : "You will enjoy the Wind flow" ,954 : "Windy Weather", 955 : "Try to store this fresh breeze", 956 : "Dont fly away" , 957 : "Dont fly away", 958: "Protect your head" , 959 : "Wear a helmet",
                   960 : "Storm comming up" , 961 : "Revenge mode activated", 962 : "Round Round Round"};
-
-var color_codes ={ Haze : "rgba(128,128,128,0.6)", Mist : "rgba(128,128,128,0.6)" , Clouds : "rgba(0,192,255,0.6)" , Clear : "rgba(255,176,0,0.6)" , Rain : "rgba(51,204,255,0.6)" , Drizzle : "rgba(51,204,255,0.6)"};
+    var color_codes ={ Haze : "rgba(128,128,128,0.6)", Mist : "rgba(128,128,128,0.6)" , Clouds : "rgba(0,192,255,0.6)" , Clear : "rgba(255,176,0,0.6)" , Rain : "rgba(51,204,255,0.6)" , Drizzle : "rgba(51,204,255,0.6)"};
     var y = d.getFullYear();
+
+    window.menu = new native5.ui.SideMenu({'bodySelector':".container_page",'refresh':false, 'welcome':"<div class='heading'>Locations <span class='fa fa-plus add_location'></span><span class='fa fa-times-circle clear_session'></span> </div>", 'displacement':"200"});
+    window.location_input = "<div class='input-group'><input type='text' id='input_location' class='form-control'><span class='input-group-addon' id='but_submit'>Add</span></div>";
+    menu.addItem({itemText: location_input});
+    menu.render();
+    load_from_localstorage();
+
+    $(".cir1").click(function(evt) {
+        evt.stopPropagation();
+        menu.toggle();
+        return false;
+    });
+    
+    function load_from_localstorage(){
+        var restoredSession = JSON.parse(localStorage.getItem('weather'));
+        if(restoredSession){
+            // $(".sidemenu").append();
+            // $('.sidemenu').children().remove();
+            for(var i=0;i<restoredSession.weather.length;i++){
+            window.disp = "<div class='list-group-item modal_but'>"+ restoredSession.weather[i].location_name + "<i class='fa fa-times close_icon'></i>";
+                // $(".sidemenu").append(disp);
+                menu.addItem({itemText: disp});
+                console.log(restoredSession.weather[i].location_name);
+            }
+        }
+    }
+    
+    menu.render();
+
+
+    $(".close_icon").each(function() {
+        $(this).on("click",function(ev){
+            ev.stopPropagation();
+            var divId = $(this).parent().parent().index();
+            console.log(divId);
+            // $('#location-modal').modal('hide');
+            divId = parseInt(divId);
+            console.log("the div is :" + divId);
+            menu.toggle();
+            var co = confirm("do you want to Delete?");
+            if(co)
+            {
+
+               weather_functions.modal_delete_data(divId);
+               menu.removeItem({index: divId});
+               var length = $('.sidemenu').children().length;
+               if(length == 0)
+               {
+                    $('ul li:empty').remove();
+                    localStorage.clear();
+                    window.location.reload();
+               }else {
+                   $('ul li:empty').remove();
+               }
+
+               // window.location.reload();
+            }
+            else{
+                
+               console.log($('.sidemenu').size());
+            }
+        });
+    });
+
+    $(".modal_but").each(function() {
+        $(this).on("click",function(evn){
+            evn.stopPropagation();
+        // alert($(this).attr("id"));
+        var divId = $(this).parent().index();
+        // $('#location-modal').modal('hide');
+        menu.toggle();
+        divId = parseInt(divId);
+        divId = divId + 1;
+        console.log(divId);
+        weather_functions.modal_location_data(divId);
+        // AnimateRotate(360);
+        // alert(divId);
+        return false;
+        });
+    });
+
+    // $(".clear_session").off("click");
+    $(".clear_session").on("click",function(e){
+        e.stopPropagation();
+        localStorage.clear();
+        window.location.reload();
+        $(".clear_session").off("click");
+    });
+
+    $(".cir2").on("click",function(){
+        // alert(temp_celcius);
+        weather_functions.toggle(this);
+    });
+
+    $(".add_location").off("click");
+    $(".add_location").on("click",function(evnt){
+        evnt.stopPropagation();
+        $(".heading").append(location_input);
+
+        // var location = prompt("enter location");
+        // alert(1);
+        // location = document.getElementById('input_location').value;
+        $("#but_submit").off("click");
+        $("#but_submit").on("click",function(evnt){
+            evnt.stopPropagation();
+            var a = document.getElementById('input_location').value;
+            menu.toggle();
+            if(a == "")
+            {
+                alert("empty");
+            }
+            else{
+                // menu.addItem({itemText: a});
+                // menu.render();
+                // console.log(location_side_name_display);
+
+                weather_functions.weather_get(a, function(mag){
+                    alert(mag);
+                });
+                // window.addlocation = "<li><div class='list-group-item modal_but'>"+ a + "<i class='fa fa-times close_icon'></i></li>";
+                // $(".sidemenu").append(addlocation);
+            }
+        });
+    });
 
     switch(day)
     {
@@ -71,6 +194,7 @@ var color_codes ={ Haze : "rgba(128,128,128,0.6)", Mist : "rgba(128,128,128,0.6)
     $("#humidity").hide();
     $("#pressure").hide();
     $("#desc").hide();
+    
 });
 
   // var weather = {
@@ -138,6 +262,12 @@ document.addEventListener("deviceready", onDeviceReady, false);
                 weather.weather.push({"id":id,"color": weather_data.weather[0].main,"flag":flag1,"icon":weather_data.weather[0].id,"description":weather_description[weather_data.weather[0].id],"wind":weather_data.wind.speed,"pressure":weather_data.main.pressure,"humidity":weather_data.main.humidity,"temp":temp_celcius,"location_name":weather_data.name,"condition":weather_data.weather[0].description});
                 localStorage.setItem('weather', JSON.stringify(weather));
                 var restSession = JSON.parse(localStorage.getItem('weather'));
+                for(var i=0;i<restSession.weather.length;i++){
+                window.disp = "<div class='list-group-item modal_but'>"+ restSession.weather[i].location_name + "<i class='fa fa-times close_icon'></i>";
+                menu.addItem({itemText: disp});
+                console.log(restSession.weather[i].location_name);
+            }
+            menu.render();
                 console.log(restSession);
             } else {
                 alert("No location found");

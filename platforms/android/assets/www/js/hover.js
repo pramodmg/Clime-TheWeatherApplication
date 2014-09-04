@@ -7,8 +7,10 @@ $(".circle").on("click", function(evr) {
 var flag = true;
 var wi = $(window).width();
 var hi = $(window).height();
-console.log(wi);
-console.log(hi);
+// $(".add_location").on("click",function(evt){
+//     evt.stopPropagation();
+//     alert(1);
+// })
 
 function toggle()
 {

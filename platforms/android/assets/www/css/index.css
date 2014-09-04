@@ -7,6 +7,58 @@ body,html
   padding: 0px;
 }
 
+#smenu {
+  font-family: Helvetica, Arial;
+  font-size: 0.95em;
+  z-index: -9;
+  padding-top: 10px;
+  color: #aaaaaa;
+}
+
+.clear_session
+{
+  float: right;
+  color: red;
+  padding-right: 8px;
+}
+
+.add_location
+{
+  float: right;
+}
+.heading
+{
+  font-size: 2em;
+  padding-left: 10px;
+}
+#smenu ul {
+  margin-top: 1em;
+  height: 500px;
+}
+#smenu ul li {
+  cursor: pointer;
+  height: 2.5em;
+}
+
+.icon-bg {
+  display: inline-block;
+  margin-left: 0.4em;
+  margin-top: 0.4em;
+  margin-right: 0.6em;
+  text-align: center;
+  padding-top: 0.5em;
+  height: 30px;
+  width: 30px;
+}
+.icon-bg i {
+  color: #fff;
+  margin: 1em;
+}
+
+.active {
+  background-color: #434C56;
+}
+
 .close_icon
 {
   float: right;
@@ -17,6 +69,7 @@ body,html
     bottom: 0;
     left: 0;
     right: 0;
+    background: floralwhite;
 }
 
 .container_page .iosSlider {
@@ -55,10 +108,10 @@ body,html
 ul,ol
 {
   padding: 0;
-  max-height: 120px;
+  /*max-height: 120px;*/
   /*height: 124px;*/
   overflow: auto;
-  line-height: 40px;
+  /*line-height: 10px;*/
   background-color: white;
 }
 
@@ -504,7 +557,7 @@ font-style: normal;
   {
     z-index: 999;
     color: white;
-    left: 1%;
+    left: 45%;
     top: 340px;
     font-size: 3em;
   }
@@ -980,7 +1033,7 @@ font-style: normal;
   {
     font-size: 9em;
     position: relative;
-    top: 7px;
+    top: 0px;
   }
 
   .condition

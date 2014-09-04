@@ -86,9 +86,26 @@ var weather_functions = (function(weather_functions) {
     weather_functions.modal_delete_data = function (e)
     {
         var restSession = JSON.parse(localStorage.getItem('weather'));
-        restSession.weather.splice(e,1);
-        localStorage.setItem('weather', JSON.stringify(restSession));
-        $('.iosSlider').iosSlider('removeSlide', parseInt(e)+1);
+        
+        var e = parseInt(e);
+        // if(e === (restSession.weather.length)-1)
+        // {
+        //     console.log("end of inputs");
+        //     // restSession.weather.splice(e,1);
+        //     // localStorage.setItem('weather', JSON.stringify(restSession));
+        //     // $('.iosSlider').iosSlider('removeSlide', e+1);
+        //     console.log(e);
+        // }
+        // else
+        // {
+        //     // restSession.weather.splice(e-1,1);
+        //     // localStorage.setItem('weather', JSON.stringify(restSession));
+        //     // $('.iosSlider').iosSlider('removeSlide', e+1);
+            console.log(e);
+            restSession.weather.splice(e,1);
+            localStorage.setItem('weather', JSON.stringify(restSession));
+            $('.iosSlider').iosSlider('removeSlide', e+1);
+        // }
         console.log(restSession);
     }
     weather_functions.AnimateRotate = function (d){
@@ -117,9 +134,9 @@ var weather_functions = (function(weather_functions) {
 
     weather_functions.modal_location_data = function(index)
     {  
-        var restSession = JSON.parse(localStorage.getItem('weather'));
-            var length = restSession.weather.length;
-            // console.log(length);
+        // var restSession = JSON.parse(localStorage.getItem('weather'));
+        //     var length = restSession.weather.length;
+        //     console.log(length);
             $('.iosSlider').iosSlider('goToSlide', index, 1000);
     }
 
@@ -149,7 +166,7 @@ var weather_functions = (function(weather_functions) {
             $(".temp", $(elm)).html(temp_celcius+"<sup>o</sup>C");
         }
     }
-    weather_functions.weather_get = function(ab)
+    weather_functions.weather_get = function(ab , callback)
     {
         var location = ab;
         var locationPromise = $.ajax({
@@ -165,7 +182,9 @@ var weather_functions = (function(weather_functions) {
                 flag = true;
                 // window.localStorage.setItem("flag",flag1);
             } else if(weather_data.cod === 200){
-                weather_functions.store_weather();
+                weather_functions.store_weather(function(msg){
+                    callback(msg);
+                });
                 if(restoredSession === null){
                     count = 0;
                 }
@@ -173,10 +192,14 @@ var weather_functions = (function(weather_functions) {
                 var length = restoredSession.weather.length;
                 count = length;
                 }
+                
             } else {
                 alert("location not found");
+                
             }
+
         });    
+
     }
 
     weather_functions.checklocation_name = function()
@@ -194,7 +217,6 @@ var weather_functions = (function(weather_functions) {
                 flag_re = true;
                 console.log("Dont add this location");
                 // alert("Location is present already");
-                break;
             } 
         }
 
@@ -229,7 +251,7 @@ var weather_functions = (function(weather_functions) {
     // }
 
 
-    weather_functions.store_weather = function()
+    weather_functions.store_weather = function(re)
     {
        var weather = {
             weather: [],
@@ -274,21 +296,29 @@ var weather_functions = (function(weather_functions) {
             var color = weather_data.weather[0].main;
             window.localStorage.setItem("location",loc_name);
             index = index + 1;
-            var div_creation = "<div class = 'item page1' data-index='"+ id +"'><div class='circle1'><center><div class='pos' id='desc'> " + description + " </div></center><div class='text-container'><div class='fa fa-tint left'></div><div class='fa fa-tachometer right'></div></div><div class='text-container'><div class='humidity left'>" + humidity + "<span class='percentage'> %</span>" + "</div><div id='pressure' class='right'>" + pressure + "<span class='units'> hpa</span>" + "</div></div><div class='text-container'><div class='icon left1' data-icon='F'></div><div class='icon left1' id='wind'>" + wind + "<span class='units'> m/s</span>" + "</div></div><div class='fa fa-home home-icon'></div></div><center class='cen'><div class='circle' style = 'background: "+ color_codes[color] +"'><div class='icon icon1' data-icon='"+ array[icon] +"'></div>"+ " " + "<label class='condition'>" + condition + "</label></div><div class='cir1' data-toggle='modal' data-target='#location-modal' style = 'background: "+ color_codes[color] +"'><i class='fa fa-map-marker geo'></i><div class='location'>" + loc_name + "</div></div><div class='cir2' style = 'background: "+ color_codes[color] +"' data-temp = " + temp + " data-flag = 'c' ><span class='temp'>" + temp + "<sup>o</sup>C</span></div><div class='cir3' style = 'background: "+ color_codes[color] +"'><span id='day' class='date-style'>" + weather_functions.choose_day() + "</span><span id='month' class='month'>" + m[month] + "," + y + "</span></div></center></div></div>";
+            var div_creation = "<div class = 'item page"+ id + "' data-index='"+ id +"'><div class='circle1'><center><div class='pos' id='desc'> " + description + " </div></center><div class='text-container'><div class='fa fa-tint left'></div><div class='fa fa-tachometer right'></div></div><div class='text-container'><div class='humidity left'>" + humidity + "<span class='percentage'> %</span>" + "</div><div id='pressure' class='right'>" + pressure + "<span class='units'> hpa</span>" + "</div></div><div class='text-container'><div class='icon left1' data-icon='F'></div><div class='icon left1' id='wind'>" + wind + "<span class='units'> m/s</span>" + "</div></div><div class='fa fa-home home-icon'></div></div><center class='cen'><div class='circle' style = 'background: "+ color_codes[color] +"'><div class='icon icon1' data-icon='"+ array[icon] +"'></div>"+ " " + "<label class='condition'>" + condition + "</label></div><div class='cir1' data-toggle='modal' data-target='#location-modal' style = 'background: "+ color_codes[color] +"'><i class='fa fa-map-marker geo'></i><div class='location'>" + loc_name + "</div></div><div class='cir2' style = 'background: "+ color_codes[color] +"' data-temp = " + temp + " data-flag = 'c' ><span class='temp'>" + temp + "<sup>o</sup>C</span></div><div class='cir3' style = 'background: "+ color_codes[color] +"'><span id='day' class='date-style'>" + weather_functions.choose_day() + "</span><span id='month' class='month'>" + m[month] + "," + y + "</span></div></center></div></div>";
             $(".slider").append(div_creation);
             $(function() {
                 all_function.a();
             });
+            // load_functions.close_icon();
             weather_functions.ready_events_load();
             $('.iosSlider').iosSlider('update');
+            // $("#loc_name").html(disp);
+            // menu.addItem({itemText: disp});
+            // menu.render();
             var restSession = JSON.parse(localStorage.getItem('weather'));
             var length = restSession.weather.length;
             console.log(length);
+            // localStorage.setItem('weather', JSON.stringify(restSession));
             $('.iosSlider').iosSlider('goToSlide', length, 1000);
 
             restoredSession = JSON.parse(localStorage.getItem('weather'));
+
             weather_functions.define_modal_events();
+            
             // count++;
+
             }
         }else {
             console.log("push the new data");
@@ -311,27 +341,29 @@ var weather_functions = (function(weather_functions) {
             var color = weather_data.weather[0].main;
             window.localStorage.setItem("location",loc_name);
             window.localStorage.setItem("id",id);
-            var div_creation = "<div class = 'item page1' data-index='"+ id +"'><div class='circle1'><center><div class='pos' id='desc'> " + description + " </div></center><div class='text-container'><div class='fa fa-tint left'></div><div class='fa fa-tachometer right'></div></div><div class='text-container'><div class='humidity left'>" + humidity + "<span class='percentage'> %</span>" + "</div><div id='pressure' class='right'>" + pressure + "<span class='units'> hpa</span>" + "</div></div><div class='text-container'><div class='icon left1' data-icon='F'></div><div class='icon left1' id='wind'>" + wind + "<span class='units'> m/s</span>" + "</div></div><div class='fa fa-home home-icon'></div></div><center class='cen'><div class='circle' style = 'background: "+ color_codes[color] +"'><div class='icon icon1' data-icon='"+ array[icon] +"'></div>"+ " " + "<label class='condition'>" + condition + "</label></div><div class='cir1' data-toggle='modal' data-target='#location-modal' style = 'background: "+ color_codes[color] +"'><i class='fa fa-map-marker geo'></i><div class='location'>" + loc_name + "</div></div><div class='cir2' style = 'background: "+ color_codes[color] +"' data-temp = " + temp + " data-flag = 'c' ><span class='temp'>" + temp + "<sup>o</sup>C</span></div><div class='cir3' style = 'background: "+ color_codes[color] +"'><span id='day' class='date-style'>" + weather_functions.choose_day() +"</span><span id='month' class='month'>" + m[month] + "," + y + "</span></div></center></div></div>";
+            var div_creation = "<div class = 'item page"+ id + "' data-index='"+ id +"'><div class='circle1'><center><div class='pos' id='desc'> " + description + " </div></center><div class='text-container'><div class='fa fa-tint left'></div><div class='fa fa-tachometer right'></div></div><div class='text-container'><div class='humidity left'>" + humidity + "<span class='percentage'> %</span>" + "</div><div id='pressure' class='right'>" + pressure + "<span class='units'> hpa</span>" + "</div></div><div class='text-container'><div class='icon left1' data-icon='F'></div><div class='icon left1' id='wind'>" + wind + "<span class='units'> m/s</span>" + "</div></div><div class='fa fa-home home-icon'></div></div><center class='cen'><div class='circle' style = 'background: "+ color_codes[color] +"'><div class='icon icon1' data-icon='"+ array[icon] +"'></div>"+ " " + "<label class='condition'>" + condition + "</label></div><div class='cir1' data-toggle='modal' data-target='#location-modal' style = 'background: "+ color_codes[color] +"'><i class='fa fa-map-marker geo'></i><div class='location'>" + loc_name + "</div></div><div class='cir2' style = 'background: "+ color_codes[color] +"' data-temp = " + temp + " data-flag = 'c' ><span class='temp'>" + temp + "<sup>o</sup>C</span></div><div class='cir3' style = 'background: "+ color_codes[color] +"'><span id='day' class='date-style'>" + weather_functions.choose_day() +"</span><span id='month' class='month'>" + m[month] + "," + y + "</span></div></center></div></div>";
             $(function() {
                 all_function.a();
             });
             // ready_events_load();
             $(".slider").append(div_creation);
             $('.iosSlider').iosSlider('update');
-            $("#loc_name").append(disp);
-            menu.addItem({itemText: disp});
+            // $("#loc_name").html(disp);
+            // menu.addItem({itemText: disp});
+            // menu.render();
             var restSession = JSON.parse(localStorage.getItem('weather'));
             var length = restSession.weather.length;
             console.log(length);
+            // localStorage.setItem('weather', JSON.stringify(restSession));
             $('iosSlider').iosSlider('goToSlide', length, 1000);
             weather_functions.define_modal_events();
+            
+            re(2);
 
         }
         
 
-        var restSession = JSON.parse(localStorage.getItem('weather'));
         
-        console.log(restSession);
     }
 
     // weather_functions.input_data = function(){
@@ -340,46 +372,164 @@ var weather_functions = (function(weather_functions) {
     //     });
     // }
     weather_functions.define_modal_events = function () { 
-        // $(".cir1").on("click",function(){
-        //     document.getElementById('input_location').value="";
-        //     // document.input_location.focus();
-        //     $("#but_submit").on("click",function(){
-        //         $("#input_location").blur();
-        //         location = document.getElementById('input_location').value;
-        //         weather_get();
-        //         $("#location-modal").modal("hide");
-        //         $("#but_submit").off("click");
-        //     });
-        //     $("#but_clear_cache").on("click",function(){
-        //         localStorage.clear();
-        //         window.location.reload();
-        //         $("#location-modal").modal("hide");
-        //         $("#but_submit").off("click");
-        //     });
-        // });
-        $(".cir1").click(function(evt) {
-            evt.stopPropagation();
+
+    $(".cir1").click(function(evt) {
+        evt.stopPropagation();
+        menu.toggle();
+        return false;
+    });
+    
+    menu.render();
+
+    $(".close_icon").each(function() {
+        $(this).on("click",function(ev){
+            ev.stopPropagation();
+            var divId = $(this).parent().parent().index();
+            console.log(divId);
+            // $('#location-modal').modal('hide');
+            divId = parseInt(divId);
+            console.log("the div is :" + divId);
             menu.toggle();
-            return false;
+            var co = confirm("do you want to Delete?");
+            if(co)
+            {
+
+               weather_functions.modal_delete_data(divId);
+               menu.removeItem({index: divId});
+               var length = $('.sidemenu').children().length;
+               if(length == 0)
+               {
+                    $('ul li:empty').remove();
+                    localStorage.clear();
+                    window.location.reload();
+               }else {
+                   $('ul li:empty').remove();
+               }
+
+               // window.location.reload();
+            }
+            else{
+                
+               console.log($('.sidemenu').size());
+            }
         });
+    });
 
-        $(".cir2").on("click",function(){
-            alert(temp_celcius);
-            toggle(this);
+    $(".modal_but").on("click",function(){
+        var divId = $(this).parent().index();
+        menu.toggle();
+        divId = parseInt(divId);
+        divId = divId + 1;
+        console.log(divId);
+        weather_functions.modal_location_data(divId);
+        // alert(1);
+    });
+
+    
+    $(".clear_session").on("click",function(){
+        // e.stopPropagation();
+        localStorage.clear();
+        window.location.reload();
+    });
+
+    $(".cir2").on("click",function(){
+        // alert(temp_celcius);
+        weather_functions.toggle(this);
+    });
+
+    // $(".add_location").off("click");
+    // $("#plus").on("click",function(evnt){
+    //     evnt.stopPropagation();
+    //     $(".heading").append(location_input);
+
+    //     // var location = prompt("enter location");
+    //     // alert(1);
+    //     // location = document.getElementById('input_location').value;
+    //     $("#but_submit").off("click");
+    //     $("#but_submit").on("click",function(evnt){
+    //         evnt.stopPropagation();
+    //         var a = document.getElementById('input_location').value;
+    //         menu.toggle();
+    //         if(a == "")
+    //         {
+    //             alert("empty");
+    //         }
+    //         else{
+    //             // menu.addItem({itemText: a});
+    //             // menu.render();
+    //             // console.log(location_side_name_display);
+
+    //             weather_functions.weather_get(a, function(mag){
+    //                 // alert(mag);
+    //             });
+    //             // window.addlocation = "<li><div class='list-group-item modal_but'>"+ a + "<i class='fa fa-times close_icon'></i></li>";
+    //             // $(".sidemenu").append(addlocation);
+    //         }
+    //     });
+    // });
+    // $(".cir2").on("click",function(){
+    //     // alert(temp_celcius);
+    //     weather_functions.toggle(this);
+    // });
+
+    $("#plus").click(function(){
+        console.log("after dynamic create of the page");
+        $(".heading").append(location_input);
+        // var location = prompt("enter location");
+        // alert(1);
+        // location = document.getElementById('input_location').value;
+        $("#but_submit").off("click");
+        $("#but_submit").on("click",function(evnt){
+            evnt.stopPropagation();
+            var a = document.getElementById('input_location').value;
+            menu.toggle();
+            if(a == "")
+            {
+                alert("empty");
+            }
+            else{
+                // menu.addItem({itemText: a});
+                // menu.render();
+                // console.log(location_side_name_display);
+
+                weather_functions.weather_get(a, function(mag){
+                    // alert(mag);
+                });
+                // window.addlocation = "<li><div class='list-group-item modal_but'>"+ a + "<i class='fa fa-times close_icon'></i></li>";
+                // $(".sidemenu").append(addlocation);
+            }
         });
-        $(".cir3").off("click");
-        $(".cir3").on("click", function(evr) {
+        return false;   
+    });
 
-        var x = $(this).parent().parent().data("index");
-        console.log(x);
+    $(".cir3").off("click");
+    $(".cir3").on("click", function(evr) {
 
-        var restSession = JSON.parse(localStorage.getItem('weather'));
-        var ses_data = restSession.weather[x-1];
-        console.log(ses_data);
-        localStorage.setItem("location",ses_data.location_name);
-        window.location.href = "../www/Mobile_weather.html";
-        });
+    var x = $(this).parent().parent().data("index");
+    console.log(x);
 
+    var restSession = JSON.parse(localStorage.getItem('weather'));
+    var ses_data = restSession.weather[x-1];
+    console.log(ses_data);
+    localStorage.setItem("location",ses_data.location_name);
+    window.location.href = "../www/Mobile_weather.html";
+    });
+
+    }
+
+    weather_functions.load_from_localstorage = function(){
+        var restoredSession = JSON.parse(localStorage.getItem('weather'));
+        if(restoredSession){
+            // $(".sidemenu").append();
+            // $('.sidemenu').children().remove();
+            for(var i=0;i<restoredSession.weather.length;i++){
+            window.disp = "<div class='list-group-item modal_but'>"+ restoredSession.weather[i].location_name + "<i class='fa fa-times close_icon'></i>";
+                // $(".sidemenu").append(disp);
+                menu.addItem({itemText: disp});
+                console.log(restoredSession.weather[i].location_name);
+            }
+        }
+        // menu.render();
     }
 
    weather_functions.choose_day = function()
@@ -423,6 +573,7 @@ var weather_functions = (function(weather_functions) {
         $(".left").hide();
         $(".right").hide();
     }
+
  return weather_functions;
 } (weather_functions || {}));
 
