@@ -15,7 +15,7 @@ $(document).ready(function(){
                   950 : "G" , 951 : "L", 952 : "J", 953 : "J" ,954 : "E", 955 : "F", 956 : "F" , 957 : "S", 958: "U" , 959 : "F",
                   960 : "9" , 961 : "9", 962 : "!"};
 
-var weather_description = { 200 : "Enjoy the Drizzingling Rain with music" , 201 : "Carry an umbrella for Saftey", 202 : "Umbrella will hav holes on it due to heavy rain", 210 : "Thunder + storm is very bad", 211 : "Photography mode", 212 : "Find a place to cover yourself", 221 : "Bad Weather" , 230 : "No going Out Today" , 231 : "Try to find a good shelter" , 232 : "Find a safe place nearby" ,
+    var weather_description = { 200 : "Enjoy the Drizzingling Rain with music" , 201 : "Carry an umbrella for Saftey", 202 : "Umbrella will hav holes on it due to heavy rain", 210 : "Thunder + storm is very bad", 211 : "Photography mode", 212 : "Find a place to cover yourself", 221 : "Bad Weather" , 230 : "No going Out Today" , 231 : "Try to find a good shelter" , 232 : "Find a safe place nearby" ,
                   300 : "Q" , 301 : "Q", 302 : "Enjoy taking Outdoor Shower", 310 : "Enjoy taking Outdoor Shower" ,311 : "Enjoy taking Outdoor Shower", 312 : "Enjoy taking Outdoor Shower", 313 : "Enjoy taking Outdoor Shower" , 314 : "Enjoy taking Outdoor Shower" , 321 : "Enjoy taking Outdoor Shower" ,
                   500 : "U will get slightly Wet Today" , 501 : "U may need an Umbrella", 502 : "U definitely need an umbrella", 503 : "dont forget Umbrella" ,504 : "Carry an umbrella with you", 511 : "Thick frabric + umbrella is very necessary", 520 : "Enjoy Drizzingling Rain" , 521 : "U will Enjoy the shower" , 522 : "Hot Snaks + Rain is awesome now" ,531 : "Intensity of the shower is high",
                   600 : "Enjoy the Snow" , 601 : "Its Snowing", 602 : "U can try making snowman today", 611 : "Sleet Environment" ,612 : "U will be getting ICE today", 615 : "Ice and snow is a great combination" , 616 : "great Environment" , 620 : "Enjoy the shower Outdoor" , 621 : "Try taking snowy shower" ,622 : "It would be better if u stay at home",
@@ -27,129 +27,13 @@ var weather_description = { 200 : "Enjoy the Drizzingling Rain with music" , 201
     var color_codes ={ Haze : "rgba(128,128,128,0.6)", Mist : "rgba(128,128,128,0.6)" , Clouds : "rgba(0,192,255,0.6)" , Clear : "rgba(255,176,0,0.6)" , Rain : "rgba(51,204,255,0.6)" , Drizzle : "rgba(51,204,255,0.6)"};
     var y = d.getFullYear();
 
-    window.menu = new native5.ui.SideMenu({'bodySelector':".container_page",'refresh':false, 'welcome':"<div class='heading'>Locations <span class='fa fa-plus add_location'></span><span class='fa fa-times-circle clear_session'></span> </div>", 'displacement':"200"});
+    window.menu = new native5.ui.SideMenu({'bodySelector':".container_page",'refresh':false, 'welcome':"<div class='heading'>Locations <span class='fa fa-plus add_location' id='plus'></span><span class='fa fa-times-circle clear_session'></span> </div>", 'displacement':"200"});
     window.location_input = "<div class='input-group'><input type='text' id='input_location' class='form-control'><span class='input-group-addon' id='but_submit'>Add</span></div>";
     menu.addItem({itemText: location_input});
     menu.render();
-    load_from_localstorage();
+    weather_functions.load_from_localstorage();
+    weather_functions.define_modal_events();
 
-    $(".cir1").click(function(evt) {
-        evt.stopPropagation();
-        menu.toggle();
-        return false;
-    });
-    
-    function load_from_localstorage(){
-        var restoredSession = JSON.parse(localStorage.getItem('weather'));
-        if(restoredSession){
-            // $(".sidemenu").append();
-            // $('.sidemenu').children().remove();
-            for(var i=0;i<restoredSession.weather.length;i++){
-            window.disp = "<div class='list-group-item modal_but'>"+ restoredSession.weather[i].location_name + "<i class='fa fa-times close_icon'></i>";
-                // $(".sidemenu").append(disp);
-                menu.addItem({itemText: disp});
-                console.log(restoredSession.weather[i].location_name);
-            }
-        }
-    }
-    
-    menu.render();
-
-
-    $(".close_icon").each(function() {
-        $(this).on("click",function(ev){
-            ev.stopPropagation();
-            var divId = $(this).parent().parent().index();
-            console.log(divId);
-            // $('#location-modal').modal('hide');
-            divId = parseInt(divId);
-            console.log("the div is :" + divId);
-            menu.toggle();
-            var co = confirm("do you want to Delete?");
-            if(co)
-            {
-
-               weather_functions.modal_delete_data(divId);
-               menu.removeItem({index: divId});
-               var length = $('.sidemenu').children().length;
-               if(length == 0)
-               {
-                    $('ul li:empty').remove();
-                    localStorage.clear();
-                    window.location.reload();
-               }else {
-                   $('ul li:empty').remove();
-               }
-
-               // window.location.reload();
-            }
-            else{
-                
-               console.log($('.sidemenu').size());
-            }
-        });
-    });
-
-    $(".modal_but").each(function() {
-        $(this).on("click",function(evn){
-            evn.stopPropagation();
-        // alert($(this).attr("id"));
-        var divId = $(this).parent().index();
-        // $('#location-modal').modal('hide');
-        menu.toggle();
-        divId = parseInt(divId);
-        divId = divId + 1;
-        console.log(divId);
-        weather_functions.modal_location_data(divId);
-        // AnimateRotate(360);
-        // alert(divId);
-        return false;
-        });
-    });
-
-    // $(".clear_session").off("click");
-    $(".clear_session").on("click",function(e){
-        e.stopPropagation();
-        localStorage.clear();
-        window.location.reload();
-        $(".clear_session").off("click");
-    });
-
-    $(".cir2").on("click",function(){
-        // alert(temp_celcius);
-        weather_functions.toggle(this);
-    });
-
-    $(".add_location").off("click");
-    $(".add_location").on("click",function(evnt){
-        evnt.stopPropagation();
-        $(".heading").append(location_input);
-
-        // var location = prompt("enter location");
-        // alert(1);
-        // location = document.getElementById('input_location').value;
-        $("#but_submit").off("click");
-        $("#but_submit").on("click",function(evnt){
-            evnt.stopPropagation();
-            var a = document.getElementById('input_location').value;
-            menu.toggle();
-            if(a == "")
-            {
-                alert("empty");
-            }
-            else{
-                // menu.addItem({itemText: a});
-                // menu.render();
-                // console.log(location_side_name_display);
-
-                weather_functions.weather_get(a, function(mag){
-                    alert(mag);
-                });
-                // window.addlocation = "<li><div class='list-group-item modal_but'>"+ a + "<i class='fa fa-times close_icon'></i></li>";
-                // $(".sidemenu").append(addlocation);
-            }
-        });
-    });
 
     switch(day)
     {

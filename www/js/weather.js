@@ -37,75 +37,14 @@ var weather_functions = (function(weather_functions) {
 
     var color_codes ={ Haze : "rgba(128,128,128,0.6)", Clouds : "rgba(0,192,255,0.6)" , Clear : "rgba(255,176,0,0.6)" , Rain : "rgba(51,204,255,0.6)", Mist :"rgba(128,128,128,0.6)"};
 
-
-    // if(restoredSession === null)
-    // {
-    //     var restoredSession = 0;
-    // } else {
-    //     var restoredSession = JSON.parse(localStorage.getItem('weather'));
-    //     var disp = "<div class='list-group-item modal_but'>";
-    //     var location ="No location";
-    //     $("#loc_name").append(disp+location);
-    // }
-    // $('#location-modal').on('show.bs.modal', function () {      
-    // var restoredSession = JSON.parse(localStorage.getItem('weather'));
-    //     if(restoredSession){
-    //         $("#loc_name").empty();
-    //         for(var i=1;i<restoredSession.weather.length;i++){
-    //         var disp = "<div class='list-group-item modal_but' id="+i+">"+ restoredSession.weather[i].location_name + "<i class='fa fa-times close_icon'>";
-    //             $("#loc_name").append(disp);
-    //             console.log(restoredSession.weather[i].location_name);
-    //         }
-
-    //         $(".close_icon").click(function(ev){
-    //             ev.stopPropagation();
-    //             var divId = $(this).parent().attr("id");
-    //             $('#location-modal').modal('hide');
-    //             divId = parseInt(divId);
-    //             var co = confirm("do you want to Delete?");
-    //             if(co)
-    //             {
-    //                modal_delete_data(divId);
-    //             }
-    //         });
-    //         $(".modal_but").click(function(){
-    //             // alert($(this).attr("id"));
-    //             var divId = $(this).attr("id");
-    //             $('#location-modal').modal('hide');
-    //             console.log(restoredSession);
-    //             divId = parseInt(divId);
-    //             divId = divId + 1;
-    //             console.log(divId);
-    //             modal_location_data(divId);
-    //             // AnimateRotate(360);
-    //         });
-    //     } 
-    // });
-
-
     weather_functions.modal_delete_data = function (e)
     {
         var restSession = JSON.parse(localStorage.getItem('weather'));
-        
         var e = parseInt(e);
-        // if(e === (restSession.weather.length)-1)
-        // {
-        //     console.log("end of inputs");
-        //     // restSession.weather.splice(e,1);
-        //     // localStorage.setItem('weather', JSON.stringify(restSession));
-        //     // $('.iosSlider').iosSlider('removeSlide', e+1);
-        //     console.log(e);
-        // }
-        // else
-        // {
-        //     // restSession.weather.splice(e-1,1);
-        //     // localStorage.setItem('weather', JSON.stringify(restSession));
-        //     // $('.iosSlider').iosSlider('removeSlide', e+1);
-            console.log(e);
-            restSession.weather.splice(e,1);
-            localStorage.setItem('weather', JSON.stringify(restSession));
-            $('.iosSlider').iosSlider('removeSlide', e+1);
-        // }
+        console.log(e);
+        restSession.weather.splice(e,1);
+        localStorage.setItem('weather', JSON.stringify(restSession));
+        $('.iosSlider').iosSlider('removeSlide', e+1);
         console.log(restSession);
     }
     weather_functions.AnimateRotate = function (d){
@@ -134,21 +73,8 @@ var weather_functions = (function(weather_functions) {
 
     weather_functions.modal_location_data = function(index)
     {  
-        // var restSession = JSON.parse(localStorage.getItem('weather'));
-        //     var length = restSession.weather.length;
-        //     console.log(length);
             $('.iosSlider').iosSlider('goToSlide', index, 1000);
     }
-
-
-    // $("#loc_name").on("click",function(){
-    //     alert();
-    // })
-
-    // $(".cir2").on("click",function(){
-    //     // alert(temp_celcius);
-    //     toggle(this);
-    // });
 
     weather_functions.toggle = function(elm)
     {
@@ -166,6 +92,7 @@ var weather_functions = (function(weather_functions) {
             $(".temp", $(elm)).html(temp_celcius+"<sup>o</sup>C");
         }
     }
+
     weather_functions.weather_get = function(ab , callback)
     {
         var location = ab;
@@ -217,6 +144,7 @@ var weather_functions = (function(weather_functions) {
                 flag_re = true;
                 console.log("Dont add this location");
                 // alert("Location is present already");
+                break;
             } 
         }
 
@@ -230,27 +158,6 @@ var weather_functions = (function(weather_functions) {
         console.log(isNotPresent);
     }
 
-    // function create_page_dynamic()
-    // {
-    //     var restoredSession = JSON.parse(localStorage.getItem('weather'));
-    //     console.log(restoredSession);
-    //     var length = restoredSession.weather.length;
-    //     var description = restoredSession.weather[length-1].description;
-    //     var humidity = restoredSession.weather[length-1].humidity;
-    //     var pressure = restoredSession.weather[length-1].pressure;
-    //     var wind = restoredSession.weather[length-1].wind;
-    //     var condition = restoredSession.weather[length-1].condition;
-    //     var location = restoredSession.weather[length-1].location_name;
-    //     var temp = restoredSession.weather[length-1].temp;
-    //     var page = "<div class='item'><div class='circle1'><center><div class='pos' id='desc'>"+ description +" </div></center><div class='text-container'><div class='fa fa-tint left'></div><div class='fa fa-tachometer right'></div></div><div class='text-container'><div id='humidity' class='left'>"+humidity+"</div><div id='pressure' class='right'>"+pressure+"</div></div><div class='text-container'><div class='icon left1' data-icon='F'></div><div class='icon left1' id='wind'>"+wind+"</div></div><div class='fa fa-home home-icon'></div></div><center id='cen'><div id='circle'><div class='icon icon1' data-icon='H'></div><label class='condition'>"+condition+"</label></div><div id='cir1' data-toggle='modal' data-target='#location-modal'><i class='fa fa-map-marker geo'></i><div class='location'>"+location+"</div></div><div id='cir2'><span class='temp'>"+temp+"<sup class='degree'>o</sup>C</span></div> <div id='cir3'><span id='day' class='date-style'></span><span id='month' class='month'>September, 2014</span></div></center></div>";
-    //     $("#container_page").append(page);
-    //     $('.iosSlider').iosSlider({
-    //                 snapToChildren: true,
-    //                 desktopClickDrag: true
-    //     });
-    // }
-
-
     weather_functions.store_weather = function(re)
     {
        var weather = {
@@ -259,8 +166,6 @@ var weather_functions = (function(weather_functions) {
         };
         var count = 0;
         restoredSession = JSON.parse(localStorage.getItem('weather'));
-
-        // console.log(restoredSession);
         
         if(!$.isEmptyObject(restoredSession)) {
             id=1;
@@ -316,7 +221,7 @@ var weather_functions = (function(weather_functions) {
             restoredSession = JSON.parse(localStorage.getItem('weather'));
 
             weather_functions.define_modal_events();
-            
+            weather_functions.load_from_localstorage();
             // count++;
 
             }
@@ -357,24 +262,16 @@ var weather_functions = (function(weather_functions) {
             // localStorage.setItem('weather', JSON.stringify(restSession));
             $('iosSlider').iosSlider('goToSlide', length, 1000);
             weather_functions.define_modal_events();
+            weather_functions.load_from_localstorage();
             
             re(2);
-
-        }
-        
-
-        
+        }        
     }
 
-    // weather_functions.input_data = function(){
-    //     $(".input_location").keyup(function(eve){
-    //         eve.stopPropagation();
-    //     });
-    // }
     weather_functions.define_modal_events = function () { 
 
-    $(".cir1").click(function(evt) {
-        evt.stopPropagation();
+    $(".cir1").click(function(elt) {
+        elt.stopPropagation();
         menu.toggle();
         return false;
     });
@@ -382,8 +279,7 @@ var weather_functions = (function(weather_functions) {
     menu.render();
 
     $(".close_icon").each(function() {
-        $(this).on("click",function(ev){
-            ev.stopPropagation();
+        $(this).on("click",function(){  
             var divId = $(this).parent().parent().index();
             console.log(divId);
             // $('#location-modal').modal('hide');
@@ -415,16 +311,35 @@ var weather_functions = (function(weather_functions) {
         });
     });
 
-    $(".modal_but").on("click",function(){
-        var divId = $(this).parent().index();
-        menu.toggle();
-        divId = parseInt(divId);
-        divId = divId + 1;
-        console.log(divId);
-        weather_functions.modal_location_data(divId);
-        // alert(1);
-    });
+    // $(".modal_but").off("click");
+    // $(".modal_but").on("click",function(et){
+    //     et.stopPropagation();
+    //     var divId = $(this).parent().index();
+    //     menu.toggle();
+    //     divId = parseInt(divId);
+    //     divId = divId + 1;
+    //     console.log(divId);
+    //     weather_functions.modal_location_data(divId);
+    // });
 
+
+    $(".modal_but").off("click");
+    $(".modal_but").on("click",function(ewt){
+        ewt.stopPropagation();
+        console.log("click here");
+        var links = $('.sidemenu').children();
+
+        for (var i = 0; i < links.length; i++) {
+            var link = links[i];
+            var divId = $(this).parent().index();
+            divId = parseInt(divId);
+            divId = divId + 1;
+            console.log(divId);
+            // <li> onclick, runAlert function
+            link.onclick = weather_functions.load_data(divId);
+        }
+        // weather_functions.define_modal_events();
+    });
     
     $(".clear_session").on("click",function(){
         // e.stopPropagation();
@@ -436,50 +351,15 @@ var weather_functions = (function(weather_functions) {
         // alert(temp_celcius);
         weather_functions.toggle(this);
     });
-
-    // $(".add_location").off("click");
-    // $("#plus").on("click",function(evnt){
-    //     evnt.stopPropagation();
-    //     $(".heading").append(location_input);
-
-    //     // var location = prompt("enter location");
-    //     // alert(1);
-    //     // location = document.getElementById('input_location').value;
-    //     $("#but_submit").off("click");
-    //     $("#but_submit").on("click",function(evnt){
-    //         evnt.stopPropagation();
-    //         var a = document.getElementById('input_location').value;
-    //         menu.toggle();
-    //         if(a == "")
-    //         {
-    //             alert("empty");
-    //         }
-    //         else{
-    //             // menu.addItem({itemText: a});
-    //             // menu.render();
-    //             // console.log(location_side_name_display);
-
-    //             weather_functions.weather_get(a, function(mag){
-    //                 // alert(mag);
-    //             });
-    //             // window.addlocation = "<li><div class='list-group-item modal_but'>"+ a + "<i class='fa fa-times close_icon'></i></li>";
-    //             // $(".sidemenu").append(addlocation);
-    //         }
-    //     });
-    // });
-    // $(".cir2").on("click",function(){
-    //     // alert(temp_celcius);
-    //     weather_functions.toggle(this);
-    // });
-
-    $("#plus").click(function(){
+    
+    $("#plus").on("click",function(evt){
+        $("#plus").off("click");
         console.log("after dynamic create of the page");
+        evt.stopPropagation();
         $(".heading").append(location_input);
-        // var location = prompt("enter location");
-        // alert(1);
-        // location = document.getElementById('input_location').value;
-        $("#but_submit").off("click");
+        
         $("#but_submit").on("click",function(evnt){
+            $("#but_submit").off("click");
             evnt.stopPropagation();
             var a = document.getElementById('input_location').value;
             menu.toggle();
@@ -488,31 +368,23 @@ var weather_functions = (function(weather_functions) {
                 alert("empty");
             }
             else{
-                // menu.addItem({itemText: a});
-                // menu.render();
-                // console.log(location_side_name_display);
-
-                weather_functions.weather_get(a, function(mag){
-                    // alert(mag);
-                });
-                // window.addlocation = "<li><div class='list-group-item modal_but'>"+ a + "<i class='fa fa-times close_icon'></i></li>";
-                // $(".sidemenu").append(addlocation);
+                weather_functions.weather_get(a, function(mag){});
+                weather_functions.generateclickevent();
             }
         });
         return false;   
     });
 
     $(".cir3").off("click");
-    $(".cir3").on("click", function(evr) {
+    $(".cir3").on("click", function() {
+        var x = $(this).parent().parent().data("index");
+        console.log(x);
 
-    var x = $(this).parent().parent().data("index");
-    console.log(x);
-
-    var restSession = JSON.parse(localStorage.getItem('weather'));
-    var ses_data = restSession.weather[x-1];
-    console.log(ses_data);
-    localStorage.setItem("location",ses_data.location_name);
-    window.location.href = "../www/Mobile_weather.html";
+        var restSession = JSON.parse(localStorage.getItem('weather'));
+        var ses_data = restSession.weather[x-1];
+        console.log(ses_data);
+        localStorage.setItem("location",ses_data.location_name);
+        window.location.href = "../www/Mobile_weather.html";
     });
 
     }
@@ -520,16 +392,22 @@ var weather_functions = (function(weather_functions) {
     weather_functions.load_from_localstorage = function(){
         var restoredSession = JSON.parse(localStorage.getItem('weather'));
         if(restoredSession){
-            // $(".sidemenu").append();
-            // $('.sidemenu').children().remove();
             for(var i=0;i<restoredSession.weather.length;i++){
             window.disp = "<div class='list-group-item modal_but'>"+ restoredSession.weather[i].location_name + "<i class='fa fa-times close_icon'></i>";
-                // $(".sidemenu").append(disp);
                 menu.addItem({itemText: disp});
                 console.log(restoredSession.weather[i].location_name);
             }
         }
         // menu.render();
+    }
+
+
+    weather_functions.load_data = function(divId){
+        weather_functions.modal_location_data(divId);
+    }
+
+    weather_functions.generateclickevent = function(){
+        weather_functions.define_modal_events();
     }
 
    weather_functions.choose_day = function()
