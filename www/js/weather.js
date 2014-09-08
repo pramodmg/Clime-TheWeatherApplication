@@ -223,6 +223,7 @@ var weather_functions = (function(weather_functions) {
             weather_functions.define_modal_events();
             weather_functions.load_from_localstorage();
             // count++;
+            re(1);
 
             }
         }else {
@@ -368,8 +369,10 @@ var weather_functions = (function(weather_functions) {
                 alert("empty");
             }
             else{
-                weather_functions.weather_get(a, function(mag){});
-                weather_functions.generateclickevent();
+                weather_functions.weather_get(a, function(){
+                    weather_functions.generateclickevent();
+                });
+                // weather_functions.generateclickevent();
             }
         });
         return false;   
