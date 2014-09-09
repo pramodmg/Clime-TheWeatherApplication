@@ -29,7 +29,7 @@
     var color_codes ={ Haze : "rgba(128,128,128,0.6)", Mist : "rgba(128,128,128,0.6)" , Clouds : "rgba(0,192,255,0.6)" , Clear : "rgba(255,176,0,0.6)" , Rain : "rgba(51,204,255,0.6)" , Drizzle : "rgba(51,204,255,0.6)"};
     var y = d.getFullYear();
 
-    window.menu = new native5.ui.SideMenu({'bodySelector':'.container_page','refresh':false, 'welcome':"<div class='heading'>Locations <span class='fa fa-plus add_location' id='plus'></span><span class='fa fa-times-circle clear_session'></span> </div>", 'displacement':'200'});
+    window.menu = new native5.ui.SideMenu({'bodySelector':'.container_page','refresh':false, 'welcome':"<div class='heading'>Locations <span class='fa fa-plus add_location' id='plus'></span><span class='fa fa-times-circle clear_session'></span> </div>", 'displacement':'300'});
     window.location_input = "<div class='input-group'><input type='text' id='input_location' class='form-control'><span class='input-group-addon' id='but_submit'>Add</span></div>";
     menu.addItem({itemText: location_input});
     menu.render();

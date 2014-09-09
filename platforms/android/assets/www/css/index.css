@@ -26,7 +26,11 @@ body,html
 {
   float: right;
   padding-right: 12px;
-  color: red;
+}
+
+.top_page
+{
+  height: 100%;
 }
 .heading
 {
