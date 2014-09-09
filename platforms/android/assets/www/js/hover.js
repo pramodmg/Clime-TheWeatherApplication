@@ -51,7 +51,7 @@ function move_circle_1() {
 	if(wi == 320)
 	{
 		$(".circle").animate({width :"500px",height :"500px",'margin-bottom':"0",left : "-17%"},"fast");
-		$(".icon1").css({position:"relative",left:"-1%"})
+		$(".icon1").css({position:"relative",left:"-1%"});
 		$(".condition").css({top : "18%"},"fast");
 		$(".circle").css({position : "relative"});
 		$(".cen").css({overflow :"hidden",position :"fixed"});

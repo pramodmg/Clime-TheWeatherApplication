@@ -1,10 +1,12 @@
-$(document).ready(function(){
+/* jshint loopfunc: true, quotmark:false,devel:true */
+/* global jQuery,weather_functions,all_function,menu,native5,location_input,disp */
+(function($){
+    "use strict";
+    $("document").ready(function(){
     var d = new Date();
     var day = d.getDate();
     var month = d.getMonth();
     var flag = false;
-    var index = 0;
-    var temp_celcius;
     var m = ["January","February","March","April","May","June","July","August","September","October","November","December"];
     var array = { 200 : "P" , 201 : "Q", 202 : "R", 210 : "O", 211 : "P", 212 : "Q", 221 : "P" , 230 : "Q" , 231 : "Q" , 232 : "R" ,
                   300 : "Q" , 301 : "Q", 302 : "R", 310 : "Q" ,311 : "R", 312 : "R", 313 : "R" , 314 : "X" , 321 : "T" ,
@@ -27,12 +29,12 @@ $(document).ready(function(){
     var color_codes ={ Haze : "rgba(128,128,128,0.6)", Mist : "rgba(128,128,128,0.6)" , Clouds : "rgba(0,192,255,0.6)" , Clear : "rgba(255,176,0,0.6)" , Rain : "rgba(51,204,255,0.6)" , Drizzle : "rgba(51,204,255,0.6)"};
     var y = d.getFullYear();
 
-    window.menu = new native5.ui.SideMenu({'bodySelector':".container_page",'refresh':false, 'welcome':"<div class='heading'>Locations <span class='fa fa-plus add_location' id='plus'></span><span class='fa fa-times-circle clear_session'></span> </div>", 'displacement':"200"});
+    window.menu = new native5.ui.SideMenu({'bodySelector':'.container_page','refresh':false, 'welcome':"<div class='heading'>Locations <span class='fa fa-plus add_location' id='plus'></span><span class='fa fa-times-circle clear_session'></span> </div>", 'displacement':'200'});
     window.location_input = "<div class='input-group'><input type='text' id='input_location' class='form-control'><span class='input-group-addon' id='but_submit'>Add</span></div>";
     menu.addItem({itemText: location_input});
     menu.render();
     weather_functions.load_from_localstorage();
-    weather_functions.define_modal_events();
+    weather_functions.define_modal_events();    
 
 
     switch(day)
@@ -79,7 +81,7 @@ $(document).ready(function(){
     $("#pressure").hide();
     $("#desc").hide();
     
-});
+
 
   // var weather = {
   //       weather: [],
@@ -107,7 +109,9 @@ document.addEventListener("deviceready", onDeviceReady, false);
         
         locationPromise.done(function(data) {
         console.log(data);
-        var id=1;
+        
+        var temp_celcius;
+
         var restoredSession = JSON.parse(localStorage.getItem('weather'));
         if($.isEmptyObject(restoredSession)) {
             var weather = {
@@ -115,7 +119,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
                 state: false
             };
        
-            weather_data = data;
+            var weather_data = data;
             if(data.cod === 200)
             {
                 flag=true;
@@ -126,7 +130,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
                 $(".cir3").css("background",color_codes[weather_data.weather[0].main]);
                 $(".condition").text(weather_data.weather[0].description);
                 $(".location").text(weather_data.name);
-                temp = weather_data.main.temp - 273.15;
+                var temp = weather_data.main.temp - 273.15;
                 temp_celcius = (temp).toFixed(1);
                 window.localStorage.setItem("temp",temp_celcius);
                 window.localStorage.setItem("location",weather_data.name);
@@ -150,9 +154,11 @@ document.addEventListener("deviceready", onDeviceReady, false);
                 window.disp = "<div class='list-group-item modal_but'>"+ restSession.weather[i].location_name + "<i class='fa fa-times close_icon'></i>";
                 menu.addItem({itemText: disp});
                 console.log(restSession.weather[i].location_name);
+
             }
             menu.render();
                 console.log(restSession);
+                    weather_functions.define_modal_events();
             } else {
                 alert("No location found");
             }
@@ -172,3 +178,5 @@ document.addEventListener("deviceready", onDeviceReady, false);
         alert('code: '    + error.code    + '\n' +
               'message: ' + error.message + '\n');
     }
+});
+}(jQuery));

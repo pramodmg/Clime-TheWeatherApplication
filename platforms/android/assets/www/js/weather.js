@@ -1,15 +1,16 @@
-// /* jshint loopfunc: true, quotmark:false */
-// /* global jQuery:false, console */
+/* jshint loopfunc: true, quotmark:false,devel:true */
+/* global jQuery, console,all_function,menu,disp,location_input */
 
-var weather_functions = (function(weather_functions) {
+var weather_functions = (function(weather_functions,$) {
+    // "use strict";
     var weather_data;
-    var location,temp_celcius = 25,temp,farenheit;
-    var id;
+    var temp_celcius = 25,temp,farenheit;
+    var id = 1;
     var isNotPresent = false;    
     var restoredSession;
     var flag1 = false;
-    var id=1;
     var index = 0;
+    var description,loc_name,condition,humidity,pressure,wind,icon,color,div_creation;
     var d = new Date();
     var day = d.getDate();
     var month = d.getMonth();
@@ -39,14 +40,15 @@ var weather_functions = (function(weather_functions) {
 
     weather_functions.modal_delete_data = function (e)
     {
-        var restSession = JSON.parse(localStorage.getItem('weather'));
-        var e = parseInt(e);
+        var restSession = JSON.parse(localStorage.getItem("weather"));
+        e = parseInt(e);
         console.log(e);
         restSession.weather.splice(e,1);
-        localStorage.setItem('weather', JSON.stringify(restSession));
-        $('.iosSlider').iosSlider('removeSlide', e+1);
+        localStorage.setItem("weather", JSON.stringify(restSession));
+        $(".iosSlider").iosSlider("removeSlide", e+1);
         console.log(restSession);
-    }
+    };
+
     weather_functions.AnimateRotate = function (d){
         // var elem = $("#circle");
         // var elem = $("#circle2");
@@ -69,12 +71,12 @@ var weather_functions = (function(weather_functions) {
             }
         });
         // $("#text").text("welcome");
-    }
+    };
 
     weather_functions.modal_location_data = function(index)
     {  
-            $('.iosSlider').iosSlider('goToSlide', index, 1000);
-    }
+            $(".iosSlider").iosSlider("goToSlide", index, 1000);
+    };
 
     weather_functions.toggle = function(elm)
     {
@@ -91,11 +93,11 @@ var weather_functions = (function(weather_functions) {
             $(elm).data("flag", "c");
             $(".temp", $(elm)).html(temp_celcius+"<sup>o</sup>C");
         }
-    }
+    };
 
     weather_functions.weather_get = function(ab , callback)
     {
-        var location = ab;
+        var location = ab,count;
         var locationPromise = $.ajax({
             url: "http://api.openweathermap.org/data/2.5/weather",
             data: {q: location},
@@ -106,7 +108,6 @@ var weather_functions = (function(weather_functions) {
             weather_data = data;
             if(weather_data.cod === 200 && weather_data.name === ""){
               alert("location not found");
-                flag = true;
                 // window.localStorage.setItem("flag",flag1);
             } else if(weather_data.cod === 200){
                 weather_functions.store_weather(function(msg){
@@ -118,20 +119,20 @@ var weather_functions = (function(weather_functions) {
                 else{
                 var length = restoredSession.weather.length;
                 count = length;
-                }
-                
-            } else {
+                }   
+            }
+            else{
                 alert("location not found");
-                
+                // window.location.reload();
             }
 
         });    
 
-    }
+    };
 
     weather_functions.checklocation_name = function()
     {
-        restoredSession = JSON.parse(localStorage.getItem('weather'));
+        restoredSession = JSON.parse(localStorage.getItem("weather"));
         console.log(restoredSession);
         var flag_re = false;
         for(var i=0;i<restoredSession.weather.length;i++)
@@ -156,7 +157,7 @@ var weather_functions = (function(weather_functions) {
         }
            
         console.log(isNotPresent);
-    }
+    };
 
     weather_functions.store_weather = function(re)
     {
@@ -165,7 +166,7 @@ var weather_functions = (function(weather_functions) {
             state: false
         };
         var count = 0;
-        restoredSession = JSON.parse(localStorage.getItem('weather'));
+        restoredSession = JSON.parse(localStorage.getItem("weather"));
         
         if(!$.isEmptyObject(restoredSession)) {
             id=1;
@@ -183,25 +184,25 @@ var weather_functions = (function(weather_functions) {
             {
             console.log(weather_data);
             weather.weather.push({"id":id,"color": weather_data.weather[0].main,"flag":flag1,"icon":weather_data.weather[0].id,"description":weather_description[weather_data.weather[0].id],"wind":weather_data.wind.speed,"pressure":weather_data.main.pressure,"humidity":weather_data.main.humidity,"temp":temp_celcius,"location_name":weather_data.name,"condition":weather_data.weather[0].description});
-            localStorage.setItem('weather', JSON.stringify(weather));
+            localStorage.setItem("weather", JSON.stringify(weather));
             window.localStorage.setItem("location",weather_data.name);
             window.localStorage.setItem("id",id);
             // /////////////////////////////////////////////////////////////////////////////////////////////////
             // //////////////////////////////////////////////////////////////////////////////////////////////
-            var description = weather_description[weather_data.weather[0].id];
-            var loc_name = weather_data.name;
-            var condition = weather_data.weather[0].description;
-            var humidity = weather_data.main.humidity;
-            var pressure = weather_data.main.pressure;
+            description = weather_description[weather_data.weather[0].id];
+            loc_name = weather_data.name;
+            condition = weather_data.weather[0].description;
+            humidity = weather_data.main.humidity;
+            pressure = weather_data.main.pressure;
             temp = weather_data.main.temp - 273.15;
             temp_celcius = (temp).toFixed(1);
-            var temp = temp_celcius;
-            var wind = weather_data.wind.speed;
-            var icon = weather_data.weather[0].id;
-            var color = weather_data.weather[0].main;
+            temp = temp_celcius;
+            wind = weather_data.wind.speed;
+            icon = weather_data.weather[0].id;
+            color = weather_data.weather[0].main;
             window.localStorage.setItem("location",loc_name);
             index = index + 1;
-            var div_creation = "<div class = 'item page"+ id + "' data-index='"+ id +"'><div class='circle1'><center><div class='pos' id='desc'> " + description + " </div></center><div class='text-container'><div class='fa fa-tint left'></div><div class='fa fa-tachometer right'></div></div><div class='text-container'><div class='humidity left'>" + humidity + "<span class='percentage'> %</span>" + "</div><div id='pressure' class='right'>" + pressure + "<span class='units'> hpa</span>" + "</div></div><div class='text-container'><div class='icon left1' data-icon='F'></div><div class='icon left1' id='wind'>" + wind + "<span class='units'> m/s</span>" + "</div></div><div class='fa fa-home home-icon'></div></div><center class='cen'><div class='circle' style = 'background: "+ color_codes[color] +"'><div class='icon icon1' data-icon='"+ array[icon] +"'></div>"+ " " + "<label class='condition'>" + condition + "</label></div><div class='cir1' data-toggle='modal' data-target='#location-modal' style = 'background: "+ color_codes[color] +"'><i class='fa fa-map-marker geo'></i><div class='location'>" + loc_name + "</div></div><div class='cir2' style = 'background: "+ color_codes[color] +"' data-temp = " + temp + " data-flag = 'c' ><span class='temp'>" + temp + "<sup>o</sup>C</span></div><div class='cir3' style = 'background: "+ color_codes[color] +"'><span id='day' class='date-style'>" + weather_functions.choose_day() + "</span><span id='month' class='month'>" + m[month] + "," + y + "</span></div></center></div></div>";
+            div_creation = "<div class = 'item page"+ id + "' data-index='"+ id +"'><div class='circle1'><center><div class='pos' id='desc'> " + description + " </div></center><div class='text-container'><div class='fa fa-tint left'></div><div class='fa fa-tachometer right'></div></div><div class='text-container'><div class='humidity left'>" + humidity + "<span class='percentage'> %</span>" + "</div><div id='pressure' class='right'>" + pressure + "<span class='units'> hpa</span>" + "</div></div><div class='text-container'><div class='icon left1' data-icon='F'></div><div class='icon left1' id='wind'>" + wind + "<span class='units'> m/s</span>" + "</div></div><div class='fa fa-home home-icon'></div></div><center class='cen'><div class='circle' style = 'background: "+ color_codes[color] +"'><div class='icon icon1' data-icon='"+ array[icon] +"'></div>"+ " " + "<label class='condition'>" + condition + "</label></div><div class='cir1' data-toggle='modal' data-target='#location-modal' style = 'background: "+ color_codes[color] +"'><i class='fa fa-map-marker geo'></i><div class='location'>" + loc_name + "</div></div><div class='cir2' style = 'background: "+ color_codes[color] +"' data-temp = " + temp + " data-flag = 'c' ><span class='temp'>" + temp + "<sup>o</sup>C</span></div><div class='cir3' style = 'background: "+ color_codes[color] +"'><span id='day' class='date-style'>" + weather_functions.choose_day() + "</span><span id='month' class='month'>" + m[month] + "," + y + "</span></div></center></div></div>";
             $(".slider").append(div_creation);
             $(function() {
                 all_function.a();
@@ -223,7 +224,7 @@ var weather_functions = (function(weather_functions) {
             weather_functions.define_modal_events();
             weather_functions.load_from_localstorage();
             // count++;
-
+            re(1);
             }
         }else {
             console.log("push the new data");
@@ -233,20 +234,20 @@ var weather_functions = (function(weather_functions) {
             localStorage.setItem('weather', JSON.stringify(weather));
             window.localStorage.setItem("location",weather_data.name);
             // create_div();
-            var description = weather_description[weather_data.weather[0].id];
-            var loc_name = weather_data.name;
-            var condition = weather_data.weather[0].description;
-            var humidity = weather_data.main.humidity;
-            var pressure = weather_data.main.pressure;
+            description = weather_description[weather_data.weather[0].id];
+            loc_name = weather_data.name;
+            condition = weather_data.weather[0].description;
+            humidity = weather_data.main.humidity;
+            pressure = weather_data.main.pressure;
             temp = weather_data.main.temp - 273.15;
             temp_celcius = (temp).toFixed(1);
-            var temp = temp_celcius;
-            var wind = weather_data.wind.speed;
-            var icon = weather_data.weather[0].id;
-            var color = weather_data.weather[0].main;
+            temp = temp_celcius;
+            wind = weather_data.wind.speed;
+            icon = weather_data.weather[0].id;
+            color = weather_data.weather[0].main;
             window.localStorage.setItem("location",loc_name);
             window.localStorage.setItem("id",id);
-            var div_creation = "<div class = 'item page"+ id + "' data-index='"+ id +"'><div class='circle1'><center><div class='pos' id='desc'> " + description + " </div></center><div class='text-container'><div class='fa fa-tint left'></div><div class='fa fa-tachometer right'></div></div><div class='text-container'><div class='humidity left'>" + humidity + "<span class='percentage'> %</span>" + "</div><div id='pressure' class='right'>" + pressure + "<span class='units'> hpa</span>" + "</div></div><div class='text-container'><div class='icon left1' data-icon='F'></div><div class='icon left1' id='wind'>" + wind + "<span class='units'> m/s</span>" + "</div></div><div class='fa fa-home home-icon'></div></div><center class='cen'><div class='circle' style = 'background: "+ color_codes[color] +"'><div class='icon icon1' data-icon='"+ array[icon] +"'></div>"+ " " + "<label class='condition'>" + condition + "</label></div><div class='cir1' data-toggle='modal' data-target='#location-modal' style = 'background: "+ color_codes[color] +"'><i class='fa fa-map-marker geo'></i><div class='location'>" + loc_name + "</div></div><div class='cir2' style = 'background: "+ color_codes[color] +"' data-temp = " + temp + " data-flag = 'c' ><span class='temp'>" + temp + "<sup>o</sup>C</span></div><div class='cir3' style = 'background: "+ color_codes[color] +"'><span id='day' class='date-style'>" + weather_functions.choose_day() +"</span><span id='month' class='month'>" + m[month] + "," + y + "</span></div></center></div></div>";
+            div_creation = "<div class = 'item page"+ id + "' data-index='"+ id +"'><div class='circle1'><center><div class='pos' id='desc'> " + description + " </div></center><div class='text-container'><div class='fa fa-tint left'></div><div class='fa fa-tachometer right'></div></div><div class='text-container'><div class='humidity left'>" + humidity + "<span class='percentage'> %</span>" + "</div><div id='pressure' class='right'>" + pressure + "<span class='units'> hpa</span>" + "</div></div><div class='text-container'><div class='icon left1' data-icon='F'></div><div class='icon left1' id='wind'>" + wind + "<span class='units'> m/s</span>" + "</div></div><div class='fa fa-home home-icon'></div></div><center class='cen'><div class='circle' style = 'background: "+ color_codes[color] +"'><div class='icon icon1' data-icon='"+ array[icon] +"'></div>"+ " " + "<label class='condition'>" + condition + "</label></div><div class='cir1' data-toggle='modal' data-target='#location-modal' style = 'background: "+ color_codes[color] +"'><i class='fa fa-map-marker geo'></i><div class='location'>" + loc_name + "</div></div><div class='cir2' style = 'background: "+ color_codes[color] +"' data-temp = " + temp + " data-flag = 'c' ><span class='temp'>" + temp + "<sup>o</sup>C</span></div><div class='cir3' style = 'background: "+ color_codes[color] +"'><span id='day' class='date-style'>" + weather_functions.choose_day() +"</span><span id='month' class='month'>" + m[month] + "," + y + "</span></div></center></div></div>";
             $(function() {
                 all_function.a();
             });
@@ -266,12 +267,12 @@ var weather_functions = (function(weather_functions) {
             
             re(2);
         }        
-    }
+    };
 
     weather_functions.define_modal_events = function () { 
 
     $(".cir1").click(function(elt) {
-        elt.stopPropagation();
+        elt.stopImmediatePropagation();
         menu.toggle();
         return false;
     });
@@ -293,7 +294,7 @@ var weather_functions = (function(weather_functions) {
                weather_functions.modal_delete_data(divId);
                menu.removeItem({index: divId});
                var length = $('.sidemenu').children().length;
-               if(length == 0)
+               if(length === 0)
                {
                     $('ul li:empty').remove();
                     localStorage.clear();
@@ -322,15 +323,11 @@ var weather_functions = (function(weather_functions) {
     //     weather_functions.modal_location_data(divId);
     // });
 
-    function load_data(divId){
-        weather_functions.modal_location_data(divId);
-    }
 
-    function generateclickevent(){
-        weather_functions.define_modal_events();
-    }
-
-    $(".modal_but").on("click",function(){
+    $(".modal_but").off("click");
+    $(".modal_but").on("click",function(ewt){
+        ewt.stopPropagation();
+        console.log("click here");
         var links = $('.sidemenu').children();
 
         for (var i = 0; i < links.length; i++) {
@@ -340,7 +337,7 @@ var weather_functions = (function(weather_functions) {
             divId = divId + 1;
             console.log(divId);
             // <li> onclick, runAlert function
-            link.onclick = load_data(divId);
+            link.onclick = weather_functions.load_data(divId);
         }
         // weather_functions.define_modal_events();
     });
@@ -351,8 +348,9 @@ var weather_functions = (function(weather_functions) {
         window.location.reload();
     });
 
-    $(".cir2").on("click",function(){
+    $(".cir2").on("click",function(elt){
         // alert(temp_celcius);
+        elt.stopImmediatePropagation();
         weather_functions.toggle(this);
     });
     
@@ -367,13 +365,15 @@ var weather_functions = (function(weather_functions) {
             evnt.stopPropagation();
             var a = document.getElementById('input_location').value;
             menu.toggle();
-            if(a == "")
+            if(a === "")
             {
                 alert("empty");
             }
             else{
-                weather_functions.weather_get(a, function(mag){});
-                generateclickevent();
+                weather_functions.weather_get(a, function(){
+                    weather_functions.generateclickevent();
+                });
+                // weather_functions.generateclickevent();
             }
         });
         return false;   
@@ -391,7 +391,7 @@ var weather_functions = (function(weather_functions) {
         window.location.href = "../www/Mobile_weather.html";
     });
 
-    }
+    };
 
     weather_functions.load_from_localstorage = function(){
         var restoredSession = JSON.parse(localStorage.getItem('weather'));
@@ -402,35 +402,46 @@ var weather_functions = (function(weather_functions) {
                 console.log(restoredSession.weather[i].location_name);
             }
         }
-    }
+        // menu.render();
+    };
+
+
+    weather_functions.load_data = function(divId){
+        weather_functions.modal_location_data(divId);
+    };
+
+    weather_functions.generateclickevent = function(){
+        weather_functions.define_modal_events();
+    };
 
    weather_functions.choose_day = function()
-             {  
-                 switch(day)
-                 {
-                     case 1 :
-                        return day + "<sup>st</sup>";
-                        break;
-                     case 21 :
-                         return day + "<sup>st</sup>";
-                         break;
-                     case 32 :
-                         return day + "<sup>st</sup>";
-                         break;
-                     case 2 :
-                         return day + "<sup>nd</sup>";
-                         break;
-                     case 22 :
-                         return day + "<sup>nd</sup>";
-                         break;
-                     case 3:
-                         return day + "<sup>rd</sup>";
-                         break;
-                     default :
-                         return day + "<sup>th</sup>";
-                         break;
-                 }
-             }
+    {   var text_day = "";
+        switch(day)
+        {
+            case 1 :
+                text_day = day + "<sup>st</sup>";
+                break;
+            case 21 :
+                text_day = day + "<sup>st</sup>";
+                break;
+            case 32 :
+                text_day = day + "<sup>st</sup>";
+                break;
+            case 2 :
+            text_day = day + "<sup>nd</sup>";
+                break;
+            case 22 :
+                text_day =  day + "<sup>nd</sup>";
+                break;
+            case 3:
+                text_day = day + "<sup>rd</sup>";
+                break;
+            default :
+                text_day = day + "<sup>th</sup>";
+                break;
+        }
+        return text_day;
+     };
 
     weather_functions.ready_events_load = function()
     {
@@ -444,8 +455,8 @@ var weather_functions = (function(weather_functions) {
         $(".pos").hide();
         $(".left").hide();
         $(".right").hide();
-    }
+    };
 
  return weather_functions;
-} (weather_functions || {}));
+} (weather_functions || {},jQuery || {}));
 
