@@ -12,6 +12,10 @@ var hi = $(window).height();
 //     alert(1);
 // })
 
+$("#smenu ul").css({
+    "overflow" : "hidden"
+});
+
 function toggle()
 {
 	if(flag)

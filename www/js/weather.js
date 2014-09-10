@@ -269,25 +269,56 @@ var weather_functions = (function(weather_functions,$) {
         }        
     };
 
+    weather_functions.blackout_screen = function(){
+        var index_value = $(".container_page").css("z-index");
+        if(index_value == "0")
+        {
+            setTimeout(function(){
+                $(".top_page").css({
+                    background : "rgba(9,1,1,2.3)",
+                    opacity : 0.6,
+                    // "transition-duration": "1s"
+                });
+
+                $(".container_page").css({
+                    "z-index": "-1"
+                });
+            }, 330);
+        }
+        else {
+            setTimeout(function(){
+                $(".top_page").css({
+                    background : "rgba(9,1,1,2.3)",
+                    opacity : 0.6,
+                    // "transition-duration": "1s"
+                });
+
+                $(".container_page").css({
+                    "z-index": "-1"
+                });
+            }, 330);
+        }
+    };
     weather_functions.define_modal_events = function () { 
 
-    $("#smenu").click(function(elt){
-        elt.stopImmediatePropagation();
-        menu.toggle();
-    });
     
-    $(".top_page").click(function(elt){
-        elt.stopImmediatePropagation();
-        menu.toggle();
-    });
-
     $(".cir1").click(function(elt) {
         elt.stopImmediatePropagation();
+
         menu.toggle();
+        // weather_functions.blackout_screen();
         return false;
     });
     
     menu.render();
+
+    $("#smenu").off("click");
+    $("#smenu").on("click",function(elt){
+        elt.stopImmediatePropagation();
+        // alert(1);
+        menu.toggle();
+        // $("body").addClass("remove_side_menu");
+    });
 
     $(".close_icon").each(function() {
         $(this).on("click",function(){  
@@ -369,7 +400,9 @@ var weather_functions = (function(weather_functions,$) {
         console.log("after dynamic create of the page");
         evt.stopPropagation();
         $(".heading").append(location_input);
-        
+        $(".heading").on("click",function(evnt){
+            evnt.stopPropagation();
+        });
         $("#but_submit").on("click",function(evnt){
             $("#but_submit").off("click");
             evnt.stopPropagation();

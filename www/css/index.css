@@ -11,8 +11,13 @@ body,html
   font-family: Helvetica, Arial;
   font-size: 0.95em;
   z-index: -9;
-  padding-top: 10px;
   color: #aaaaaa;
+}
+
+.side_menu_main
+{
+  box-shadow: 5px 0px 5px #B0AFAF;
+  padding-top: 10px;
 }
 
 .clear_session
@@ -20,6 +25,11 @@ body,html
   float: right;
   color: red;
   padding-right: 8px;
+}
+
+.remove_side_menu
+{
+  overflow: hidden;;
 }
 
 .add_location
@@ -40,7 +50,7 @@ body,html
 }
 #smenu ul {
   margin-top: 1em;
-  height: 500px;
+  height: 600px;
 }
 #smenu ul li {
   line-height: 3em;
@@ -76,6 +86,8 @@ body,html
     bottom: 0;
     left: 0;
     right: 0;
+    background: #e2e2e2;
+    /*z-index: 999;*/
 }
 
 .container_page .iosSlider {
