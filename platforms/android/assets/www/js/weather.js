@@ -271,11 +271,16 @@ var weather_functions = (function(weather_functions,$) {
 
     weather_functions.define_modal_events = function () { 
 
-    $("body").click(function(elt){
+    $("#smenu").click(function(elt){
         elt.stopImmediatePropagation();
         menu.toggle();
     });
     
+    $(".top_page").click(function(elt){
+        elt.stopImmediatePropagation();
+        menu.toggle();
+    });
+
     $(".cir1").click(function(elt) {
         elt.stopImmediatePropagation();
         menu.toggle();
