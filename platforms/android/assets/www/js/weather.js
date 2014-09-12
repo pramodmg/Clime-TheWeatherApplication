@@ -124,6 +124,7 @@ var weather_functions = (function(weather_functions,$) {
             else{
                 alert("location not found");
                 // window.location.reload();
+                return;
             }
 
         });    
@@ -312,8 +313,8 @@ var weather_functions = (function(weather_functions,$) {
     
     menu.render();
 
-
-    $("#smenu").click(function(elt){
+    $("#smenu").off("click");
+    $("#smenu").on("click",function(elt){
         elt.stopImmediatePropagation();
         // alert(1);
         menu.toggle();
@@ -400,7 +401,9 @@ var weather_functions = (function(weather_functions,$) {
         console.log("after dynamic create of the page");
         evt.stopPropagation();
         $(".heading").append(location_input);
-        
+        $(".heading").on("click",function(evnt){
+            evnt.stopPropagation();
+        });
         $("#but_submit").on("click",function(evnt){
             $("#but_submit").off("click");
             evnt.stopPropagation();

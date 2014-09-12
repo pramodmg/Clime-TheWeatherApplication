@@ -124,6 +124,7 @@ var weather_functions = (function(weather_functions,$) {
             else{
                 alert("location not found");
                 // window.location.reload();
+                return;
             }
 
         });    
@@ -154,6 +155,7 @@ var weather_functions = (function(weather_functions,$) {
           isNotPresent = true;
         } else  {
             isNotPresent = false;
+            window.location.reload();
         }
            
         console.log(isNotPresent);
