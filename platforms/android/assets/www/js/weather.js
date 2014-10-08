@@ -123,8 +123,7 @@ var weather_functions = (function(weather_functions,$) {
             }
             else{
                 alert("location not found");
-                // window.location.reload();
-                return;
+                weather_functions.addbutton();
             }
 
         });    
@@ -305,7 +304,10 @@ var weather_functions = (function(weather_functions,$) {
     
     $(".cir1").click(function(elt) {
         elt.stopImmediatePropagation();
-
+        var hi = $(window).height();
+        $(".sidemenu").css({
+            "height": hi
+        });
         menu.toggle();
         // weather_functions.blackout_screen();
         return false;
@@ -371,7 +373,7 @@ var weather_functions = (function(weather_functions,$) {
         ewt.stopPropagation();
         console.log("click here");
         var links = $('.sidemenu').children();
-
+        menu.toggle();
         for (var i = 0; i < links.length; i++) {
             var link = links[i];
             var divId = $(this).parent().index();
@@ -449,6 +451,24 @@ var weather_functions = (function(weather_functions,$) {
         // menu.render();
     };
 
+    weather_functions.addbutton = function(){
+         $("#but_submit").on("click",function(evnt){
+            $("#but_submit").off("click");
+            evnt.stopPropagation();
+            var a = document.getElementById('input_location').value;
+            menu.toggle();
+            if(a === "")
+            {
+                alert("empty");
+            }
+            else{
+                weather_functions.weather_get(a, function(){
+                    weather_functions.generateclickevent();
+                });
+                // weather_functions.generateclickevent();
+            }
+        });
+    };
 
     weather_functions.load_data = function(divId){
         weather_functions.modal_location_data(divId);
