@@ -20,6 +20,12 @@ $(document).ready(function(){
 	$("#loc_name").text(loc);
 	document.getElementById("day").innerHTML = week_day[day];
 	document.getElementById("month").innerHTML = month_week[mo] +", "+ date;
+	if($(".second").length){
+	    var secondpage = new native5.core.Analytics('mweb', 'UA-123456-7');
+	    	secondpage.logPageView('native5', 'secondpage', function() {
+	        console.log('Logged Page View for secondpage screen');
+	    });
+	}
 	$(".page2").hide();
 	weather_get();
 });

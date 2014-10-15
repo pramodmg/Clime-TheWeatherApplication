@@ -29,8 +29,16 @@
     var color_codes ={ Haze : "rgba(128,128,128,0.6)", Mist : "rgba(128,128,128,0.6)" , Clouds : "rgba(0,192,255,0.6)" , Clear : "rgba(255,176,0,0.6)" , Rain : "rgba(51,204,255,0.6)" , Drizzle : "rgba(51,204,255,0.6)"};
     var y = d.getFullYear();
 
-    window.menu = new native5.ui.SideMenu({'bodySelector':'.container_page','refresh':false, 'welcome':"<div class='heading'>Locations <span class='fa fa-plus add_location' id='plus'></span><span class='fa fa-times-circle clear_session'></span> </div>", 'displacement':'250'});
-    window.location_input = "<div class='input-group'><input type='text' id='input_location' class='form-control'><span class='input-group-addon' id='but_submit'>Add</span></div>";
+     if($(".container_page").length){
+        var landingpage = new native5.core.Analytics('mweb', 'UA-123456-7');
+        landingpage.logPageView('native5', 'landingpage', function() {
+            console.log('Logged Page View for landingpage screen');
+        });
+    }
+
+    window.menu = new native5.ui.SideMenu({'bodySelector':'.container_page','refresh':false, 'welcome':"<div><button type='button' class='btn btn-default navbar-btn clear_session btn_session'>Clear Session</button></div>"+"<div class='heading'>Locations <span class='fa fa-plus add_location' id='plus'></span></div>", 'displacement':'250'});
+    window.location_input = "<div class='input-group'><input type='text' id='input_location' class='form-control'><span class='input-group-addon' id='but_submit'>Add</span></div";
+    window.clearsession = "";
     menu.addItem({itemText: location_input});
     menu.render();
     weather_functions.load_from_localstorage();

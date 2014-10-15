@@ -7,6 +7,15 @@ body,html
   padding: 0px;
 }
 
+.btn_session
+{
+  width: 100%;
+  background-color: #DC143C !Important;
+  color: #eee !Important;
+  font-size: 1.6em;
+  background-image: none; !Important;
+}
+
 #smenu {
   font-family: Helvetica, Arial;
   font-size: 0.95em;

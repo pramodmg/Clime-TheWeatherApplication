@@ -108,6 +108,7 @@ var weather_functions = (function(weather_functions,$) {
             weather_data = data;
             if(weather_data.cod === 200 && weather_data.name === ""){
               alert("location not found");
+              weather_functions.addbutton();
                 // window.localStorage.setItem("flag",flag1);
             } else if(weather_data.cod === 200){
                 weather_functions.store_weather(function(msg){
@@ -145,6 +146,7 @@ var weather_functions = (function(weather_functions,$) {
                 flag_re = true;
                 console.log("Dont add this location");
                 // alert("Location is present already");
+                weather_functions.addbutton();
                 break;
             } 
         }
@@ -324,19 +326,20 @@ var weather_functions = (function(weather_functions,$) {
     });
 
     $(".close_icon").each(function() {
-        $(this).on("click",function(){  
+        $(this).on("click",function(elt){
+            elt.stopImmediatePropagation();
+            menu.toggle();
             var divId = $(this).parent().parent().index();
             console.log(divId);
             // $('#location-modal').modal('hide');
             divId = parseInt(divId);
             console.log("the div is :" + divId);
-            menu.toggle();
             var co = confirm("do you want to Delete?");
             if(co)
             {
-
                weather_functions.modal_delete_data(divId);
-               menu.removeItem({index: divId});
+               $(this).closest('li').remove();
+               // menu.removeItem({index: divId});
                var length = $('.sidemenu').children().length;
                if(length === 0)
                {
@@ -388,8 +391,12 @@ var weather_functions = (function(weather_functions,$) {
     
     $(".clear_session").on("click",function(){
         // e.stopPropagation();
-        localStorage.clear();
-        window.location.reload();
+        var confirm_clear_session = confirm("do you want to Delete?");
+        if(confirm_clear_session)
+        {
+            localStorage.clear();
+            window.location.reload();
+        }
     });
 
     $(".cir2").on("click",function(elt){
