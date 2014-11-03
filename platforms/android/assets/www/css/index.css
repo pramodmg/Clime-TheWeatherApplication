@@ -33,7 +33,11 @@ body,html
 {
   float: right;
   color: red;
-  padding-right: 8px;
+  margin-top: -9px !Important;
+  margin-bottom: 0px !Important;
+  width: 92%;
+  margin-right: 12px;
+  margin-left: 78px;
 }
 
 .remove_side_menu

@@ -1,2 +1,2 @@
-/var/www/html/Native5/platforms/android/CordovaLib/ant-build/AndroidManifest.xml : \
-/var/www/html/Native5/platforms/android/CordovaLib/AndroidManifest.xml \
+/var/www/html/weather_application_new/platforms/android/CordovaLib/ant-build/AndroidManifest.xml : \
+/var/www/html/weather_application_new/platforms/android/CordovaLib/AndroidManifest.xml \
